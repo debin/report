@@ -1,0 +1,11 @@
+*.jpg
+*.gif
+*.png
+*.ico
+.settings
+.txt
+.settings
+.buildpath
+.project
+deployment.xml
+deployment.properties
