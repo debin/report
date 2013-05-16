@@ -122,7 +122,14 @@ echo '<br />';
           case '增加':
               $('#action').attr('value',"add");break;
           case '删除':
-              $('#action').attr('value',"delete");break;
+          {
+              var tips = window.confirm("确定要删除?");
+              if(tips == false)
+              {
+                  return;
+              }   
+              $('#action').attr('value',"delete");
+          };break;
           default:
         	  break;
           }

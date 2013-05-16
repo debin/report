@@ -28,7 +28,7 @@
 			<li>报告管理
 				<ul>
 					<li><a id="view_date" class='menu' href="#">提交截止时间</a></li>
-					<li><a id="report_select" class='menu' href="#">填写实验报告</a></li>
+					<li><a id="report_show_course" class='menu' href="#">填写实验报告</a></li>
 				</ul>
 			</li>
 
@@ -52,9 +52,8 @@ url['pass']="../signup.html";
 url['update_info']="./info.php?action=update_info";
 url['update_psw']="./info.php?action=update_psw";
 url['course_select']="./course_select_grade.php?action=course_select";
-url['report_select']="./course_select_grade.php?action=report_select";
-url['course_selected']="./course_selected.php";
-
+url['course_selected']="./course.php?action=view_selected";
+url['report_show_course']="./report.php?action=default";
       var menuEvent = function menuEvent(e)
       {
     	//  alert(url[e.target.id]);

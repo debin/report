@@ -8,63 +8,67 @@ include '../config.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
 mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
 mysql_query ( "SET NAMES 'UTF8'" );
-$tea_no = "tea";
-?>
+$tea_no = $_REQUEST['tea_no'];
 
-<?php
 $action=NULL;
 if (isset($_REQUEST['action']))
 {
 	$action = $_POST['action'];
 }
-/** 根据action参数的值，进行不同处理：select选择课号查看实验内容，add添加实验内容，update更新实验内容
- *    edit_time编辑实验报告提交时间
+/** 根据action参数的值，进行不同处理：select选择课号查看批次，add添加批次，update更新批次
  * 
  */
 
 switch($action)
 {
-	//根据课号查看实验项目
+	//根据课号查看实验批次
 	case 'select':
 		{
-			if (!isset($_POST ['cor_no']))
+			if (!isset($_REQUEST ['cor_no']))
 			{
-				die('请先选择一个实验项目');
+				die('请先选择一门课程');
 			}
-			$cor_no = $_POST ['cor_no'];
+			$cor_no = $_REQUEST ['cor_no'];
 			
 		//	echo '课程名称：',$_POST['cor_name'];
-			echo "<form method='post' action='./item.php'>";
+			echo "<form method='post' action='./group.php?tea_no={$tea_no}'>";
 			echo '<table>';
 			echo '<tr>';
 			echo '<td />';
 					
-			echo '<td>实验编号</td>';
-			echo '<td>实验名称</td>';
-			echo '<td>成绩百分比</td>';
+			echo '<td>实验批次</td>';
+			echo '<td>开始时间(周)</td>';
+			echo '<td>结束时间(周)</td>';
+			echo '<td>周几</td>';
+			echo '<td>第几大节</td>';
+			echo '<td>容量</td>';
 			echo '</tr>';
 
-			$queryStr = sprintf ( "select  *  from item where  cor_no='%s'", $cor_no);
+			$queryStr = sprintf ( "select  *  from groups where  groups.cor_no='%s'", $cor_no);
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
 			mysql_close ();
 			if ( $rel = mysql_fetch_array ( $result ) ) {
 				do{
 				echo '<tr>';
 				echo '<td>', "<input type=radio name = id value={$rel['id']}>",'</td>';
-				echo '<td>', $rel ["item_no"], '</td>';
-				echo '<td>', $rel ["item_name"], '</td>';
-				echo '<td>', $rel ["exam_rate"], '</td>';
+				echo '<td>', $rel ["groups"], '</td>';
+				echo '<td>第', $rel ["week_start"], '周</td>';
+				echo '<td>第', $rel ["week_end"], '周</td>';
+				echo '<td>', $rel ["week_nums"], '</td>';
+				echo '<td>', $rel ["lesson_seq"], '</td>';
+				echo '<td>', $rel ["num"], '</td>';
 				echo '</tr>';
 				}while($rel = mysql_fetch_array ( $result ));
 			}
 			else 
 			{
 				echo '<tr><td>';
-				echo "该课程暂时还没有添加实验内容";
+				echo "该课程暂时还没有添加批次";
 				echo '</tr></td>';
 			}
 			echo '<br />';
 			echo '<table><tr>';
+			echo '<td>',"<input type=hidden name=cor_no value={$tea_no}>",'<td>';
 			echo '<td>',"<input type=hidden name=cor_no value={$cor_no}>",'<td>';
 			echo '<td>',"<input name=action id=action value='' type=hidden></input>",'</td>';
 			echo '<td>','<input type=button class=btn  value=增加 style="width:65px;background-image:url(../static/image/but_1.png)">','</input>','</td>';
@@ -76,7 +80,7 @@ switch($action)
 			
 		};break;
 		
-	//修改实验项目，前台
+	//修改实验项目
 	case 'update':
 		{
 			if (!isset($_REQUEST['id']))
@@ -84,118 +88,120 @@ switch($action)
 				die('请先选择实验项目');
 			}
 			$id = $_REQUEST['id'];
-			$cor_no = $_REQUEST['cor_no'];
 			//$item_no=$_GET ['item_no'];
-			$queryStr = sprintf ( "select  *  from item where  id='%s' ", $id);
+			$queryStr = sprintf ( "select  *  from groups where  id='%s' ", $id);
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
 			mysql_close ();
 			
 		
 			if($rel=mysql_fetch_array($result))
 			{
-				echo "<form method='post' action='./item_deal.php?action=update&id={$rel['id']}'>";
-				echo '实验编号:';
-				echo "<input name='item_no_new' value={$rel['item_no']}></input>";
-				echo '<br />';
-				echo '实验名称:';
-				echo "<input name='item_name' value={$rel['item_name']}></input>";
-				echo '<br />';
-				echo '所占成绩百分比:';
-				echo "<input name='exam_rate' value={$rel['exam_rate']}>%</input>";
-				echo '<br />';
-				echo '实验内容：:';
-				echo '<br />';
-				echo "<textarea name='body' style='width:700;height:400;'>{$rel['body']}</textarea>";
+				echo "<form method='post' action='./group_deal.php?action=update&id={$rel['id']}'>";	
+				echo '<table>';
+				echo '<tr>';
+				echo '<td>实验批次:</td>';
+				echo "<td><input name='groups' value={$rel['groups']}></input></td>";
+				echo '</tr>';
 				
-				echo '<br /><br />';
-				echo '实验报告模板:';
-				echo '<br />';
-				echo "<textarea name='report_format' style='width:700;height:500;'>{$rel['report_format']}</textarea>";
-				echo '<br /><br />';
-
+				echo '<tr>';
+				echo '<td>开始周:</td>';
+				echo "<td><input name='week_start' value={$rel['week_start']}></input></td>";
+				echo '</tr>';
+				
+				echo '<tr>';
+				echo '<td>结束周:</td>';
+				echo "<td><input name='week_end' value={$rel['week_end']}></input></td>";
+				echo '</tr>';
+					
+				echo '<tr>';
+				echo '<td>星期几上课(如周4，周5则填45):</td>';
+				echo "<td><input name='week_nums' value={$rel['week_nums']}></input></td>";
+				echo '</tr>';
+					
+				echo '<tr>';
+				echo '<td>第几大节:</td>';
+				echo "<td><input name='lesson_seq' value={$rel['lesson_seq']}></input></td>";
+				echo '</tr>';
+					
+				echo '<tr>';
+				echo '<td>容量:</td>';
+				echo "<td><input name='num' value={$rel['num']}></input></td>";
+				echo '</tr>';
+					
+				echo '<tr>';
+				echo "<td><input type='hidden' name='cor_no' value={$_POST['cor_no']}> </input></td>";
+				echo "<td><input type='submit' value='提交'></input></td>";
+				echo '</tr>';
+			    echo '</table>';
+			    echo '</form>';
 			}
-			echo "<td><input type='hidden' name=cor_no value={$cor_no}></input></td>";
-			echo "<td><input type='hidden' name=item_no_old value={$rel['item_no']}></input></td>";
-			echo "<td><input type='submit' value='提交'></input></td>";
-			echo '</form>';
+
 			
 		};break;
 		
 	//新添实验项目
 	case 'add':
 		{
-			echo "<form method='post' action='./item_deal.php?action=add'>";
-			echo '实验编号:';
-			echo "<input name='item_no' ></input>";
-			echo '<br />';
-			echo '实验名称:';
-			echo "<input name='item_name' ></input>";
-			echo '<br />';
-			echo '本次实验报告成绩所占百分比:';
-			echo "<input name='exam_rate' >%</input>";
-			echo '<br />';
-			echo '实验内容：';
-			echo '<br />';
-			echo "<textarea name='body' style='width:700;height:400;margin-left:auto;margin-right:auto;'></textarea>";
-			echo '<br /><br />';
+			echo "<form method='post' action='./group_deal.php?action=add'>";
+			echo '<table>';
+			echo '<tr>';		
+			echo '<td>实验批次:</td>';
+			echo "<td><input name='groups' ></input></td>";
+			echo '</tr>';
+		
+			echo '<tr>';
+			echo '<td>开始周:</td>';
+			echo "<td><input name='week_start' ></input></td>";
+			echo '</tr>';
+
+			echo '<tr>';
+			echo '<td>结束周:</td>';
+			echo "<td><input name='week_end' ></input></td>";
+			echo '</tr>';
 			
-			echo '实验报告提交模板：';
-			echo '<br />';				
-			echo "<textarea name='report_format' style='width:700;height:500;margin-left:auto;margin-right:auto;'></textarea>";
-			echo '<br /><br />';
+			echo '<tr>';
+			echo '<td>星期几上课(如周4，周5则填45):</td>';
+			echo "<td><input name='week_nums' ></input></td>";
+			echo '</tr>';
 			
-			echo "<input type='hidden' name='cor_no' value={$_POST['cor_no']}> </input>";
+			echo '<tr>';
+			echo '<td>第几大节:</td>';
+			echo "<td><input name='lesson_seq' ></input></td>";
+			echo '</tr>';
 			
+			echo '<tr>';
+			echo '<td>容量:</td>';
+			echo "<td><input name='num' ></input></td>";
+			echo '</tr>';
+			
+			echo '<tr>';
+			echo "<td><input type='hidden' name='cor_no' value={$_POST['cor_no']}> </input></td>";
 			echo "<td><input type='submit' value='提交'></input></td>";
+			echo '</tr>';
+			echo '</table>';
+			echo '</form>';
 		};break;
 		
-		//删除实验项目
-/**		case 'delete':
+		//删除批次
+		case 'delete':
 			{
-				echo "<form  method='post' action='./item_deal.php?action=delete'>";
-				echo "";
-				
+				if (!isset($_REQUEST['id'] ))
+				{
+					die("请先选择批次");
+				}
+				$id =$_REQUEST['id'];
+				$url = "./group_deal.php?action=delete&id={$id}";
+				echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0;URL={$url}\">";	
 			};break;
-*/			
-			//修改实验报告提交截止时间
-		case 'edit_time':
-			{
-				if (! isset($_REQUEST['cor_no']))
-				{
-					die('请先选择一项');
-				}
-				$queryStr = sprintf ( "select report_time from course where  cor_no='%s'", $_POST['cor_no']);
-				$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
-				mysql_close ();	
-                
-				echo "<form method='post' action='./item_deal.php?action=edit_time'>";
-				echo '报告提交截止时间：';
-				
-				if($rel=mysql_fetch_array($result))
-				{
-					
-					echo "<input name=report_time value={$rel['report_time']}>(格式:2013-05-05)</input>";
-					
-				}
-				else
-				{
-					echo "<input name=report_time value=>(格式:2013-05-05)</input>";
-				}
-				echo '<br /><br />';
-				echo "<input type=hidden name=cor_no value={$_POST['cor_no']}></input>";
-				echo "<input type=submit value='提交'></input>";
-				echo '</form>';
+	
 
-				
-				
-			};break;
 		
 		//显示所有课程
 	default:
 		{
 
 			
-			echo "<form  method='post' action='./item.php'>";
+			echo "<form  method='post' action='./group.php?tea_no={$tea_no}'>";
 		//	echo "正常";
 			echo '<table>';
 			echo '<tr>';
@@ -240,8 +246,8 @@ switch($action)
             
 			echo "<table style='align:center;'>";
 			echo '<tr>';
-			echo '<td>','<input type=button class=btn value=查看 style="width:65px;background-image:url(../static/image/but_1.png)">','</input>','</td>';
-			echo '<td>','<input type=button class=btn value=编辑时间 style="width:65px;background-image:url(../static/image/but_1.png)">','</input>','</td>';
+			echo '<td>','<input type=button class=btn value=查看批次 style="width:65px;background-image:url(../static/image/but_1.png)">','</input>','</td>';
+	//		echo '<td>','<input type=button class=btn value=编辑时间 style="width:65px;background-image:url(../static/image/but_1.png)">','</input>','</td>';
 				
 			echo '</tr>';			
 			echo '</table>';
@@ -266,7 +272,7 @@ switch($action)
           
         switch(e.target.value)
           {
-          case '查看':
+          case '查看批次':
               $('#action').attr('value',"select");break;
           case '增加':
               $('#action').attr('value',"add");break;
@@ -274,16 +280,13 @@ switch($action)
               $('#action').attr('value',"update");break;
           case '删除':
           {
-              var tips = window.confirm("提交之后无法更改，你确定要提交?");
+              var tips = window.confirm("确定要删除?");
               if(tips == false)
               {
                   return;
               }   
-              $('form').attr('action',"./item_deal.php?action=delete");
               $('#action').attr('value',"delete");
           };break;
-          case '编辑时间':
-        	  $('#action').attr('value',"edit_time");break;
           default:
         	  break;
           }

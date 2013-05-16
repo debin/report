@@ -10,8 +10,8 @@
 		<ul style="list-style: none;">
 			<li>个人信息管理
 				<ul>
-					<li><a id="name" class='menu' href="#">个人信息设置</a></li>
-					<li><a id="pass" class='menu' href="#">修改密码</a></li>
+					<li><a id="update_info" class='menu' href="#">个人信息设置</a></li>
+					<li><a id="update_psw" class='menu' href="#">修改密码</a></li>
 				</ul>
 			</li>
 
@@ -19,18 +19,19 @@
 
 			<li>课程管理
 				<ul>
-					<li><a class='menu' href="#">查看实验课程</a></li>
-					<li><a id='update_item' class='menu' href="#">实验内容和模板</a></li>
-					<li><a id='update_time' class='menu' href="#">设置截止时间</a></li>
+					<li><a id="update_group" class='menu' href="#">课程批次管理</a></li>
+					<li><a id="update_item" class='menu' href="#">实验管理</a></li>
+			
 				</ul>
 			</li>
 
 			<li><br /></li>
 
 			<li>选课管理
-				<ul>
-					<li><a class='menu' href="#">学生选课信息</a></li>
-					<li><a class='menu' href="#">选课审核设置</a></li>
+				<ul>	
+					<li><a class='menu' href="#">导入选课信息</a></li>
+					<li><a class='menu' href="#">未审核记录</a></li>
+					<li><a class='menu' href="#">学生退课记录</a></li>
 				</ul>
 			</li>
 
@@ -39,13 +40,15 @@
 			<li>报告管理
 				<ul>
 					<li><a class='menu' href="#">实验报告批改</a></li>
-					<li><a class='menu' href="#">报告模板设置</a></li>
+					<li><a class='menu' href="#">评语设置</a></li>
 				</ul>
 			</li>
 			<li>成绩管理
 				<ul>
-					<li><a class='menu' href="#">实验考勤成绩</a></li>
-					<li><a class='menu' href="#">成绩统计信息</a></li>
+					<li><a class='menu' href="#">平时成绩</a></li>
+					<li><a class='menu' href="#">考试成绩</a></li>
+					<li><a class='menu' href="#">综合成绩</a></li>
+					<li><a class='menu' href="#">成绩报表</a></li>
 				</ul>
 			</li>
 
@@ -67,16 +70,15 @@
 
 	<script type="text/javascript">
 var url = [ ];
-url['name']="../login.html";
-url['pass']="../signup.html";
-url['update_item']="./item_select.php?time="+Math.random();
-url['update_time']="./item_select.php?time="+Math.random();
+url['update_info']="./info.php?action=update_info";
+url['update_psw']="./info.php?action=update_psw";
+url['update_item']="./term_select.php?action=show_item&time="+Math.random();
+url['update_group']="./term_select.php?action=show_group&time="+Math.random();
 
       var menuEvent = function menuEvent(e)
       {
     	//  alert(url[e.target.id]);
-        	$('#iframe_content').attr('src',url[e.target.id]);
-        	
+        	$('#iframe_content').attr('src',url[e.target.id]);    	
        }
 
 

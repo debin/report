@@ -112,7 +112,14 @@ echo '注意:删除请谨慎，删除班级后该班学生也会被删除';
           case '增加':
               $('#action').attr('value',"add_class");break;
           case '删除':
-              $('#action').attr('value',"delete_class");break;
+          {
+              var tips = window.confirm("提交之后无法更改，你确定要提交?");
+              if(tips == false)
+              {
+                  return;
+              }   
+              $('#action').attr('value',"delete_class");
+          };break;
           default:
         	  break;
           }

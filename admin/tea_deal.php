@@ -128,7 +128,7 @@ switch ($action)
 			
 		};break;
 		
-		//改变学生班级，对数据库的操作
+		//改变教师密码，对数据库的操作
 	case 'change_psw':
 		{
 			if ( !isset($_REQUEST['psw1']) || $_REQUEST['psw1'] == NULL || !isset($_REQUEST['psw2']) || $_REQUEST['psw2'] == NULL )

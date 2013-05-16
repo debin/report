@@ -7,7 +7,7 @@ mysql_query("SET NAMES 'UTF8'");
 ?>
 
 <div>
-<form method="post" action="./course.php">
+<form method="post" action="./course.php?action=default">
 教师<select name="tea_no">
 <option value='all'>所有</option>
 <?php

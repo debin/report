@@ -18,27 +18,18 @@ if (isset($_GET['action']))
 
 switch($action)
 {
-	
-	//添加实验项目，后台
+	//添加批次，对数据库的插入更新
 	case 'add':
 		{
-			$cor_no=$_POST['cor_no'];
-			$item_no=$_POST['item_no'];
-			$item_name = $_POST ['item_name'];
-			$exam_rate = $_POST ['exam_rate'];
-			$body = $_POST ['body'];
-			$report_format = $_POST['report_format'];
+			$cor_no = trim($_REQUEST['cor_no']);
+			$groups = trim($_REQUEST['groups']);
+			$week_start = trim($_REQUEST['week_start']);
+			$week_end = trim($_REQUEST['week_end']);
+			$week_nums = trim($_REQUEST['week_nums']);
+			$lesson_seq = trim($_REQUEST['lesson_seq']);
+			$num= trim($_REQUEST['num']);
 			
-			//判断实验编号是否已经存在
-			$queryStr=sprintf("select count(*) from item where cor_no='%s' and item_no='%s'",$cor_no,$item_no);
-			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败: " . mysql_error () ) ;
-			$rel = mysql_fetch_array ( $result );
-			if ($rel[0] != 0)
-			{
-				die("添加失败:实验编号已存在");
-			}
-			
-			$queryStr=sprintf("insert into item values(NULL,'%s','%s','%s','%s','%s','%s')",$item_no,$item_name,$body,$report_format,$cor_no,$exam_rate);
+			$queryStr=sprintf("insert into groups values(NULL,'%s','%s','%s','%s','%s','%s','%s')",$groups,$cor_no,$week_start,$week_end,$week_nums,$lesson_seq,$num);
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败: " . mysql_error () ) ;
 			
 			if($result!=NULL && 1==mysql_affected_rows())
@@ -52,30 +43,21 @@ switch($action)
 			mysql_close ();
 		};break;
 		
+		//更新批次信息，对数据库表的更新
 	case 'update':
 		{
-			$cor_no = $_REQUEST ['cor_no'];
-			$id = $_REQUEST ['id'];
-			$item_no_old = $_REQUEST['item_no_old'];
-			$item_no_new = $_REQUEST['item_no_new'];
-			$item_name = $_REQUEST ['item_name'];
-			$report_format=$_REQUEST['report_format'];
-			$exam_rate = $_REQUEST ['exam_rate'];
-			$body = $_REQUEST ['body'];
+			$id = trim($_REQUEST['id']);
+			$cor_no = trim($_REQUEST['cor_no']);
+			$groups = trim($_REQUEST['groups']);
+			$week_start = trim($_REQUEST['week_start']);
+			$week_end = trim($_REQUEST['week_end']);
+			$week_nums = trim($_REQUEST['week_nums']);
+			$lesson_seq = trim($_REQUEST['lesson_seq']);
+			$num= trim($_REQUEST['num']);
+
 			
-			//判断实验编号是否已经存在
-			if ($item_no_old != $item_no_new)
-			{	
-				$queryStr=sprintf("select count(*) from item where cor_no='%s' and item_no='%s'",$cor_no,$item_no_new);
-				$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败: " . mysql_error () ) ;
-				$rel = mysql_fetch_array ( $result );
-				if ($rel[0] != 0)
-				{
-					die("添加失败:实验编号已存在");
-				}
-			}
 			
-			$queryStr = sprintf ( "update item set  item_no='%s',item_name='%s' ,body='%s',report_format='%s',exam_rate='%s' where   id='%s'", $item_no_new,$item_name,$body,$report_format,$exam_rate,$id );
+			$queryStr = sprintf ( "update groups set  groups='%s',cor_no='%s' ,week_start='%s',week_end='%s',week_nums='%s',lesson_seq='%s',num='%s' where  id='%s'", $groups,$cor_no,$week_start,$week_end,$week_nums,$lesson_seq,$num,$id);
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败: " . mysql_error () ) ;
 
 			if($result!=NULL && 1==mysql_affected_rows())
@@ -89,14 +71,16 @@ switch($action)
 			mysql_close ();
 			
 		};break;
+		
+		//删除批次，更新数据库
 	case 'delete':
 		{
 			if (!isset($_REQUEST['id']))
 			{
-				die('请先选择实验项目');
+				die('请先选择批次目');
 			}
-			$id = $_POST ['id'];
-			$queryStr = sprintf("delete from item where id='%s'",$id);
+			$id = $_REQUEST ['id'];
+			$queryStr = sprintf("delete from groups where id='%s'",$id);
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败: " . mysql_error () ) ;
 			if($result!=NULL && 1==mysql_affected_rows())
 			{

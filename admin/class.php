@@ -292,7 +292,14 @@ switch ($action) {
           case '增加':
               $('#action').attr('value',"add_stu");break;
           case '删除':
-              $('#action').attr('value',"delete_stu");break;
+          {
+              var tips = window.confirm("确定要删除?");
+              if(tips == false)
+              {
+                  return;
+              }   
+              $('#action').attr('value',"delete_stu");
+          };break;
           case '换班':
               $('#action').attr('value',"change_class");break;
           default:
