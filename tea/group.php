@@ -30,7 +30,7 @@ switch($action)
 			}
 			$cor_no = $_REQUEST ['cor_no'];
 			
-		//	echo '课程名称：',$_POST['cor_name'];
+			echo '课程编号：',$cor_no;
 			echo "<form method='post' action='./group.php?tea_no={$tea_no}'>";
 			echo '<table>';
 			echo '<tr>';
@@ -39,8 +39,8 @@ switch($action)
 			echo '<td>实验批次</td>';
 			echo '<td>开始时间(周)</td>';
 			echo '<td>结束时间(周)</td>';
-			echo '<td>周几</td>';
-			echo '<td>第几大节</td>';
+			echo '<td>上课时间(星期)</td>';
+			echo '<td>上课时间(第几大节)</td>';
 			echo '<td>容量</td>';
 			echo '</tr>';
 
@@ -54,7 +54,16 @@ switch($action)
 				echo '<td>', $rel ["groups"], '</td>';
 				echo '<td>第', $rel ["week_start"], '周</td>';
 				echo '<td>第', $rel ["week_end"], '周</td>';
-				echo '<td>', $rel ["week_nums"], '</td>';
+				
+				//判断星期几上课
+				$count_str = strlen($rel ["week_nums"]);
+				$str = NULL;
+				for ($i = 0;$i < $count_str; $i++)
+				{
+					$str = $str . '星期' . substr($rel['week_nums'], $i,1) . ';';
+				}
+				
+				echo '<td>', $str, '</td>';
 				echo '<td>', $rel ["lesson_seq"], '</td>';
 				echo '<td>', $rel ["num"], '</td>';
 				echo '</tr>';
@@ -80,12 +89,12 @@ switch($action)
 			
 		};break;
 		
-	//修改实验项目
+	//修改批次
 	case 'update':
 		{
 			if (!isset($_REQUEST['id']))
 			{
-				die('请先选择实验项目');
+				die('请先选择批次');
 			}
 			$id = $_REQUEST['id'];
 			//$item_no=$_GET ['item_no'];

@@ -4,6 +4,7 @@ $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:"
 mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
 mysql_query ( "SET NAMES 'UTF8'" );
 $tea_no = "tea";
+$today = date("Y-m-d");
 
 $action = NULL;
 if (isset($_GET['action']))
@@ -116,6 +117,13 @@ switch($action)
 				die("请先填写日期");
 			}
 			$report_time=$_POST['report_time'];
+			
+			list($year, $month, $day) = explode('-', $report_time);
+			if(!checkdate($month,$day,$year))
+			{
+				die('输入的不是合法日期');
+			}
+			
 			$queryStr = sprintf("update course set  report_time='%s' where cor_no='%s'",$report_time,$_POST['cor_no']);
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败: " . mysql_error () ) ;	
 			if($result!=NULL && 1==mysql_affected_rows())

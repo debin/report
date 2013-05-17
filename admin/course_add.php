@@ -39,7 +39,7 @@ mysql_close($conn);
 				<tr>
 					<td>学年</td>
 					
-					<td><input width="10px" name="term" type="text">(如2013-2014-2)</input></td>
+					<td><input width="10px" name="term" type="text">(如2013-2)</input></td>
 				
 				</tr>
 
@@ -68,26 +68,26 @@ mysql_close($conn);
 
 				<tr>
 					<td>选课最后期限</td>
-					<td><input name="select_time" type="text"></input></td>
+					<td><input name="select_time" type="text">(如:2013-02-02)</input></td>
 				</tr>
 			    <tr>
 					<td>关闭时间</td>
-					<td><input name="close_time" type="text"></input></td>
+					<td><input name="close_time" type="text">(如:2013-02-02)</input></td>
 				</tr>
 
 				<tr>
 					<td>平时所长百分比</td>
-					<td><input name="usual_rate" type="text"></input></td>
+					<td><input name="usual_rate" type="text">%(如:10)</input></td>
 				</tr>
 
 				<tr>
 					<td>实验报告所长百分比</td>
-					<td><input name="report_rate" type="text"></input></td>
+					<td><input name="report_rate" type="text">%(如:20)</input></td>
 				</tr>
 
 				<tr>
 					<td>考试成绩所长百分比</td>
-					<td><input name="exam_rate" type="text"></input></td>
+					<td><input name="exam_rate" type="text">%(如:70)</input></td>
 				</tr>
 
 				<tr>

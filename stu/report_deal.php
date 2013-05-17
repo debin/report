@@ -64,7 +64,7 @@ if ($rel = mysql_fetch_array ( $result ))
 // 若还没有填写过报告
 else 
 {
-	$queryStr = sprintf ( "insert into report values(NULL,'%s','%s','%s','%s','%s',NULL,'%s')",$cor_no,$stu_no,$item_no,$today,$body,$status);
+	$queryStr = sprintf ( "insert into report values(NULL,'%s','%s','%s','%s','%s',NULL,NULL,'%s')",$cor_no,$stu_no,$item_no,$today,$body,$status);
 	$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败: " . mysql_error () ) ;
 	if($result= TRUE && 1==mysql_affected_rows())
 	{

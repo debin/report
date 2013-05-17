@@ -27,7 +27,11 @@ switch($action)
 			$week_end = trim($_REQUEST['week_end']);
 			$week_nums = trim($_REQUEST['week_nums']);
 			$lesson_seq = trim($_REQUEST['lesson_seq']);
-			$num= trim($_REQUEST['num']);
+			$num = trim($_REQUEST['num']);
+			if ($cor_no == NULL || $groups ==NULL || $week_start ==NULL ||$week_end  ||$week_nums || $lesson_seq || $num )
+			{
+				die('请完整输入');
+			}
 			
 			$queryStr=sprintf("insert into groups values(NULL,'%s','%s','%s','%s','%s','%s','%s')",$groups,$cor_no,$week_start,$week_end,$week_nums,$lesson_seq,$num);
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败: " . mysql_error () ) ;

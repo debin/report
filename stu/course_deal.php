@@ -43,7 +43,7 @@ switch($action)
 				die();
 			}
 			//若是第一次选课
-			$queryStr = sprintf("insert into sel_cor values('%s','%s','%s',0,NULL,NULL,NULL,NULL)",$stu_no,$cor_no,$groups);
+			$queryStr = sprintf("insert into sel_cor values(NULL,'%s','%s','%s',0,NULL,NULL,NULL,NULL)",$stu_no,$cor_no,$groups);
 			$result = mysql_query ( $queryStr, $conn ) or die ( "添加失败:" . mysql_error () );
 			 
 			//添加成功

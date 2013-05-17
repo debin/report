@@ -85,10 +85,11 @@ switch ($action) {
 			$url =$url .  "&tea_no[{$i}]=" . $tea_nums[$i];
 			}
 			
-			echo '这是用来测试的:',$url;
+	//		echo '这是用来测试的:',$url;
 			
 			//向tea_deal.php 提出修改教师密码的请求
 			echo "<form method='post' action='{$url}'>";
+			echo '修改教师密码<br /><br />';
 			echo '<table>';
 			echo '<tr>';
 			echo '<td>新密码</td>';

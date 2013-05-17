@@ -9,9 +9,8 @@ $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:"
 mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
 mysql_query ( "SET NAMES 'UTF8'" );
 $tea_no = "tea";
-?>
+$today = date("Y-m-d");
 
-<?php
 $action=NULL;
 if (isset($_REQUEST['action']))
 {
@@ -85,6 +84,16 @@ switch($action)
 			}
 			$id = $_REQUEST['id'];
 			$cor_no = $_REQUEST['cor_no'];
+			
+			//判断课程是否已经关闭
+			$queryStr = sprintf ( "select close_time  from course where  cor_no='%s' ", $cor_no);
+			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
+			$rel=mysql_fetch_array($result);
+			if( $today > $rel['close_time'] )
+			{
+					die('该课程关闭时间已到，不能再修改');
+			}
+			
 			//$item_no=$_GET ['item_no'];
 			$queryStr = sprintf ( "select  *  from item where  id='%s' ", $id);
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
@@ -124,6 +133,16 @@ switch($action)
 	//新添实验项目
 	case 'add':
 		{
+			//判断课程是否已经关闭
+			$cor_no = $_REQUEST['cor_no'];
+			$queryStr = sprintf ( "select close_time  from course where  cor_no='%s' and tea_no='%s'", $cor_no,$tea_no);
+			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
+			$rel=mysql_fetch_array($result);
+			if( $today > $rel['close_time'] )
+			{
+				die('该课程关闭时间已到，不能更新');
+			}
+			
 			echo "<form method='post' action='./item_deal.php?action=add'>";
 			echo '实验编号:';
 			echo "<input name='item_no' ></input>";
@@ -164,7 +183,19 @@ switch($action)
 				{
 					die('请先选择一项');
 				}
-				$queryStr = sprintf ( "select report_time from course where  cor_no='%s'", $_POST['cor_no']);
+				$cor_no = $_REQUEST['cor_no'];
+				//判断课程是否已经关闭
+				$queryStr = sprintf ( "select close_time  from course where  cor_no='%s' ", $cor_no);
+				$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
+				$rel=mysql_fetch_array($result);
+				if( $today > $rel['close_time'] )
+				{
+					echo '选课截止时间是:';
+					echo $rel['close_time'];
+					die('<br />该课程关闭时间已到，不能再修改');
+				}
+				
+				$queryStr = sprintf ( "select report_time from course where  cor_no='%s'",$cor_no);
 				$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
 				mysql_close ();	
                 
