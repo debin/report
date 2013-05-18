@@ -9,7 +9,7 @@
 	<div style="float: left; width: 230;">
 		<ul style="list-style: none;">
 			<li>个人信息管理
-				<ul>
+				<ul style="list-style: none;">
 					<li><a id="update_info" class='menu' href="#">个人信息</a></li>
 					<li><a id="update_psw" class='menu' href="#">密码维护</a></li>
 				</ul>
@@ -18,7 +18,7 @@
 			<li><br /></li>
 
 			<li>学生与教师管理
-				<ul>
+				<ul style="list-style: none;">
 					<li><a id="stu" class='menu' href="#">学生信息维护</a></li>
 					<li><a id="tea" class='menu' href="#">教师信息维护</a></li>
 				</ul>
@@ -29,7 +29,7 @@
 			<li><br /></li>
 
 			<li>课程管理
-				<ul>
+				<ul style="list-style: none;">
 					<li><a id="view_course" class='menu' href="#">查看课程</a></li>
 					<li><a id="insert_course" class='menu' href="#">新添课程</a></li>
 				</ul>
@@ -37,23 +37,13 @@
 
 			<li><br /></li>
 
-			<li>选课管理
-				<ul>
-					<li><a id="view_format" class='menu' href="#">学生选课信息</a></li>
-					<li><a id="view_date" class='menu' href="#">查看提交截止时间</a></li>
-				</ul>
-			</li>
-
 			<li>成绩管理
-				<ul>
-					<li><a id="submit" class='menu' href="#">查看实验报告</a></li>
-					<li><a id="view_result" class='menu' href="#">查看平时成绩</a></li>
-					<li><a id="view_result" class='menu' href="#">查看报告成绩</a></li>
-					<li><a id="view_result" class='menu' href="#">查看实验成绩</a></li>
+				<ul style="list-style: none;">
+					<li><a id="view_mark" class='menu' href="#">查看成绩</a></li>
 				</ul>
 			</li>
 			<li>系统管理
-				<ul>
+				<ul style="list-style: none;">
 					<li><a id="submit" class='menu' href="#">权限管理</a></li>				
 					<li><a id="submit" class='menu' href="#">系统备份</a></li>
 					<li><a id="submit" class='menu' href="#">系统还原</a></li>
@@ -77,6 +67,7 @@ url['view_course']="./course_select.php";
 url['insert_course']="./course_add.php";
 url['stu']="./class_select.php";
 url['tea']="./tea_select.php";
+url['view_mark']="./mark.php";
 
       var menuEvent = function menuEvent(e)
       {

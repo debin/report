@@ -78,6 +78,17 @@ switch($action)
 			$item_no = $_REQUEST['item_no'];
 			$cor_no = $_REQUEST['cor_no'];
 			
+			//判断是否已经通过审核
+			$queryStr = sprintf ( "select  status  from sel_cor where stu_no='%s' and cor_no='%s'",$stu_no,$cor_no);
+			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
+			if($rel=mysql_fetch_array($result))
+			{
+				if ($rel['status'] !=1 )
+				{
+					die('不能填写报告:教师还未审核你的选课');
+				}
+			}
+			
 			//若已经填写过报告
 			$queryStr = sprintf ( "select  *  from report where stu_no='%s' and cor_no='%s' and item_no='%s' ",$stu_no,$cor_no, $item_no);
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
@@ -134,6 +145,7 @@ switch($action)
 			echo '<td>课程名称</td>';
 			echo '<td>课程批次</td>';
 			echo '<td>实验教师</td>';
+			echo '<td />';
 			echo '</tr>';
 				
 			$queryStr = sprintf("select * from course,sel_cor,tea where sel_cor.stu_no='%s' and sel_cor.cor_no=course.cor_no and tea.tea_no=course.tea_no and sel_cor.status  in (0,1)",$stu_no);
@@ -145,10 +157,11 @@ switch($action)
 				do
 				{
 					echo '<tr>';
-					echo "<td><a href=./report.php?action=report_select_item&cor_no={$rel['cor_no']}>{$rel ["cor_no"]}</a></td>";
+					echo "<td>{$rel ["cor_no"]}</td>";
 					echo '<td>', $rel ["cor_name"], '</td>';
 					echo '<td>', $rel ["groups"], '</td>';
 					echo '<td>', $rel ["name"], '</td>';
+					echo "<td><a href=./report.php?action=report_select_item&cor_no={$rel['cor_no']}>进入</a></td>";
 					echo '</tr>';
 				}
 				while ($rel = mysql_fetch_array($result));

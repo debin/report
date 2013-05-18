@@ -11,7 +11,7 @@ mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_erro
 mysql_query ( "SET NAMES 'UTF8'" );
 
 // 分页中每一页的条目数量
-$page_size = 5;
+$page_size = 10;
 
 // 获取页码
 if (isset ( $_GET ['page'] )) {

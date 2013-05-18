@@ -35,22 +35,16 @@ if($_REQUEST['select_time'] > $_REQUEST['close_time'])
 	die('添加失败:选课截止时间不能大于关闭时间');
 }
 
+if (100 != ($_REQUEST['usual_rate'] + $_REQUEST['report_rate'] + $_REQUEST['exam_rate']) )
+{
+	die('添加失败:平时成绩、考试成绩、报告成绩总和不等于100');
+}
+
 $queryStr = sprintf("insert into course values(NULL,'%s','%s','%s','%s','%s','%s','%s','%s',NULL,'%s',NULL)",$_REQUEST['cor_no'],$_REQUEST['term'],$_REQUEST['tea_no'],$_REQUEST['cor_name'],$_REQUEST['usual_rate'],$_REQUEST['report_rate'],$_REQUEST['exam_rate'],$_REQUEST['select_time'],$_REQUEST['close_time']);
 $result = mysql_query($queryStr,$conn) or die("查询失败:".mysql_error());
 
 if($result==TRUE && 1==mysql_affected_rows())
 	echo "添加成功 <br>";
-
-echo $_POST['cor_no'],"<br>";
-echo $_POST['cor_name'],"<br>";
-echo $_POST['term'],"<br>";
-
-echo $_POST['tea_no'],"<br>";
-
-
-echo $_POST['usual_rate'],"<br>";
-echo $_POST['report_rate'],"<br>";
-echo $_POST['exam_rate'],"<br>";
 ?>
 
 </body>

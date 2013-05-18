@@ -6,11 +6,11 @@
 <body>
 	<div style="text-align: center;">教师端</div>
 	<div class='sep20'></div>
-	<div style="float: left; width: 200;">
+	<div style="float: left; width: 220;">
 		<ul style="list-style: none;">
 			<li>个人信息管理
-				<ul>
-					<li><a id="update_info" class='menu' href="#">个人信息设置</a></li>
+				<ul style="list-style: none;">
+					<li><a id="update_info" class='menu' href="#">个人信息</a></li>
 					<li><a id="update_psw" class='menu' href="#">修改密码</a></li>
 				</ul>
 			</li>
@@ -18,7 +18,7 @@
 			<li><br /></li>
 
 			<li>课程管理
-				<ul>
+				<ul style="list-style: none;">
 					<li><a id="update_group" class='menu' href="#">课程批次管理</a></li>
 					<li><a id="update_item" class='menu' href="#">实验管理</a></li>
 			
@@ -28,7 +28,7 @@
 			<li><br /></li>
 
 			<li>选课管理
-				<ul>	
+				<ul style="list-style: none;">	
 					<li><a class='menu' href="#">选课信息</a></li>
 					<li><a id='record' class='menu' href="#">审核管理</a></li>
 				</ul>
@@ -37,19 +37,17 @@
 			<li><br /></li>
 
 			<li>报告管理
-				<ul>
+				<ul style="list-style: none;">
 				<li><a id='report_manage' class='menu' href="#">报告管理</a></li>
 				<li><a id='report_correct' class='menu' href="#">报告批改</a></li>
 				<li><a id='remark' class='menu' href="#">评语管理</a></li>
 				</ul>
 			</li>
-			<li>成绩管理
+			<li style="list-style: none;">成绩管理
 				<ul>
-					<li><a class='menu' href="#">平时成绩</a></li>
-					<li><a class='menu' href="#">实验报告成绩</a></li>
-					<li><a class='menu' href="#">考试成绩</a></li>
-					<li><a class='menu' href="#">综合成绩</a></li>
-					<li><a class='menu' href="#">成绩报表</a></li>
+					<li><a id='mark_exam' class='menu' href="#">考试成绩</a></li>
+					<li><a id='mark_update' class='menu' href="#">成绩更新</a></li>
+					<li><a id='mark_all_cor'  class='menu' href="#">成绩报表</a></li>
 				</ul>
 			</li>
 
@@ -74,6 +72,9 @@ url['remark']="./remark.php?action=default";
 url['report_correct']="./report.php?action=default";
 url['report_manage']="./report.php?action=report_manage";
 url['record']="./select.php?action=default";
+url['mark_exam']="./mark.php?action=default";
+url['mark_update']="./mark.php?action=mark_update";
+url['mark_all_cor']="./mark.php?action=mark_all_cor";
       var menuEvent = function menuEvent(e)
       {
     	//  alert(url[e.target.id]);

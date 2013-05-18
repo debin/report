@@ -1,6 +1,6 @@
 ﻿<head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../static/css/test.css">
+<link rel="stylesheet" type="text/css" href="../static/css/global.css">
 <script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
 </head>
 <?php
@@ -167,6 +167,62 @@ switch ($action) {
 			
 		};break;
 		
+		//修改学生信息，前台
+	case 'update_stu':
+		{
+			if (!isset($_REQUEST['stu_no'] ))
+			{
+				die("请先选择学生");
+			}
+			$stu_nums = $_REQUEST['stu_no'];
+			if (count ( $stu_nums ) > 1) {
+				die ( "请只选择一个学生" );
+			}
+			$stu_no = $stu_nums[0];
+			$queryStr = sprintf ( "select  *  from stu where  stu_no='%s' ", $stu_no );
+			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
+			mysql_close ();
+			
+
+			if ($rel = mysql_fetch_array ( $result ))
+			{
+				echo '修改学生信息<br />';
+				echo "<form method='post' action='./class_deal.php?action=update_stu'>";
+				echo '<table>';
+				
+				echo '<tr>';
+				echo '<td>姓名</td>';
+				echo '<td>', "<input name = name value={$rel['name']}></input>",'</td>';
+				echo '</tr>';
+					
+				echo '<tr>';
+				echo '<td>邮件</td>';
+				echo '<td>', "<input type=email name = mail value={$rel['mail']}></input>",'</td>';
+				echo '</tr>';
+					
+				echo '<tr>';
+				echo '<td>手机</td>';
+				echo '<td>', "<input  name = mobile value={$rel['mobile']}></input>",'</td>';
+				echo '</tr>';
+					
+				echo '<tr>';
+				echo '<td>', "<input type=hidden name = stu_no value={$stu_no}></input>",'</td>';
+				echo '</tr>';
+				
+				echo '<tr>';
+				echo "<td><input type='submit' value='提交'></input></td>";
+				echo "<td><input type='reset' value='重置'></input></td>";
+				echo '</tr>';
+				echo '</table>';
+				echo '</form>';			
+			}
+			else
+			{
+				echo '无此学生';
+			}	
+		};break;
+		
+		
 	//显示某一个班级的学生,有导航:增加，查看，删除，改变班级			
 	case 'select_class' :
 		{
@@ -272,7 +328,7 @@ switch ($action) {
 			echo '<td>', "<input name=class_no value={$class_no} type=hidden></input>", '</td>';
 			echo '<td>', "<input name=action id=action value='' type=hidden></input>", '</td>';
 			echo '<td>', '<input type=button class=btn  value=增加 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
-			echo '<td>', '<input type=button class=btn  value=查看修改 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
+			echo '<td>', '<input type=button class=btn  value=修改 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
 			echo '<td>', '<input type=button class=btn  value=删除 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
 			echo '<td>', '<input type=button class=btn  value=换班 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
 			echo '</tr></table>';
@@ -291,6 +347,8 @@ switch ($action) {
               $('#action').attr('value',"select_stu");break;
           case '增加':
               $('#action').attr('value',"add_stu");break;
+          case '修改':
+              $('#action').attr('value',"update_stu");break;
           case '删除':
           {
               var tips = window.confirm("确定要删除?");

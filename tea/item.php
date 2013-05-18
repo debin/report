@@ -233,6 +233,9 @@ switch($action)
 			echo '<td />';
 			echo '<td>课号</td>';
 			echo '<td>课程名称</td>';
+			echo '<td>平时成绩比重</td>';
+			echo '<td>考试成绩比重</td>';
+			echo '<td>实验报告成绩比重</td>';
 			echo '<td>学期</td>';
 			echo '<td />';
 			echo '</tr>';
@@ -252,6 +255,9 @@ switch($action)
 				
 				echo '<td>', $rel ["cor_no"], '</td>';
 				echo '<td>', $rel ["cor_name"], '</td>';
+				echo '<td>', $rel ["usual_rate"], '%</td>';
+				echo '<td>', $rel ["exam_rate"], '%</td>';
+				echo '<td>', $rel ["report_rate"], '%</td>';
 				echo '<td>', $rel ["term"], '</td>';
 			//	echo "<td><a href='./update_item.php?action=select&cor_no={$rel['cor_no']}'>进入修改</a></td>";
 				echo '</tr>';

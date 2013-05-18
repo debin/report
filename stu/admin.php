@@ -7,18 +7,18 @@
 <body>
 	<div style="text-align: center;">学生</div>
 	<div class='sep20'></div>
-	<div style="float: left; width: 200;">
+	<div style="float: left; width: 220;">
 		<ul style="list-style: none;">
 			<li>个人信息管理
-				<ul>
-					<li><a id="update_info" class='menu' href="#">个人信息设置</a></li>
+				<ul style="list-style: none;">
+					<li><a id="update_info" class='menu' href="#">个人信息</a></li>
 					<li><a id="update_psw" class='menu' href="#">密码修改</a></li>
 				</ul>
 			</li>
 			<li><br /></li>
 
 			<li>选课管理
-				<ul>
+				<ul style="list-style: none;">
 					<li><a id="course_select" class='menu' href="#">选择课程</a></li>
 					<li><a id="course_selected" class='menu' href="#">已选课程</a></li>
 				</ul>
@@ -26,15 +26,15 @@
 			<li><br /></li>
 
 			<li>报告管理
-				<ul>
+				<ul style="list-style: none;">
 					<li><a id="view_date" class='menu' href="#">提交截止时间</a></li>
 					<li><a id="report_show_course" class='menu' href="#">填写实验报告</a></li>
 				</ul>
 			</li>
 
 			<li>成绩查看
-				<ul>
-					<li><a id="view_format" class='menu' href="#">查看成绩</a></li>
+				<ul style="list-style: none;">
+					<li><a id="mark" class='menu' href="#">查看成绩</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -54,6 +54,7 @@ url['update_psw']="./info.php?action=update_psw";
 url['course_select']="./course_select_grade.php?action=course_select";
 url['course_selected']="./course.php?action=view_selected";
 url['report_show_course']="./report.php?action=default";
+url['mark']="./mark.php";
       var menuEvent = function menuEvent(e)
       {
     	//  alert(url[e.target.id]);

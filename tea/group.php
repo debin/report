@@ -136,12 +136,13 @@ switch($action)
 				echo '<td>容量:</td>';
 				echo "<td><input name='num' value={$rel['num']}></input></td>";
 				echo '</tr>';
-					
-				echo '<tr>';
+				echo '</table>';
+				
+			//	echo '<tr>';
 				echo "<td><input type='hidden' name='cor_no' value={$_POST['cor_no']}> </input></td>";
-				echo "<td><input type='submit' value='提交'></input></td>";
-				echo '</tr>';
-			    echo '</table>';
+				echo "<input type='submit' value='提交'></input>";
+			//	echo '</tr>';
+			    
 			    echo '</form>';
 			}
 
@@ -182,12 +183,11 @@ switch($action)
 			echo '<td>容量:</td>';
 			echo "<td><input name='num' ></input></td>";
 			echo '</tr>';
-			
-			echo '<tr>';
-			echo "<td><input type='hidden' name='cor_no' value={$_POST['cor_no']}> </input></td>";
-			echo "<td><input type='submit' value='提交'></input></td>";
-			echo '</tr>';
 			echo '</table>';
+			
+			echo "<input type='hidden' name='cor_no' value={$_POST['cor_no']}> </input>";
+			echo "<input type='submit' value='提交'></input>";
+			
 			echo '</form>';
 		};break;
 		

@@ -203,14 +203,16 @@ switch($action)
 			echo '<td>实验编号</td>';
 			echo '<td>实验名称</td>';
 			echo '<td>成绩百分比</td>';
+			echo '<td />';
 			echo '</tr>';
 				
 			if ($rel = mysql_fetch_array ( $result )) {	
 				do {
 					echo '<tr>';
-					echo "<td><a href=./course.php?action=view_course_item&cor_no={$cor_no}&id={$rel['id']}>{$rel['item_no']}</a></td>";
+					echo "<td>{$rel['item_no']}</td>";
 					echo '<td>', $rel ["item_name"], '</td>';
 					echo '<td>', $rel ["exam_rate"], '</td>';
+					echo "<td><a href=./course.php?action=view_course_item&cor_no={$cor_no}&id={$rel['id']}>查看内容</a></td>";
 					// echo "<td><a
 					// href='./update_item.php?action=update&cor_no=$cor_no&
 					// id={$rel['id']}'>修改</a></td>";

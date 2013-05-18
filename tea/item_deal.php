@@ -64,6 +64,11 @@ switch($action)
 			$exam_rate = $_REQUEST ['exam_rate'];
 			$body = $_REQUEST ['body'];
 			
+			if ($exam_rate < 0 || $exam_rate > 100)
+			{
+				die('成绩比重应在0到100之间');
+			}
+			
 			//判断实验编号是否已经存在
 			if ($item_no_old != $item_no_new)
 			{	

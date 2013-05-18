@@ -1,24 +1,29 @@
 body{
 	font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB",;
 	background-color: #FFF;
+	background-image:url(../image/bg2.jpg);
 	margin: 0px;
 	padding:0px;
+	font-size:18px;
 }
 #top{
 	top:0px;
 	text-align:center;
 	height: 40px;
-	background-color: rgb(240,240,240);
+//	background-color: rgb(240,240,240);
 	background-image: url(../image/bg_top_light.png);
+    font-weight:bolder;
 }
 #topMain {
-	width: 960px;
+	width: 720px;
 	height: 40px;
-	text-align: center;
+	text-align: left;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 0px;
 	margin-top: 0px;
+    height:auto;
+    background-color:rgb(253,253,253);
 }
 #Navigation {
 	float: right;
@@ -110,4 +115,27 @@ a.dark:link, a.dark:visited, a.dark:active {
 .center{
 	margin-left:auto;
     margin-right:auto;
+}
+.title{
+	font-size:20px;
+}
+.post_title{
+	font-size:20px;
+}
+.title:hover{
+	font-size:25px;
+}
+a{
+	font-size:20px;
+}
+a:hover{
+	font-size:23px;
+//	background-color:rgb(253,253,0);
+}
+ul{
+	font-size:20px;
+}
+table, th, td{
+	border: 1px solid blue;
+
 }

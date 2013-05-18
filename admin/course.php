@@ -1,6 +1,6 @@
 ﻿<head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../static/css/test.css">
+<link rel="stylesheet" type="text/css" href="../static/css/global.css">
 <script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
 </head>
 <?php

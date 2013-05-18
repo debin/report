@@ -27,6 +27,11 @@ switch ($action) {
 			$report_rate = trim ( $_REQUEST ['report_rate'] );
 			$exam_rate = trim ( $_REQUEST ['exam_rate'] );
 			
+			if (100 != ($usual_rate + $exam_rate +$report_rate))
+			{
+				die('更新失败:平时成绩、考试成绩、报告成绩总和不等于100');
+			}
+			
 			$queryStr = sprintf ( "update  course set cor_no='%s',term='%s',tea_no='%s',cor_name='%s',usual_rate='%s',report_rate='%s',
 exam_rate='%s',select_time='%s',report_time='%s',close_time='%s' 
 where id='%s'", $cor_no, $term, $tea_no, $cor_name, $usual_rate, $report_rate, $exam_rate, $select_time, $report_rate, $close_time, $id );

@@ -347,7 +347,7 @@ switch ($action) {
 			echo '<td />';
 			echo '</tr>';
 			
-			$queryStr = sprintf ( "select  *  from report,item where report.stu_no='%s' and report.cor_no='%s' and status in (1,2) and report.item_no=item.item_no order by item.item_no", $stu_no, $cor_no );
+			$queryStr = sprintf ( "select  *  from report,item where report.stu_no='%s' and report.cor_no='%s' and status in (1,2) and report.item_no=item.item_no and  item.cor_no='%s' order by item.item_no", $stu_no, $cor_no,$cor_no );
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
 			if ($rel = mysql_fetch_array ( $result )) {
 				do {

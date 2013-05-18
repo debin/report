@@ -1,4 +1,6 @@
-﻿<?php
+﻿
+
+<?php
 include '../config.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
 mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
@@ -184,6 +186,29 @@ switch ($action)
 			
 		};break;
 		
+		
+		//修改学生信息，后台	
+	case 'update_stu':
+		{
+			$stu_no = trim($_REQUEST['stu_no']);
+			$name = trim($_REQUEST['name']);
+			$mail = trim($_REQUEST['mail']);
+			$mobile = trim($_REQUEST['mobile']);
+
+			$queryStr = sprintf("update  stu set name='%s',mail='%s',mobile='%s' where stu_no='%s'",$name,$mail,$mobile,$stu_no);
+			$result = mysql_query($queryStr,$conn) or die("查询失败:".mysql_error());
+			
+			if($result == TRUE && 1==mysql_affected_rows())
+			{
+				echo "修改成功";
+			}
+			else
+			{
+				echo '修改失败';
+			}
+			mysql_close();
+			
+		};break;
 		//删除班级，对数据的后天操作
 	case 'delete_class':
 		{

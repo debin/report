@@ -28,7 +28,7 @@ switch($action)
 			$week_nums = trim($_REQUEST['week_nums']);
 			$lesson_seq = trim($_REQUEST['lesson_seq']);
 			$num = trim($_REQUEST['num']);
-			if ($cor_no == NULL || $groups ==NULL || $week_start ==NULL ||$week_end  ||$week_nums || $lesson_seq || $num )
+			if ($cor_no == NULL || $groups ==NULL || $week_start ==NULL || $week_end ==NULL  ||$week_nums==NULL || $lesson_seq==NULL || $num ==NULL)
 			{
 				die('请完整输入');
 			}
