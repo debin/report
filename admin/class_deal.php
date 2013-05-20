@@ -2,6 +2,7 @@
 
 <?php
 include '../config.php';
+include '../is_login_admin.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
 mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
 mysql_query ( "SET NAMES 'UTF8'" );
@@ -193,9 +194,19 @@ switch ($action)
 			$stu_no = trim($_REQUEST['stu_no']);
 			$name = trim($_REQUEST['name']);
 			$mail = trim($_REQUEST['mail']);
-			$mobile = trim($_REQUEST['mobile']);
+			$mobile = trim($_REQUEST['mobile']);		
+			$psw = trim($_REQUEST['psw']);
+			
+			if (NULL != $psw)
+			{
+				$psw = md5(base64_encode($psw));
+				$queryStr = sprintf("update  stu set name='%s',mail='%s',mobile='%s',psw='%s' where stu_no='%s'",$name,$mail,$mobile,$psw,$stu_no);
+			}
+			else
+			{
+				$queryStr = sprintf("update  stu set name='%s',mail='%s',mobile='%s' where stu_no='%s'",$name,$mail,$mobile,$stu_no);
+			}
 
-			$queryStr = sprintf("update  stu set name='%s',mail='%s',mobile='%s' where stu_no='%s'",$name,$mail,$mobile,$stu_no);
 			$result = mysql_query($queryStr,$conn) or die("查询失败:".mysql_error());
 			
 			if($result == TRUE && 1==mysql_affected_rows())
@@ -334,7 +345,7 @@ switch ($action)
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败: " . mysql_error () ) ;
 			
 			//改变班级成功
-			if($result!=NULL && 1 ==mysql_affected_rows())
+			if($result!=FALSE && 1 ==mysql_affected_rows())
 			{
 			$count_sucess ++ ;
 			echo "<tr><td>";

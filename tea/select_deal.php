@@ -1,9 +1,10 @@
 ﻿<?php
 include '../config.php';
+include '../is_login_tea.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
 mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
 mysql_query ( "SET NAMES 'UTF8'" );
-$tea_no = "tea";
+//$tea_no = "tea";
 
 $action = NULL;
 if (isset($_REQUEST['action']))

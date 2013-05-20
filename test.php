@@ -1,6 +1,13 @@
 ﻿<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <?php
 
+session_start();
+$a = array();
+$a['ad'] = "aad";
+$a['bd'] = "bbd";
+
+$_SESSION['test'] = $a;
+
 
 
 $a = "2013-06-16";

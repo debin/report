@@ -1,13 +1,16 @@
 ﻿<head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
+<script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
 </head>
 <?php
 include '../config.php';
+include '../is_login_stu.php';
 $conn=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("连接失败:".mysql_error());
 mysql_select_db(DB_NAME,$conn) or die("选择数据库失败".mysql_error());
 mysql_query("SET NAMES 'UTF8'");
 
-$stu_no='stu2';
+//$stu_no='stu2';
 $queryStr = sprintf("select *  from stu where stu_no='%s'",$stu_no);
 $result = mysql_query($queryStr,$conn) or die("查询失败:".mysql_error());
 mysql_close();
@@ -43,12 +46,12 @@ switch($action)
 			echo '</tr>';	
 			
 			echo '<tr>';
-			echo '<td>', "<input type=hidden name = stu_no value={$stu_no}></input>",'</td>';
+//			echo '<td>', "<input type=hidden name = stu_no value={$stu_no}></input>",'</td>';
 			echo '</tr>';
 
 			echo '<tr>';
-			echo "<td><input type='submit' value='提交'></input></td>";
-			echo "<td><input type='reset' value='重置'></input></td>";
+			echo "<td><input class=button type='submit' value='提交'></input></td>";
+			echo "<td><input class=button type='reset' value='重置'></input></td>";
 			echo '</tr>';
 			echo '</table>';
 			echo '</form>';
@@ -81,12 +84,12 @@ switch($action)
 			echo '</tr>';
 			
 			echo '<tr>';
-			echo '<td>', "<input type=hidden name = stu_no value={$stu_no}></input>",'</td>';
+	//		echo '<td>', "<input type=hidden name = stu_no value={$stu_no}></input>",'</td>';
 			echo '</tr>';
 			
 			echo '<tr>';
-			echo "<td><input type='submit' value='提交'></input></td>";
-			echo "<td><input type='reset' value='重置'></input></td>";
+			echo "<td><input class=button type='submit' value='提交'></input></td>";
+			echo "<td><input class=button  type='reset' value='重置'></input></td>";
 			echo '</tr>';
 			echo '</table>';
 			echo '</form>';

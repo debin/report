@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /** WordPress 数据库的名称 */
 define('DB_NAME', 'sy_shiyan');
 

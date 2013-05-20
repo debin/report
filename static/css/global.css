@@ -5,6 +5,7 @@ body{
 	margin: 0px;
 	padding:0px;
 	font-size:18px;
+	word-wrap:break-word;
 }
 #top{
 	top:0px;
@@ -38,9 +39,7 @@ body{
 	list-style: none;
 }
 
-.heng li {
-	display:inline;
-}
+
 
 a{
 text-decoration:none;
@@ -116,6 +115,12 @@ a.dark:link, a.dark:visited, a.dark:active {
 	margin-left:auto;
     margin-right:auto;
 }
+.btn{
+	background-image:url(../image/bg2.jpg)
+}
+.button{
+	background-image:url(../image/bg2.jpg)
+}
 .title{
 	font-size:20px;
 }
@@ -129,13 +134,57 @@ a{
 	font-size:20px;
 }
 a:hover{
-	font-size:23px;
-//	background-color:rgb(253,253,0);
+	font-size:22px;
+
+}
+.author{
+	font-size:15px;
+ //   margin-left:50px;
+	background-color:rgb(230,230,230);
+}
+.bg_color{
+	height:22px;
+    background-color:rgb(213, 231, 233);	
+}
+pre{
+	font-size:18px;
+//	background-color:rgb(230,230,230);
 }
 ul{
 	font-size:20px;
 }
-table, th, td{
-	border: 1px solid blue;
-
+ul li{
+	min-height:30px;
 }
+
+.heng  li {
+	display:inline;
+ //   min-height:35px;
+}
+
+.heng li a:hover
+{
+	//	
+}
+
+.heng {
+
+    min-height:35px;
+}
+table, th{
+	border: 1px solid rgb(213, 231, 233);	
+}
+.table_border{
+	border: 2px solid blue;	
+}
+
+.table_border td{
+	border: 1px solid blue;
+    height:3px;
+}
+
+p.white 
+{
+	background-color:rgb(253,253,253);
+}
+

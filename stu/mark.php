@@ -6,15 +6,16 @@
 
 <?php
 include '../config.php';
+include '../is_login_stu.php';
 $conn=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("连接失败:".mysql_error());
 mysql_select_db(DB_NAME,$conn) or die("选择数据库失败".mysql_error());
 mysql_query("SET NAMES 'UTF8'");
 $today = date("Y-m-d");
 //echo $today;
-$stu_no = "stu2";
+//$stu_no = "stu2";
 
 echo '我的实验成绩:<br /><br />';
-echo '<table>';
+echo '<table class=table_border>';
 echo '<tr>';
 echo '<td>课号</td>';
 echo '<td>课程名称</td>';

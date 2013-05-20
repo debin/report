@@ -5,10 +5,11 @@
 </head>
 <?php
 include '../config.php';
+include '../is_login_tea.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
 mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
 mysql_query ( "SET NAMES 'UTF8'" );
-$tea_no = "tea";
+//$tea_no = "tea";
 $today = date ( "Y-m-d" );
 
 $action = NULL;
@@ -30,7 +31,7 @@ switch ($action) {
 			
 			echo '未审核名单:<br />';
 			echo "<form  method='post' action='./select_deal.php'>";
-			echo '<table>';
+			echo '<table class=table_border>';
 			echo '<tr>';
 		    echo '<td />';
 			echo '<td>学生学号</td>';
@@ -50,16 +51,18 @@ switch ($action) {
 					echo '<td>', $rel ["groups"], '</td>';
 					echo '</tr>';
 				} while ( $rel = mysql_fetch_array ( $result ) );
+				echo '</table>';
+				echo '<td>', "<input name=action id=action value='' type=hidden></input>", '</td>';
+				echo '<td>', '<input type=button class=btn  value=通过>', '</input>', '</td>';
+				echo '<td>', '<input type=button class=btn  value=拒绝>', '</input>', '</td>';	
 			} else {
 				echo '<tr><td>';
 				echo "该课程无未审核学生";
 				echo '</tr></td>';
+				echo '</table>';
 			}
-			echo '</table>';
+		
 			
-			echo '<td>', "<input name=action id=action value='' type=hidden></input>", '</td>';
-			echo '<td>', '<input type=button class=btn  value=通过 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
-			echo '<td>', '<input type=button class=btn  value=拒绝 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
 			echo '</tr>';
 			echo '</form>';
 		}
@@ -75,7 +78,7 @@ switch ($action) {
 			$cor_no = $_REQUEST ['cor_no'];
 	
 			echo "实验课程:{$cor_no}的退课记录<br/><br/>";
-			echo '<table>';
+			echo '<table class=table_border>';
 			echo '<tr>';
 			echo '<td>学生学号</td>';
 			echo '<td>姓名</td>';
@@ -106,7 +109,7 @@ switch ($action) {
 	default :
 		{
 			echo "<form  method='post' action='./select.php'>";
-			echo '<table>';
+			echo '<table class=table_border>';
 			echo '<tr>';
 			echo '<td />';
 			echo '<td>课号</td>';
@@ -136,8 +139,8 @@ switch ($action) {
 			echo '</table>';
 			echo '<br /><br />';
 			echo '<input type=hidden name=action id=action value="" />';
-			echo '<td>','<input type=button class=btn value=未审核 style="width:65px;background-image:url(../static/image/but_1.png)">','</input>','</td>';
-			echo '<td>','<input type=button class=btn value=已退课 style="width:65px;background-image:url(../static/image/but_1.png)">','</input>','</td>';
+			echo '<td>','<input type=button class=btn value=未审核>','</input>','</td>';
+			echo '<td>','<input type=button class=btn value=已退课>','</input>','</td>';
 			echo '</tr>';
 			echo '</form>';
 		}

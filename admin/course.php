@@ -5,6 +5,7 @@
 </head>
 <?php
 include '../config.php';
+include '../is_login_admin.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
 mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
 mysql_query ( "SET NAMES 'UTF8'" );
@@ -86,7 +87,7 @@ switch ($action) {
 			}
 			echo '<tr>';
 			echo '<td>', "<input type=hidden name=id  value={$rel['id']} type=hidden></input>", '</td>';
-			echo "<td><input type='submit' value='提交'></input></td>";
+			echo "<td><input class=button type='submit' value='提交'></input></td>";
 			echo '</tr>';
 			echo '</table>';
 			echo '</form>';
@@ -111,7 +112,7 @@ switch ($action) {
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
 			mysql_close ();
 			
-			echo '<table>';
+			echo '<table class=table_border>';
 			echo '<tr>';
 			echo '<td>实验编号</td>';
 			echo '<td>实验名称</td>';
@@ -159,15 +160,15 @@ switch ($action) {
 			
 			// echo '课程名称：',$_POST['cor_name'];
 	//		echo "<form method='post' action='./group.php?tea_no={$tea_no}'>";
-			echo '<table>';
+			echo '<table class=table_border>';
 			echo '<tr>';
 	//		echo '<td />';
 			
 			echo '<td>实验批次</td>';
 			echo '<td>开始时间(周)</td>';
 			echo '<td>结束时间(周)</td>';
-			echo '<td>周几</td>';
-			echo '<td>第几大节</td>';
+			echo '<td>上课时间(星期)</td>';
+			echo '<td>上课时间(第几大节)</td>';
 			echo '<td>容量</td>';
 			echo '</tr>';
 			
@@ -181,7 +182,16 @@ switch ($action) {
 					echo '<td>', $rel ["groups"], '</td>';
 					echo '<td>第', $rel ["week_start"], '周</td>';
 					echo '<td>第', $rel ["week_end"], '周</td>';
-					echo '<td>', $rel ["week_nums"], '</td>';
+					
+					//判断星期几上课
+					$count_str = strlen($rel ["week_nums"]);
+					$str = NULL;
+					for ($i = 0;$i < $count_str; $i++)
+					{
+					$str = $str . '星期' . substr($rel['week_nums'], $i,1) . ';';
+					}
+					
+					echo '<td>', $str, '</td>';
 					echo '<td>', $rel ["lesson_seq"], '</td>';
 					echo '<td>', $rel ["num"], '</td>';
 					echo '</tr>';
@@ -277,7 +287,7 @@ switch ($action) {
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
 			
 			echo "<form method='post' action='./course.php'>";
-			echo '<table>';
+			echo '<table class=table_border>';
 			echo '<tr>';
 			echo '<td />';
 			echo '<td>课程号</td>';
@@ -327,10 +337,10 @@ switch ($action) {
 			// echo '<td>', "<input name=class_no value={$class_no}
 			// type=hidden></input>", '</td>';
 			echo '<td>', "<input name=action id=action value='' type=hidden></input>", '</td>';
-			echo '<td>', '<input type=button class=btn  value=查看批次 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
-			echo '<td>', '<input type=button class=btn  value=查看实验 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
-			echo '<td>', '<input type=button class=btn  value=修改 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
-			echo '<td>', '<input type=button class=btn  value=删除 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
+			echo '<td>', '<input type=button class=btn  value=查看批次>', '</input>', '</td>';
+			echo '<td>', '<input type=button class=btn  value=查看实验>', '</input>', '</td>';
+			echo '<td>', '<input type=button class=btn  value=修改>', '</input>', '</td>';
+			echo '<td>', '<input type=button class=btn  value=删除>', '</input>', '</td>';
 			
 			echo '</tr></table>';
 			echo '</form>';

@@ -6,12 +6,13 @@
 
 <?php
 include '../config.php';
+include '../is_login_stu.php';
 $conn=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("连接失败:".mysql_error());
 mysql_select_db(DB_NAME,$conn) or die("选择数据库失败".mysql_error());
 mysql_query("SET NAMES 'UTF8'");
 $today = date("Y-m-d");
 //echo $today;
-$stu_no = "stu2";
+//$stu_no = "stu2";
 
 $action = NULL;
 if (isset($_REQUEST['action']))
@@ -33,7 +34,7 @@ switch($action)
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
 			
 			
-			echo '<br /><table>';
+			echo '<br /><table  class=table_border>';
 			echo '<tr>';
 	//		echo '<td />';
 			echo '<td>实验编号</td>';
@@ -106,8 +107,8 @@ switch($action)
 				echo "<textarea name='body' style='width:700;height:500;'>{$rel['body']}</textarea>";
 				echo '<br /><br />';
 				echo "<input name=action id=action value='' type=hidden></input>";
-				echo "<input type=button class=btn  value=保存 style='width:65px;background-image:url(../static/image/but_1.png)'></input>";
-				echo "<input type=button class=btn  value=提交 style='width:65px;background-image:url(../static/image/but_1.png)'></input>";
+				echo "<input type=button class=btn  value=保存></input>";
+				echo "<input type=button class=btn  value=提交></input>";
 				echo '</form>';	
 				echo '注意:提交后无法更改';
 			}
@@ -139,7 +140,7 @@ switch($action)
 		//默认显示已选课程
 	default:
 		{
-			echo '<table>';
+			echo '<table  class=table_border>';
 			echo '<tr>';
 			echo '<td>课号</td>';
 			echo '<td>课程名称</td>';

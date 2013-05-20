@@ -6,12 +6,13 @@
 
 <?php
 include '../config.php';
+include '../is_login_stu.php';
 $conn=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("连接失败:".mysql_error());
 mysql_select_db(DB_NAME,$conn) or die("选择数据库失败".mysql_error());
 mysql_query("SET NAMES 'UTF8'");
 $today = date("Y-m-d");
 //echo $today;
-$stu_no = "stu2";
+//$stu_no = "stu2";
 
 $action = NULL;
 if (isset($_REQUEST['action']))
@@ -29,7 +30,7 @@ switch($action)
 			}
 			$cor_no = $_REQUEST ['cor_no'];
 			echo "<form method='post' action='./course_deal.php'>";
-			echo '<table>';
+			echo '<table  class=table_border>';
 			echo '<tr>';
 			echo '<td />';
 				
@@ -58,20 +59,22 @@ switch($action)
 				} while ( $rel = mysql_fetch_array ( $result ) );
 				
 				echo '<tr>';
-				echo '<td>', "<input type=hidden name=stu_no value={$stu_no}>", '<td>';
+			//	echo '<td>', "<input type=hidden name=stu_no value={$stu_no}>", '<td>';
 				echo '<td>', "<input type=hidden name=cor_no value={$cor_no}>", '<td>';
 				echo '<td>', "<input name=action id=action value='' type=hidden></input>", '</td>';
 				echo '</tr>';
+				echo '</table>';
 				//		echo '<td>', '<input type=button class=btn  value=增加 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
 				//		echo '<td>', '<input type=button class=btn  value=更新 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
-				echo '<td>', '<input type=button class=btn  value=选课 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
+				echo '<input type=button class=btn  value=选课>', '</input>';
+				
 			} else {
 				echo '<tr><td>';
 				echo "该课程暂时还没有添加批次";
 				echo '</td></tr>';
+				echo '</table>';
 			}
 	
-			echo '</table>';
 			echo '</form>';	
 		};break;
 		
@@ -80,7 +83,7 @@ switch($action)
 	case 'view_selected':
 		{
 			echo "<form method='post' action='./course.php'>";
-			echo '<table>';
+			echo '<table class=table_border>';
 			echo '<tr>';
 			echo '<td />';
 			echo '<td>课号</td>';
@@ -115,10 +118,10 @@ switch($action)
 				echo '<br />';
 				echo '<tr><td>';
 			
-				echo '<td>', "<input name=stu_no value={$stu_no} type=hidden></input>", '</td>';
+		//		echo '<td>', "<input name=stu_no value={$stu_no} type=hidden></input>", '</td>';
 				echo '<td>', "<input name=action id=action value='' type=hidden></input>", '</td>';
-				echo '<td>', '<input type=button class=btn  value=退课 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
-				echo '<td>', '<input type=button class=btn  value=查看实验 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
+				echo '<td>', '<input type=button class=btn  value=退课 >', '</input>', '</td>';
+				echo '<td>', '<input type=button class=btn  value=查看实验 >', '</input>', '</td>';
 				echo '</tr></table>';
 				echo '</form>';
 			}
@@ -138,6 +141,7 @@ switch($action)
 			$url = "./course_deal.php?action=course_unselect&cor_no={$cor_no}&stu_no={$stu_no}";
 			echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0;URL={$url}\">";	
 		};break;
+		
 		
 		//显示某课程的实验内容列表和批次
 	case 'view_course_item_list':
@@ -159,7 +163,7 @@ switch($action)
 			
 			if($rel = mysql_fetch_array ( $result ))
 			{
-				echo '<table>';
+				echo '<table class=table_border>';
 				echo '<tr>';
 				echo '<td>实验批次</td>';
 				echo '<td>开始时间(周)</td>';
@@ -197,7 +201,7 @@ switch($action)
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
 			mysql_close ();
 			
-			echo '<br /><table>';
+			echo '<br /><table class=table_border>';
 			echo '<tr>';
 	//		echo '<td />';
 			echo '<td>实验编号</td>';
@@ -280,7 +284,7 @@ switch($action)
 		//	$today = '0000-0000-00';
 			
 			echo "<form method='post' action='./course.php'>";
-			echo '<table>';
+			echo '<table   class=table_border>';
 			echo '<tr>';
 			echo '<td />';
 			echo '<td>课号</td>';
@@ -310,11 +314,11 @@ switch($action)
 				echo '<br />';
 				echo '<tr><td>';
 			
-				echo '<td>', "<input name=stu_no value={$stu_no} type=hidden></input>", '</td>';
+		//		echo '<td>', "<input name=stu_no value={$stu_no} type=hidden></input>", '</td>';
 		//		echo '<td>', "<input name=cor_no value={$cor_no} type=hidden></input>", '</td>';
 				echo '<td>', "<input name=action id=action value='' type=hidden></input>", '</td>';
 				//	echo '<td>', '<input type=button class=btn  value=选课 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
-				echo '<td>', '<input type=button class=btn  value=查看批次 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
+				echo '<td>', '<input type=button class=btn  value=查看批次>', '</input>', '</td>';
 				echo '</tr>';
 			
 			}

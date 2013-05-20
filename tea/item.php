@@ -5,16 +5,17 @@
 </head>
 <?php
 include '../config.php';
+include '../is_login_tea.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
 mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
 mysql_query ( "SET NAMES 'UTF8'" );
-$tea_no = "tea";
+//$tea_no = "tea";
 $today = date("Y-m-d");
 
 $action=NULL;
 if (isset($_REQUEST['action']))
 {
-	$action = $_POST['action'];
+	$action = $_REQUEST['action'];
 }
 /** 根据action参数的值，进行不同处理：select选择课号查看实验内容，add添加实验内容，update更新实验内容
  *    edit_time编辑实验报告提交时间
@@ -26,7 +27,7 @@ switch($action)
 	//根据课号查看实验项目
 	case 'select':
 		{
-			if (!isset($_POST ['cor_no']))
+			if (!isset($_REQUEST ['cor_no']))
 			{
 				die('请先选择一个实验项目');
 			}
@@ -34,7 +35,7 @@ switch($action)
 			
 		//	echo '课程名称：',$_POST['cor_name'];
 			echo "<form method='post' action='./item.php'>";
-			echo '<table>';
+			echo '<table class=table_border>';
 			echo '<tr>';
 			echo '<td />';
 					
@@ -66,9 +67,9 @@ switch($action)
 			echo '<table><tr>';
 			echo '<td>',"<input type=hidden name=cor_no value={$cor_no}>",'<td>';
 			echo '<td>',"<input name=action id=action value='' type=hidden></input>",'</td>';
-			echo '<td>','<input type=button class=btn  value=增加 style="width:65px;background-image:url(../static/image/but_1.png)">','</input>','</td>';
-			echo '<td>','<input type=button class=btn  value=更新 style="width:65px;background-image:url(../static/image/but_1.png)">','</input>','</td>';
-			echo '<td>','<input type=button class=btn  value=删除 style="width:65px;background-image:url(../static/image/but_1.png)">','</input>','</td>';
+			echo '<td>','<input type=button class=btn  value=增加>','</input>','</td>';
+			echo '<td>','<input type=button class=btn  value=更新>','</input>','</td>';
+			echo '<td>','<input type=button class=btn  value=删除>','</input>','</td>';
 			echo '</tr></table>';
 			echo '</table>';	
 			echo '</form>';
@@ -125,7 +126,7 @@ switch($action)
 			}
 			echo "<td><input type='hidden' name=cor_no value={$cor_no}></input></td>";
 			echo "<td><input type='hidden' name=item_no_old value={$rel['item_no']}></input></td>";
-			echo "<td><input type='submit' value='提交'></input></td>";
+			echo "<td><input class=button type='submit' value='提交'></input></td>";
 			echo '</form>';
 			
 		};break;
@@ -165,7 +166,7 @@ switch($action)
 			
 			echo "<input type='hidden' name='cor_no' value={$_POST['cor_no']}> </input>";
 			
-			echo "<td><input type='submit' value='提交'></input></td>";
+			echo "<td><input class=button  type='submit' value='提交'></input></td>";
 		};break;
 		
 		//删除实验项目
@@ -214,7 +215,7 @@ switch($action)
 				}
 				echo '<br /><br />';
 				echo "<input type=hidden name=cor_no value={$_POST['cor_no']}></input>";
-				echo "<input type=submit value='提交'></input>";
+				echo "<input class=button type=submit value='提交'></input>";
 				echo '</form>';
 
 				
@@ -228,7 +229,7 @@ switch($action)
 			
 			echo "<form  method='post' action='./item.php'>";
 		//	echo "正常";
-			echo '<table>';
+			echo '<table class=table_border>';
 			echo '<tr>';
 			echo '<td />';
 			echo '<td>课号</td>';
@@ -277,8 +278,8 @@ switch($action)
             
 			echo "<table style='align:center;'>";
 			echo '<tr>';
-			echo '<td>','<input type=button class=btn value=查看 style="width:65px;background-image:url(../static/image/but_1.png)">','</input>','</td>';
-			echo '<td>','<input type=button class=btn value=编辑时间 style="width:65px;background-image:url(../static/image/but_1.png)">','</input>','</td>';
+			echo '<td>','<input type=button class=btn value=查看>','</input>','</td>';
+			echo '<td>','<input type=button class=btn value=报告提交时间>','</input>','</td>';
 				
 			echo '</tr>';			
 			echo '</table>';
@@ -319,7 +320,7 @@ switch($action)
               $('form').attr('action',"./item_deal.php?action=delete");
               $('#action').attr('value',"delete");
           };break;
-          case '编辑时间':
+          case '报告提交时间':
         	  $('#action').attr('value',"edit_time");break;
           default:
         	  break;

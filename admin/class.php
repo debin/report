@@ -5,6 +5,7 @@
 </head>
 <?php
 include '../config.php';
+include '../is_login_admin.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
 mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
 mysql_query ( "SET NAMES 'UTF8'" );
@@ -45,8 +46,8 @@ switch ($action) {
 			echo '</tr>';
 			echo '<tr>';
 			
-			echo "<td><input type=submit value=新添></input></td>";
-			echo "<td><input type=reset value=重置></input></td>";
+			echo "<td><input class=button type=submit value=新添></input></td>";
+			echo "<td><input class=button type=reset value=重置></input></td>";
 			echo '</tr>';
 			
 			echo '</table>';
@@ -84,8 +85,8 @@ switch ($action) {
 				echo '</tr>';
 				
 				echo '<tr>';
-				echo "<td><input type='submit' value='提交'></input></td>";
-				echo "<td><input type='reset' value='重置'></input></td>";
+				echo "<td><input class=button type='submit' value='提交'></input></td>";
+				echo "<td><input class=button type='reset' value='重置'></input></td>";
 				echo '</tr>';
 				
 			};break;
@@ -161,7 +162,7 @@ switch ($action) {
 			
 			echo '</select>';
 			echo "<input type='hidden' name=old_class value={$old_class}></input>";
-			echo "<input type='submit' value='改变班级'></input>";
+			echo "<input class=button type='submit' value='改变班级'></input>";
 			
 			echo '</form>';
 			
@@ -204,14 +205,19 @@ switch ($action) {
 				echo '<td>手机</td>';
 				echo '<td>', "<input  name = mobile value={$rel['mobile']}></input>",'</td>';
 				echo '</tr>';
-					
+				
+				echo '<tr>';
+				echo '<td>新密码(留空则不修改)</td>';
+				echo '<td>', "<input  name = psw></input>",'</td>';
+				echo '</tr>';
+						
 				echo '<tr>';
 				echo '<td>', "<input type=hidden name = stu_no value={$stu_no}></input>",'</td>';
 				echo '</tr>';
 				
 				echo '<tr>';
-				echo "<td><input type='submit' value='提交'></input></td>";
-				echo "<td><input type='reset' value='重置'></input></td>";
+				echo "<td><input class=button type='submit' value='提交'></input></td>";
+				echo "<td><input class=button type='reset' value='重置'></input></td>";
 				echo '</tr>';
 				echo '</table>';
 				echo '</form>';			
@@ -278,7 +284,7 @@ switch ($action) {
 			echo '班级:',$class_no;
 			echo '<br />';
 			echo "<form method='post' action='./class.php'>";
-			echo '<table>';
+			echo '<table class=table_border>';
 			echo '<tr>';
 			echo '<td />';
 			echo '<td>学号</td>';
@@ -327,10 +333,10 @@ switch ($action) {
 			
 			echo '<td>', "<input name=class_no value={$class_no} type=hidden></input>", '</td>';
 			echo '<td>', "<input name=action id=action value='' type=hidden></input>", '</td>';
-			echo '<td>', '<input type=button class=btn  value=增加 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
-			echo '<td>', '<input type=button class=btn  value=修改 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
-			echo '<td>', '<input type=button class=btn  value=删除 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
-			echo '<td>', '<input type=button class=btn  value=换班 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
+			echo '<td>', '<input type=button class=btn  value=增加>', '</input>', '</td>';
+			echo '<td>', '<input type=button class=btn  value=修改>', '</input>', '</td>';
+			echo '<td>', '<input type=button class=btn  value=删除>', '</input>', '</td>';
+			echo '<td>', '<input type=button class=btn  value=换班>', '</input>', '</td>';
 			echo '</tr></table>';
 			echo '</form>';
 			

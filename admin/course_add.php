@@ -1,5 +1,11 @@
-﻿<?php
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+<link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
+<script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
+</head>
+<?php
 include '../config.php';
+include '../is_login_admin.php';
 $conn=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("连接失败:".mysql_error());
 mysql_select_db(DB_NAME,$conn) or die("选择数据库失败".mysql_error());
 mysql_query("SET NAMES 'UTF8'");
@@ -20,7 +26,7 @@ mysql_close($conn);
 </head>
 <body>
 
-	<div class="center" align="center" style="">
+	<div class="center" align="" style="margin-left:auto;margin-right:auto;">
 		添加课程
 
 		<form method="post" action="./course_add_deal.php">
@@ -38,9 +44,12 @@ mysql_close($conn);
 
 				<tr>
 					<td>学年</td>
-					
 					<td><input width="10px" name="term" type="text">(如2013-2)</input></td>
+				</tr>
 				
+				<tr>
+					<td>面向年纪</td>
+					<td><input width="10px" name="grade" type="text">(如2013-2)</input></td>
 				</tr>
 
 				<tr>
@@ -91,8 +100,8 @@ mysql_close($conn);
 				</tr>
 
 				<tr>
-					<td><input type="submit" value="添加"></input></td>
-					<td><input type="reset" value="重填"></input></td>
+					<td><input class=button type="submit" value="添加"></input></td>
+					<td><input class=button type="reset" value="重填"></input></td>
 				</tr>
 
 

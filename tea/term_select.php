@@ -5,10 +5,11 @@
 </head>
 <?php
 include '../config.php';
+include '../is_login_tea.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
 mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
 mysql_query ( "SET NAMES 'UTF8'" );
-$tea_no = "tea";
+//$tea_no = "tea";
 
 $action = $_REQUEST ['action'];
 // $action = 'show_item';
@@ -49,7 +50,7 @@ while ( $rel = mysql_fetch_array ( $result ) ) {
 }
 
 echo '</select>';
-echo "<input type='submit' value='提交'></input>";
+echo "<input class=button type='submit' value='提交'></input>";
 echo '</form>';
 
 mysql_close ();

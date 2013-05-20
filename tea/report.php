@@ -5,10 +5,11 @@
 </head>
 <?php
 include '../config.php';
+include '../is_login_tea.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
 mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
 mysql_query ( "SET NAMES 'UTF8'" );
-$tea_no = "tea";
+//$tea_no = "tea";
 $today = date ( "Y-m-d" );
 
 $action = NULL;
@@ -29,7 +30,7 @@ switch ($action) {
 			}
 			$cor_no = $_REQUEST ['cor_no'];
 			
-			echo '<table>';
+			echo '<table class=table_border>';
 			echo '<tr>';
 			// echo '<td />';
 			echo '<td>实验编号</td>';
@@ -77,7 +78,7 @@ switch ($action) {
 			
 			echo "实验课程:{$cor_no}<br/>";
 			echo "实验编号:{$item_no}<br/><br/>";
-			echo '<table>';
+			echo '<table class=table_border>';
 			echo '<tr>';
 			echo '<td>学生学号</td>';
 			echo '<td>姓名</td>';
@@ -186,7 +187,7 @@ switch ($action) {
 				echo "<td><input type='hidden' name='stu_no' value={$stu_no}> </input></td>";
 				echo '</tr>';
 				echo '<tr>';
-				echo "<td><input type='submit' value='提交'></input></td>";
+				echo "<td><input class=button type='submit' value='提交'></input></td>";
 				echo '</tr>';
 				echo '</table>';
 				echo '</form>';
@@ -200,7 +201,7 @@ switch ($action) {
 	case 'report_manage' :
 		{
 			echo '报告管理';
-			echo '<table>';
+			echo '<table class=table_border>';
 			echo '<tr>';
 			echo '<td>课号</td>';
 			echo '<td>课程名称</td>';
@@ -240,7 +241,7 @@ switch ($action) {
 			}
 			$cor_no = $_REQUEST ['cor_no'];
 			
-			echo '<table>';
+			echo '<table  class=table_border>';
 			echo '<tr>';
 			echo '<td>实验批次</td>';
 			echo '<td>开始时间(周)</td>';
@@ -297,7 +298,7 @@ switch ($action) {
 			$group = $_REQUEST ['group'];
 			
 			echo "课程编号:{$cor_no},批次:{$group} 的学生列表<br /><br />";
-			echo '<table>';
+			echo '<table  class=table_border>';
 			echo '<tr>';
 			// echo '<td />';
 			echo '<td>学生学号</td>';
@@ -338,7 +339,7 @@ switch ($action) {
 			$stu_no = $_REQUEST ['stu_no'];
 			
 			echo "学号:{$stu_no}的实验报告<br />";
-			echo '<table>';
+			echo '<table class=table_border>';
 			echo '<tr>';
 			echo '<td>实验编号</td>';
 			echo '<td>实验名称</td>';
@@ -458,7 +459,7 @@ switch ($action) {
 				    die();			
 				}
 				echo '<tr>';
-				echo "<td><input type='submit' value='更新'></input></td>";
+				echo "<td><input class=button type='submit' value='更新'></input></td>";
 				echo '</tr>';
 				echo '</table>';
 				echo '</form>';
@@ -471,7 +472,7 @@ switch ($action) {
 	// 报告批改，默认显示未关闭课程
 	default :
 		{
-			echo '<table>';
+			echo '<table class=table_border>';
 			echo '<tr>';
 			echo '<td>课号</td>';
 			echo '<td>课程名称</td>';

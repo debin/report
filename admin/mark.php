@@ -5,6 +5,7 @@
 </head>
 <?php
 include '../config.php';
+include '../is_login_admin.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
 mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
 mysql_query ( "SET NAMES 'UTF8'" );
@@ -49,8 +50,8 @@ switch ($action) {
 				$item_list [$rel ['item_no']] = $rel ['exam_rate'];
 			}
 			
-			echo '<table>';
-			echo '<tr>';		
+			echo '<table class=table_border>';
+			echo '<tr >';		
 			echo '<td>学号</td>';
 			echo '<td>姓名</td>';
 			foreach($item_list as $item_no=>$exam_rate)
@@ -69,7 +70,7 @@ switch ($action) {
 			if($rel=mysql_fetch_array($result))
 			{
 				do{
-					echo '<tr>';
+					echo '<tr class=table_border>';
 		//			echo '<td>', "<input type=radio name = id value={$rel['id']}>",'</td>';
 					echo '<td>', $rel ["stu_no"], '</td>';
 					echo '<td>', $rel ["name"], '</td>';
@@ -139,7 +140,7 @@ switch ($action) {
 			
 			
 			echo '课程列表:<br /><br />';
-			echo '<table>';
+			echo '<table class=table_border>';
 			echo '<tr>';
 			echo '<td>课号</td>';
 			echo '<td>课程名称</td>';

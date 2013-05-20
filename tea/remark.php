@@ -5,10 +5,11 @@
 </head>
 <?php
 include '../config.php';
+include '../is_login_tea.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
 mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
 mysql_query ( "SET NAMES 'UTF8'" );
-$tea_no = "tea";
+//$tea_no = "tea";
 ?>
 
 <?php
@@ -50,7 +51,7 @@ switch($action)
 				echo '<br />';
 				echo "<textarea name='body' style='width:300;height:200;'>{$rel['body']}</textarea>";
 				echo '<br />';
-				echo "<input type='submit' value='提交'></input>";
+				echo "<input class=button type='submit' value='提交'></input>";
 				echo '</form>';
 			}
 			
@@ -71,7 +72,7 @@ switch($action)
 	
 			echo "<input type='hidden' name='cor_no' value={$tea_no}> </input>";
 			
-			echo "<td><input type='submit' value='提交'></input></td>";
+			echo "<td><input class=button type='submit' value='提交'></input></td>";
 		};break;
 		
 		//删除评语，伪前台
@@ -98,7 +99,7 @@ switch($action)
 			echo '我的评语<br /><br />';
 			echo "<form  method='post' action='./remark.php'>";
 			//	echo "正常";
-			echo '<table>';
+			echo '<table class=table_border>';
 			echo '<tr>';
 			echo '<td />';
 			echo '<td>编号</td>';
@@ -132,9 +133,9 @@ switch($action)
 			echo '<br />';	
 			echo "<table style='align:center;'>";
 			echo '<tr>';
-			echo '<td>','<input type=button class=btn value=增加 style="width:65px;background-image:url(../static/image/but_1.png)">','</input>','</td>';
-			echo '<td>','<input type=button class=btn value=编辑 style="width:65px;background-image:url(../static/image/but_1.png)">','</input>','</td>';
-			echo '<td>','<input type=button class=btn value=删除 style="width:65px;background-image:url(../static/image/but_1.png)">','</input>','</td>';
+			echo '<td>','<input type=button class=btn value=增加>','</input>','</td>';
+			echo '<td>','<input type=button class=btn value=编辑>','</input>','</td>';
+			echo '<td>','<input type=button class=btn value=删除>','</input>','</td>';
 			
 			echo '</tr>';
 			echo '</table>';

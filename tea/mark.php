@@ -5,10 +5,11 @@
 </head>
 <?php
 include '../config.php';
+include '../is_login_tea.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
 mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
 mysql_query ( "SET NAMES 'UTF8'" );
-$tea_no = "tea";
+//$tea_no = "tea";
 $today = date ( "Y-m-d" );
 
 $action = NULL;
@@ -62,7 +63,7 @@ switch ($action) {
 			
 			echo "课程号:{$cor_no}<br />学生平时成绩和考试成绩:<br /><br />";
 			echo "<form  method='post' action='./mark_deal.php?action=exam_update'>";
-			echo '<table>';
+			echo '<table  class=table_border>';
 			echo '<tr>';
 		    echo '<td />';
 		    echo '<td>批次</td>';
@@ -118,7 +119,7 @@ switch ($action) {
 				die();
 			}
 			echo '<br />';
-			echo "<input type=submit value=更新 ></input>";	
+			echo "<input class=button type=submit value=更新 ></input>";	
 			echo '</form>';
 			mysql_close();
 		}
@@ -130,7 +131,7 @@ switch ($action) {
 			{
 				echo '若是更新过学生的实验报告成绩，请再此页面更新一下学生的报告综合成绩<br /><br />';
 				
-				echo '<table>';
+				echo '<table class=table_border>';
 				echo '<tr>';
 				echo '<td>课号</td>';
 				echo '<td>课程名称</td>';
@@ -163,7 +164,7 @@ switch ($action) {
 	case 'mark_all_cor':
 		{
 			echo '课程列表:<br /><br />';
-			echo '<table>';
+			echo '<table class=table_border>';
 			echo '<tr>';
 			echo '<td>课号</td>';
 			echo '<td>课程名称</td>';
@@ -222,7 +223,7 @@ switch ($action) {
 				$item_list [$rel ['item_no']] = $rel ['exam_rate'];
 			}
 			
-			echo '<table>';
+			echo '<table class=table_border>';
 			echo '<tr>';		
 			echo '<td>学号</td>';
 			echo '<td>姓名</td>';
@@ -278,7 +279,7 @@ switch ($action) {
 	// 显示所有未关闭课程，可点击进入修改平时成绩和考试成绩
 	default :
 		{
-			echo '<table>';
+			echo '<table class=table_border>';
 			echo '<tr>';
 			echo '<td>课号</td>';
 			echo '<td>课程名称</td>';

@@ -1,10 +1,11 @@
 ﻿<head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../static/css/test.css">
+<link rel="stylesheet" type="text/css" href="../static/css/global.css">
 <script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
 </head>
 <?php
 include '../config.php';
+include '../is_login_admin.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
 mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
 mysql_query ( "SET NAMES 'UTF8'" );
@@ -39,8 +40,8 @@ switch ($action) {
 			echo "<td><input name=name></input></td>";
 			echo '</tr>';
 			
-			echo "<td><input type=submit value=新添></input></td>";
-			echo "<td><input type=reset value=重置></input></td>";
+			echo "<td><input  class=button type=submit value=新添></input></td>";
+			echo "<td><input  class=button type=reset value=重置></input></td>";
 			echo '</tr>';
 			
 			echo '</table>';
@@ -102,8 +103,8 @@ switch ($action) {
 			echo '</tr>';
 			
 			echo '<tr>';
-			echo "<td><input type='submit' value='更改密码'></input></td>";
-			echo "<td><input type='reset' value='重置'></input></td>";
+			echo "<td><input  class=button type='submit' value='更改密码'></input></td>";
+			echo "<td><input  class=button type='reset' value='重置'></input></td>";
 			echo '<tr>';
 			echo '</form>';
 			

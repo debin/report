@@ -5,6 +5,7 @@
 </head>
 <?php
 include '../config.php';
+include '../is_login_admin.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
 mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
 mysql_query ( "SET NAMES 'UTF8'" );
@@ -87,9 +88,9 @@ echo '<tr>';
 
 //功能导航
 echo '<td>', "<input name=action id=action value='' type=hidden></input>", '</td>';
-echo '<td>', '<input type=button class=btn  value=增加 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
-echo '<td>', '<input type=button class=btn  value=查看 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
-echo '<td>', '<input type=button class=btn  value=删除 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
+echo '<td>', '<input type=button class=btn  value=增加 style="width:65px;">', '</input>', '</td>';
+echo '<td>', '<input type=button class=btn  value=查看 style="width:65px;">', '</input>', '</td>';
+echo '<td>', '<input type=button class=btn  value=删除 style="width:65px;">', '</input>', '</td>';
 echo '</tr></table>';
 echo '</form>';
 

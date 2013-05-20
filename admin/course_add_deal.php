@@ -8,6 +8,7 @@
 
 <?php 
 include '../config.php';
+include '../is_login_admin.php';
 $conn=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("连接失败:".mysql_error());
 mysql_select_db(DB_NAME,$conn) or die("选择数据库失败".mysql_error());
 mysql_query("SET NAMES 'UTF8'");
@@ -40,7 +41,7 @@ if (100 != ($_REQUEST['usual_rate'] + $_REQUEST['report_rate'] + $_REQUEST['exam
 	die('添加失败:平时成绩、考试成绩、报告成绩总和不等于100');
 }
 
-$queryStr = sprintf("insert into course values(NULL,'%s','%s','%s','%s','%s','%s','%s','%s',NULL,'%s',NULL)",$_REQUEST['cor_no'],$_REQUEST['term'],$_REQUEST['tea_no'],$_REQUEST['cor_name'],$_REQUEST['usual_rate'],$_REQUEST['report_rate'],$_REQUEST['exam_rate'],$_REQUEST['select_time'],$_REQUEST['close_time']);
+$queryStr = sprintf("insert into course values(NULL,'%s','%s','%s','%s','%s','%s','%s','%s',NULL,'%s','%s')",$_REQUEST['cor_no'],$_REQUEST['term'],$_REQUEST['tea_no'],$_REQUEST['cor_name'],$_REQUEST['usual_rate'],$_REQUEST['report_rate'],$_REQUEST['exam_rate'],$_REQUEST['select_time'],$_REQUEST['close_time'],$_REQUEST['grade']);
 $result = mysql_query($queryStr,$conn) or die("查询失败:".mysql_error());
 
 if($result==TRUE && 1==mysql_affected_rows())

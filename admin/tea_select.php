@@ -6,6 +6,7 @@
 
 <?php
 include '../config.php';
+include '../is_login_admin.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
 mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
 mysql_query ( "SET NAMES 'UTF8'" );
@@ -47,7 +48,7 @@ $result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_erro
 mysql_close ();
 
 echo "<form method='post' action='./tea.php'>";
-echo '<table>';
+echo '<table class=table_border>';
 echo '<tr>';
 echo '<td />';
 echo '<td>教师编号</td>';
@@ -91,13 +92,16 @@ echo "共有{$pages}页 ({$page}/{$pages})";
 echo '<table>';
 echo '<br />';
 echo '<tr>';
+echo '</table>';
 
 //功能导航
+echo '<table>';
+echo '<tr>';
 echo '<td>', "<input name=action id=action value='' type=hidden></input>", '</td>';
-echo '<td>', '<input type=button class=btn  value=增加 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
-echo '<td>', '<input type=button class=btn  value=修改密码 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
-echo '<td>', '<input type=button class=btn  value=查看 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
-echo '<td>', '<input type=button class=btn  value=删除 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
+echo '<td>', '<input type=button class=btn  value=增加>', '</input>', '</td>';
+echo '<td>', '<input type=button class=btn  value=修改密码>', '</input>', '</td>';
+echo '<td>', '<input type=button class=btn  value=查看>', '</input>', '</td>';
+echo '<td>', '<input type=button class=btn  value=删除>', '</input>', '</td>';
 echo '</tr></table>';
 echo '</form>';
 

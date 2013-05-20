@@ -1,5 +1,6 @@
 ﻿<?php
 include '../config.php';
+include '../is_login_stu.php';
 $conn=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("连接失败:".mysql_error());
 mysql_select_db(DB_NAME,$conn) or die("选择数据库失败".mysql_error());
 mysql_query("SET NAMES 'UTF8'");
@@ -20,7 +21,7 @@ switch($action)
 				die("请先选择批次");
 			}
 			$cor_no = trim($_REQUEST['cor_no']);
-			$stu_no = trim($_REQUEST['stu_no']);
+	//		$stu_no = trim($_REQUEST['stu_no']);
 			$groups = trim($_REQUEST['groups']);
 			
 			//若是退课再选
@@ -69,7 +70,7 @@ switch($action)
 			}
 			
 			$cor_no = $_REQUEST['cor_no'];
-			$stu_no = $_REQUEST['stu_no'];
+	//		$stu_no = $_REQUEST['stu_no'];
 	
 			//删除选课信息
 			$queryStr = sprintf("update sel_cor set status=2 where stu_no='%s' and cor_no='%s'",$stu_no,$cor_no);
