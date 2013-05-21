@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="./static/css/global.css"></link>
 <script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
 </head>
-<html>
+
 <?php
 include './config.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
@@ -13,10 +13,11 @@ mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_erro
 mysql_query ( "SET NAMES 'UTF8'" );
 $now = date ( "Y-m-d G:i:s" );
 ?>
-	<div class="sep3"></div>
+<div style="background-image:url(./static/image/topback.jpg);width:1024px;height:80px;margin-left: auto; margin-right: auto;"></div>
+<div class="sep3"></div>
 <div
 	style="margin-left: auto; margin-right: auto; min-width: 960px; text-align: center;">
-	<ul class="heng">
+	<ul class="heng" style="margin-top:10px;margin-bottom:5px;">
 		<li><a href="./index.php">首页</a></li>
 		<li><a href="./bbs.php">讨论区</a></li>
 		<li><a href="./report.php">实验报告管理</a></li>
@@ -121,8 +122,8 @@ if (isset ( $_REQUEST ['topic'] )) {
 		// 显示回复框
 		echo '<div class=bg_color></div>';
 		echo '<br />回复楼主<br />';
-		echo "<form method='post' action='./bbs/post_deal.php'>";
-		echo "<textarea name=reply_body cols=99 rows=5 style='width:720;height:80;'></textarea>";
+		echo "<form method='get' action='./bbs/post_deal.php'>";
+		echo "<textarea name=reply_body cols=87 rows=5 style='width:720;height:80;'></textarea>";
 		
 		echo '<br />';
 		echo "<input type=hidden name=action value=reply_post></input>";

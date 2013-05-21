@@ -2,6 +2,8 @@
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
 <script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
 </head>
+
+<div style="background-image:url(../static/image/topback.jpg);width:1024px;height:80px;margin-left: auto; margin-right: auto;"></div>
 <?php
 include '../config.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );

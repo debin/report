@@ -188,3 +188,14 @@ p.white
 	background-color:rgb(253,253,253);
 }
 
+#banner ul li.on 
+	{ 
+	background:#900
+}
+#banner_list a
+	{
+	position:absolute;
+} <!-- 让四张图片都可以重叠在一起-->
+
+
+

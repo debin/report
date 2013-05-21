@@ -6,11 +6,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<div style="background-image:url(./static/image/topback.jpg);width:1024px;height:80px;margin-left: auto; margin-right: auto;"></div>
 	<div class="sep3"></div>
 	<div
 		style="margin-left: auto; margin-right: auto; min-width: 960px; text-align: center;">
-		<ul class="heng">
+		<ul class="heng" style="margin-top:10px;margin-bottom:5px;">
 			<li><a href="./index.php">首页</a></li>
 			<li><a href="./bbs.php">讨论区</a></li>
 			<li><a href="./report.php">实验报告管理</a></li>

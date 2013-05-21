@@ -24,22 +24,9 @@ CREATE TABLE `course` (
   `grade` varchar(5) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `cor_no` (`cor_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
-insert into `course`(`id`,`cor_no`,`term`,`tea_no`,`cor_name`,`usual_rate`,`report_rate`,`exam_rate`,`select_time`,`report_time`,`close_time`,`grade`) values('1','16416','2013-1','tea','java语言程序设计','20','10','70','2013-06-06','2013-09-05','2013-10-05','2009');
-insert into `course`(`id`,`cor_no`,`term`,`tea_no`,`cor_name`,`usual_rate`,`report_rate`,`exam_rate`,`select_time`,`report_time`,`close_time`,`grade`) values('2','258','2012-2','009','提交1','10','10','80','2013-05-06','0000-00-00','0000-00-00','2008');
-insert into `course`(`id`,`cor_no`,`term`,`tea_no`,`cor_name`,`usual_rate`,`report_rate`,`exam_rate`,`select_time`,`report_time`,`close_time`,`grade`) values('3','gx_008','2011-1','009','c语言程序设计','10','20','70','2013-05-30','0000-00-00','2013-07-08','2009');
-insert into `course`(`id`,`cor_no`,`term`,`tea_no`,`cor_name`,`usual_rate`,`report_rate`,`exam_rate`,`select_time`,`report_time`,`close_time`,`grade`) values('4','gm008','2015-2','009','java编程1','20','10','70','2013-05-06','0000-00-00','2014-02-03','2009');
-insert into `course`(`id`,`cor_no`,`term`,`tea_no`,`cor_name`,`usual_rate`,`report_rate`,`exam_rate`,`select_time`,`report_time`,`close_time`,`grade`) values('6','1661461','2013-2','009','1634646','20','10','70','2012-05-06','','','2009');
-insert into `course`(`id`,`cor_no`,`term`,`tea_no`,`cor_name`,`usual_rate`,`report_rate`,`exam_rate`,`select_time`,`report_time`,`close_time`,`grade`) values('7','00.123','2013-2','009','python程序设计','10','20','70','2013-06-06','0000-00-00','2013-06-06','2009');
-insert into `course`(`id`,`cor_no`,`term`,`tea_no`,`cor_name`,`usual_rate`,`report_rate`,`exam_rate`,`select_time`,`report_time`,`close_time`,`grade`) values('9','13698','2013-2','tea','touch','10','20','70','2013-05-20','2013-07-07','2013-05-30','2009');
-insert into `course`(`id`,`cor_no`,`term`,`tea_no`,`cor_name`,`usual_rate`,`report_rate`,`exam_rate`,`select_time`,`report_time`,`close_time`,`grade`) values('10','1313664163','2013-2','tea','13131361','10','20','70','2013-05-30','2013-11-01','2013-07-05','2009');
-insert into `course`(`id`,`cor_no`,`term`,`tea_no`,`cor_name`,`usual_rate`,`report_rate`,`exam_rate`,`select_time`,`report_time`,`close_time`,`grade`) values('11','t1','如2013-2','001','t','10','20','70','2013-02-02','0000-00-00','2013-02-02','');
-insert into `course`(`id`,`cor_no`,`term`,`tea_no`,`cor_name`,`usual_rate`,`report_rate`,`exam_rate`,`select_time`,`report_time`,`close_time`,`grade`) values('12','000','2013-2','001','000','10','20','30','2013-02-02','','2013-02-02','');
-insert into `course`(`id`,`cor_no`,`term`,`tea_no`,`cor_name`,`usual_rate`,`report_rate`,`exam_rate`,`select_time`,`report_time`,`close_time`,`grade`) values('13','001','2013-2','tea','000','10','20','30','2013-05-25','2013-11-01','2013-05-29','2009');
-insert into `course`(`id`,`cor_no`,`term`,`tea_no`,`cor_name`,`usual_rate`,`report_rate`,`exam_rate`,`select_time`,`report_time`,`close_time`,`grade`) values('14','4224','272','001','227','20','40','40','2013-02-02','0000-00-00','2013-02-02','');
-insert into `course`(`id`,`cor_no`,`term`,`tea_no`,`cor_name`,`usual_rate`,`report_rate`,`exam_rate`,`select_time`,`report_time`,`close_time`,`grade`) values('15','123','2013-2','123','123的课程1','20','10','70','2013-12-02','2013-07-05','2013-12-02','2009');
-insert into `course`(`id`,`cor_no`,`term`,`tea_no`,`cor_name`,`usual_rate`,`report_rate`,`exam_rate`,`select_time`,`report_time`,`close_time`,`grade`) values('16','1232','2013-2','123','123的课程2','20','10','70','2013-12-02','','2013-12-02','');
-insert into `course`(`id`,`cor_no`,`term`,`tea_no`,`cor_name`,`usual_rate`,`report_rate`,`exam_rate`,`select_time`,`report_time`,`close_time`,`grade`) values('17','002','2013-2','002','002的课程名称','20','20','60','2013-12-02','','2013-12-02','2015');
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+insert into `course`(`id`,`cor_no`,`term`,`tea_no`,`cor_name`,`usual_rate`,`report_rate`,`exam_rate`,`select_time`,`report_time`,`close_time`,`grade`) values('18','sf_2013001','2013-2','tea008','计算机算法','10','30','60','2013-07-01','2013-06-15','2013-07-20','2009');
+insert into `course`(`id`,`cor_no`,`term`,`tea_no`,`cor_name`,`usual_rate`,`report_rate`,`exam_rate`,`select_time`,`report_time`,`close_time`,`grade`) values('19','hb_2013001','2013-2','tea008','计算机汇编','10','30','60','2013-07-01','2013-06-15','2013-07-20','2009');
 CREATE TABLE `groups` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `groups` varchar(2) DEFAULT NULL,
@@ -50,7 +37,7 @@ CREATE TABLE `groups` (
   `lesson_seq` char(1) DEFAULT NULL,
   `num` varchar(3) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 insert into `groups`(`id`,`groups`,`cor_no`,`week_start`,`week_end`,`week_nums`,`lesson_seq`,`num`) values('1','1','16416','3','10','25','3','30');
 insert into `groups`(`id`,`groups`,`cor_no`,`week_start`,`week_end`,`week_nums`,`lesson_seq`,`num`) values('2','2','16416','5','12','36','3','30');
 insert into `groups`(`id`,`groups`,`cor_no`,`week_start`,`week_end`,`week_nums`,`lesson_seq`,`num`) values('3','1','13698','4','11','2','2','45');
@@ -59,6 +46,11 @@ insert into `groups`(`id`,`groups`,`cor_no`,`week_start`,`week_end`,`week_nums`,
 insert into `groups`(`id`,`groups`,`cor_no`,`week_start`,`week_end`,`week_nums`,`lesson_seq`,`num`) values('6','2','001','2','4','5','1','35');
 insert into `groups`(`id`,`groups`,`cor_no`,`week_start`,`week_end`,`week_nums`,`lesson_seq`,`num`) values('7','1','1313664163','5','10','6','2','30');
 insert into `groups`(`id`,`groups`,`cor_no`,`week_start`,`week_end`,`week_nums`,`lesson_seq`,`num`) values('8','1','123','1','5','5','3','50');
+insert into `groups`(`id`,`groups`,`cor_no`,`week_start`,`week_end`,`week_nums`,`lesson_seq`,`num`) values('9','A','sf_2013001','8','12','5','3','35');
+insert into `groups`(`id`,`groups`,`cor_no`,`week_start`,`week_end`,`week_nums`,`lesson_seq`,`num`) values('10','B','sf_2013001','8','12','5','4','35');
+insert into `groups`(`id`,`groups`,`cor_no`,`week_start`,`week_end`,`week_nums`,`lesson_seq`,`num`) values('11','C','sf_2013001','8','12','5','5','35');
+insert into `groups`(`id`,`groups`,`cor_no`,`week_start`,`week_end`,`week_nums`,`lesson_seq`,`num`) values('12','A','hb_2013001','12','17','35','2','35');
+insert into `groups`(`id`,`groups`,`cor_no`,`week_start`,`week_end`,`week_nums`,`lesson_seq`,`num`) values('13','B','hb_2013001','12','17','46','3','35');
 CREATE TABLE `item` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `item_no` varchar(12) NOT NULL,
@@ -68,54 +60,35 @@ CREATE TABLE `item` (
   `cor_no` varchar(12) NOT NULL,
   `exam_rate` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('4','test','wjojfowaj','geege','','gx_008','25');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('5','test','wjojfowajww','geegew','','gx_008','25');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('6','test','16464','geegeww','','gx_008','25');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('7','10','10','geegeww','','gx_008','25');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('8','test','11','geegeww','','gx_008','25');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('9','test','12','geegeww','','gx_008','25');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('10','test','13','geegeww','','gx_008','25');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('11','test','14','geegeww','','gx_008','25');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('12','test','15','geegeww','','gx_008','25');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('13','test','16','geegeww','','gx_008','25');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('14','test','17','geegeww','','gx_008','25');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('15','test','18','geegeww','','gx_008','25');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('16','test','19','geegeww','','gx_008','25');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('17','test','20','geegeww','','gx_008','25');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('18','test','21','geegeww','','gx_008','25');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('19','test','22','geegeww','','gx_008','25');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('20','11','23','ad','ad','gx_008','25');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('21','001','1','1122424','gwwwgrr玩玩看看a ','16416','20');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('22','002','2','1122424','123','16416','20');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('23','003','3','1122424','gw','16416','20');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('24','004','4','1122424','你好吗','16416','20');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('25','006','5','1122424','','16416','20');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('34','13','13','13','13','gx_008','13');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('36','1','从hello做起','做出一个hello world 程序','1.实验目的
-
-2.主要代码','13698','30');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('37','001','001001','413463','','001','50');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('38','002','002002','wgeg','geeges','001','50');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('39','2','第2个实验','加深一点','实验报告格式','13698','30');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('40','3','第三个实验','实验3 的内容','实验3的报告格式','13698','40');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('41','1','实验1','你好','玩玩','1313664163','50');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('42','2','实验2','围观','五个','1313664163','50');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('43','1','实验1的名称','实验1','实验1的膜拜','123','30');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('44','2','实验2的名称','实验2','实验2的模板','123','40');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('45','3','实验3的名称','实验3','实验3的模板','123','30');
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
+insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('46','1','贪心方法原理','实验1 贪心方法原理的实验内容','实验1 贪心方法原理的报告模板','sf_2013001','25');
+insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('47','2','动态规划原理1','实验2 动态规划原理1的实验内容','实验2 动态规划原理1的报告模板','sf_2013001','25');
+insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('48','3','动态规划原理2','实验3 动态规划原理2 的实验报告内容','实验3 动态规划原理2 的实验报告模板','sf_2013001','25');
+insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('49','4','回溯法','实验4 回溯法 的实验内容','实验4 回溯法 的实验报告模板','sf_2013001','25');
+insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('50','1','汇编语言上机过程和Debug常用调试命令（验证）','实验1 汇编语言上机过程和Debug常用调试命令（验证）的实验内容','实验1 汇编语言上机过程和Debug常用调试命令（验证）的报告模板','hb_2013001','10');
+insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('51','2','循环程序设计1（设计）','实验2 循环程序设计1（设计）的实验内容','实验2 循环程序设计1（设计）的报告模板','hb_2013001','10');
+insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('52','3','循环程序设计2（设计）','实验3 循环程序设计2（设计） 的报告内容','实验3 循环程序设计2（设计） 的模板','hb_2013001','10');
+insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('53','4','循环程序设计2（设计）','实验4 循环程序设计2（设计）的实验内容','实验4 循环程序设计2（设计）的模板','hb_2013001','10');
+insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('54','5','分支程序设计1（设计）','实验5 分支程序设计1（设计）的实验内容','实验5 分支程序设计1（设计）的实验内容','hb_2013001','10');
+insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('55','6','分支程序设计2（设计）','实验6 分支程序设计2（设计）的实验内容','实验6 分支程序设计2（设计）的实验报告模板','hb_2013001','10');
+insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('56','7','子程序设计（设计）','实验7 子程序设计（设计）的实验内容','实验7 子程序设计（设计）的模板','hb_2013001','20');
+insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('57','8','子程序设计（设计）','实验8 子程序设计（设计）的实验内容','实验8 子程序设计（设计）的实验报告模板','hb_2013001','20');
 CREATE TABLE `remark` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tea_no` varchar(12) NOT NULL DEFAULT '',
   `no` varchar(25) DEFAULT NULL,
   `body` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 insert into `remark`(`id`,`tea_no`,`no`,`body`) values('1','tea','01','实验做得一般实验做得一般实验做得一般实验做得一般');
 insert into `remark`(`id`,`tea_no`,`no`,`body`) values('2','tea','02','做得很好好');
 insert into `remark`(`id`,`tea_no`,`no`,`body`) values('4','tea','03','42424');
 insert into `remark`(`id`,`tea_no`,`no`,`body`) values('5','tea','04','42432');
 insert into `remark`(`id`,`tea_no`,`no`,`body`) values('9','tea','08','424242');
+insert into `remark`(`id`,`tea_no`,`no`,`body`) values('10','tea008','1','做的不错');
+insert into `remark`(`id`,`tea_no`,`no`,`body`) values('11','tea008','2','做得一般，还需努力');
+insert into `remark`(`id`,`tea_no`,`no`,`body`) values('12','tea008','3','不及格');
+insert into `remark`(`id`,`tea_no`,`no`,`body`) values('13','tea008','4','做得还可以');
 CREATE TABLE `reply` (
   `reply_id` int(11) NOT NULL AUTO_INCREMENT,
   `author` varchar(12) DEFAULT NULL,
@@ -124,7 +97,7 @@ CREATE TABLE `reply` (
   `floor` int(11) DEFAULT NULL,
   `post_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`reply_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
 insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('1','admin','感谢楼主','1899-12-30 01:00:00','1','2');
 insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('2','niyh','我是2楼','1899-12-30 04:00:00','2','2');
 insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('3','f','我是3楼','1899-12-30 01:00:00','3','2');
@@ -167,6 +140,7 @@ insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) v
 insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('54','0900310102','a','2013-05-20 00:04:38','2','43');
 insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('55','0900310102','1464','2013-05-20 00:05:18','1','36');
 insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('56','123','haha','2013-05-20 13:58:18','1','44');
+insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('57','123','a','2013-05-21 13:28:53','1','42');
 CREATE TABLE `report` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cor_no` varchar(12) DEFAULT NULL,
@@ -178,26 +152,18 @@ CREATE TABLE `report` (
   `remark` varchar(60) DEFAULT NULL,
   `status` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
-insert into `report`(`id`,`cor_no`,`stu_no`,`item_no`,`date`,`body`,`item_mark`,`remark`,`status`) values('2','16416','stu2','001','2013-05-16','1122424
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+insert into `report`(`id`,`cor_no`,`stu_no`,`item_no`,`date`,`body`,`item_mark`,`remark`,`status`) values('16','sf_2013001','0900310315','1','2013-05-20','实验1 贪心方法原理的实验内容
 
-我你好神气','100','做得很好好','2');
-insert into `report`(`id`,`cor_no`,`stu_no`,`item_no`,`date`,`body`,`item_mark`,`remark`,`status`) values('3','16416','stu2','002','2013-05-16','1122424
+我提交','80','做的不错','2');
+insert into `report`(`id`,`cor_no`,`stu_no`,`item_no`,`date`,`body`,`item_mark`,`remark`,`status`) values('17','sf_2013001','0900310315','2','2013-05-20','实验2 动态规划原理1的实验内容
 
-你好神气','100','','2');
-insert into `report`(`id`,`cor_no`,`stu_no`,`item_no`,`date`,`body`,`item_mark`,`remark`,`status`) values('4','16416','stu2','003','2013-05-16','1122424
-这是003','100','无','2');
-insert into `report`(`id`,`cor_no`,`stu_no`,`item_no`,`date`,`body`,`item_mark`,`remark`,`status`) values('5','16416','stu2','004','2013-05-16','1122424qq','100','','2');
-insert into `report`(`id`,`cor_no`,`stu_no`,`item_no`,`date`,`body`,`item_mark`,`remark`,`status`) values('7','13698','stu2','1','2013-05-16','做出一个hello world 程序','70','无','2');
-insert into `report`(`id`,`cor_no`,`stu_no`,`item_no`,`date`,`body`,`item_mark`,`remark`,`status`) values('8','001','stu2','001','2013-05-18','413463a','','','0');
-insert into `report`(`id`,`cor_no`,`stu_no`,`item_no`,`date`,`body`,`item_mark`,`remark`,`status`) values('9','13698','stu2','2','2013-12-30','wwwwww','70','','2');
-insert into `report`(`id`,`cor_no`,`stu_no`,`item_no`,`date`,`body`,`item_mark`,`remark`,`status`) values('10','13698','stu2','3','2013-12-30','wwww','70','','2');
-insert into `report`(`id`,`cor_no`,`stu_no`,`item_no`,`date`,`body`,`item_mark`,`remark`,`status`) values('11','13698','0900310101','1','','fww','50','','2');
-insert into `report`(`id`,`cor_no`,`stu_no`,`item_no`,`date`,`body`,`item_mark`,`remark`,`status`) values('12','16416','stu2','006','2013-05-16','131','100','','2');
-insert into `report`(`id`,`cor_no`,`stu_no`,`item_no`,`date`,`body`,`item_mark`,`remark`,`status`) values('13','001','stu2','002','2013-05-18','wgegw','','','1');
-insert into `report`(`id`,`cor_no`,`stu_no`,`item_no`,`date`,`body`,`item_mark`,`remark`,`status`) values('14','1313664163','stu2','1','2013-05-18','你好
-我的实验我','80','无','2');
-insert into `report`(`id`,`cor_no`,`stu_no`,`item_no`,`date`,`body`,`item_mark`,`remark`,`status`) values('15','1313664163','stu2','2','2013-05-18','围观报告我','80','无','2');
+提交','70','做得一般，还需努力','2');
+insert into `report`(`id`,`cor_no`,`stu_no`,`item_no`,`date`,`body`,`item_mark`,`remark`,`status`) values('18','sf_2013001','0900310315','3','2013-05-20','实验3 动态规划原理2 的实验报告内容
+提交','75','做得一般，还需努力','2');
+insert into `report`(`id`,`cor_no`,`stu_no`,`item_no`,`date`,`body`,`item_mark`,`remark`,`status`) values('19','sf_2013001','0900310315','4','2013-05-20','实验4 回溯法 的实验内容
+
+已提交','90','做的不错','2');
 CREATE TABLE `sel_cor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `stu_no` varchar(12) NOT NULL,
@@ -209,22 +175,9 @@ CREATE TABLE `sel_cor` (
   `report_mark` tinyint(4) DEFAULT NULL,
   `exam_mark` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
-insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('1','stu2','13698','2','0','82','80','70','85');
-insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('2','stu2','abd','','0','','','','');
-insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('3','stu2','00.123','','2','','','','');
-insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('4','stu2','16416','1','1','86','100','100','80');
-insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('5','0900310101','13698','2','1','26','25','15','29');
-insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('9','0900310101','001','1','1','15','60','0','40');
-insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('10','stu2','001','1','1','6','25','0','10');
-insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('11','0900310102','001','2','1','33','90','0','80');
-insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('12','0900310103','001','1','1','26','50','0','70');
-insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('13','0900310104','001','1','1','12','30','0','30');
-insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('14','0900310105','001','2','1','6','26','0','10');
-insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('15','0900310107','001','2','1','4','10','0','10');
-insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('16','stu2','1313664163','1','1','80','80','80','80');
-insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('17','stu2','123','1','0','','','0','');
-insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('18','0900310310','123','1','0','','','0','');
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('19','0900310315','sf_2013001','A','1','77','80','79','75');
+insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('20','0900310315','hb_2013001','A','1','','','','');
 CREATE TABLE `sort` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(10) DEFAULT NULL,
@@ -245,7 +198,6 @@ CREATE TABLE `stu` (
   `grade` varchar(5) DEFAULT NULL,
   PRIMARY KEY (`stu_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-insert into `stu`(`stu_no`,`psw`,`mail`,`name`,`statue`,`mobile`,`class_no`,`grade`) values('0900310101','425e21f13c1bba436903f2919e73cde6','','李鸣','1','15878361000','09003101','2009');
 insert into `stu`(`stu_no`,`psw`,`mail`,`name`,`statue`,`mobile`,`class_no`,`grade`) values('0900310102','425e21f13c1bba436903f2919e73cde6','','张明','1','','09003101','2009');
 insert into `stu`(`stu_no`,`psw`,`mail`,`name`,`statue`,`mobile`,`class_no`,`grade`) values('0900310104','abb34258d4b9cc44de09569ad555bf93','','小光','1','','09003101','2009');
 insert into `stu`(`stu_no`,`psw`,`mail`,`name`,`statue`,`mobile`,`class_no`,`grade`) values('0900310105','4671eaf9b066e20c1ba651922d823921','nihao@as.com','小三','1','1333','09003101','2009');
@@ -272,7 +224,7 @@ insert into `stu`(`stu_no`,`psw`,`mail`,`name`,`statue`,`mobile`,`class_no`,`gra
 insert into `stu`(`stu_no`,`psw`,`mail`,`name`,`statue`,`mobile`,`class_no`,`grade`) values('0900310312','709566396bef124fb0ecb7e8f23571c8','','','1','','09003103','2009');
 insert into `stu`(`stu_no`,`psw`,`mail`,`name`,`statue`,`mobile`,`class_no`,`grade`) values('0900310313','a4e9e1a45d33574cbb16222b841a2d6f','','','1','','09003103','2009');
 insert into `stu`(`stu_no`,`psw`,`mail`,`name`,`statue`,`mobile`,`class_no`,`grade`) values('0900310314','2f7e6c6d2801bf6872941155b1d88f67','','','1','','09003103','2009');
-insert into `stu`(`stu_no`,`psw`,`mail`,`name`,`statue`,`mobile`,`class_no`,`grade`) values('0900310315','859d85f7c42448e9b4d8f97ed2105e4c','','','1','','09003103','2009');
+insert into `stu`(`stu_no`,`psw`,`mail`,`name`,`statue`,`mobile`,`class_no`,`grade`) values('0900310315','859d85f7c42448e9b4d8f97ed2105e4c','liangdebin@ldb.com','梁德斌','1','13800138000','09003103','2009');
 insert into `stu`(`stu_no`,`psw`,`mail`,`name`,`statue`,`mobile`,`class_no`,`grade`) values('0900310316','9dc86bbaef5c9035c277492a1b060eb2','','','1','','09003103','2009');
 insert into `stu`(`stu_no`,`psw`,`mail`,`name`,`statue`,`mobile`,`class_no`,`grade`) values('0900310317','e00959d0d443c7a07a05d76405cf763a','','','1','','09003103','2009');
 insert into `stu`(`stu_no`,`psw`,`mail`,`name`,`statue`,`mobile`,`class_no`,`grade`) values('0900310318','8fbee763c3ede18a59fdf9bcbf5afae6','','','1','','09003103','2009');
@@ -296,16 +248,9 @@ CREATE TABLE `tea` (
   `mobile` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`tea_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-insert into `tea`(`tea_no`,`psw`,`name`,`mail`,`department`,`skill`,`mobile`) values('001','076c66044b3a6a00a4473459e2bc1db6','lin','','3','','');
-insert into `tea`(`tea_no`,`psw`,`name`,`mail`,`department`,`skill`,`mobile`) values('002','26ef8d50a566a6ae259e98c941dce4c3','002','','4','','');
-insert into `tea`(`tea_no`,`psw`,`name`,`mail`,`department`,`skill`,`mobile`) values('005','005','','','5','','');
 insert into `tea`(`tea_no`,`psw`,`name`,`mail`,`department`,`skill`,`mobile`) values('009','009','李明','009@tea.com','3','c,c++','');
-insert into `tea`(`tea_no`,`psw`,`name`,`mail`,`department`,`skill`,`mobile`) values('100','fbadd336af24f428c93f06e7d176bc76','100100','','5','','');
 insert into `tea`(`tea_no`,`psw`,`name`,`mail`,`department`,`skill`,`mobile`) values('123','6fd742a61bd034804c00c49b18045020','123','123@tea.com','3','','123456789');
-insert into `tea`(`tea_no`,`psw`,`name`,`mail`,`department`,`skill`,`mobile`) values('123456','87d9bb400c0634691f0e3baaf1e2fd0d','小马','','2','','');
-insert into `tea`(`tea_no`,`psw`,`name`,`mail`,`department`,`skill`,`mobile`) values('1234567','181316950c9b16213fc35b0b905019fb','小红马','','1','','');
-insert into `tea`(`tea_no`,`psw`,`name`,`mail`,`department`,`skill`,`mobile`) values('123456789','7e81647d0396457cb1ad703f00b6a2d8','小林','','1','','');
-insert into `tea`(`tea_no`,`psw`,`name`,`mail`,`department`,`skill`,`mobile`) values('tea','26ef8d50a566a6ae259e98c941dce4c3','张三','tea@tea.com','3','','13000');
+insert into `tea`(`tea_no`,`psw`,`name`,`mail`,`department`,`skill`,`mobile`) values('tea008','31a296bb98cc15aa4dce4fa44b3b17f3','张三','','3','','');
 CREATE TABLE `topic` (
   `post_id` int(11) NOT NULL AUTO_INCREMENT,
   `sort` varchar(4) DEFAULT NULL,
@@ -319,7 +264,7 @@ CREATE TABLE `topic` (
   `enable_post` tinyint(4) DEFAULT NULL,
   `top` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`post_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('1','1','新手报到帖','stu','ss','1899-12-30 13:00:00','3','2013-05-19 15:51:56','0','0','0');
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('2','1','求解','sss','bw','1899-12-30 01:00:00','5','1899-12-30 01:00:00','0','0','0');
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('4','1','www','stu2','www','2013-05-19 01:51:12','0','0000-00-00 00:00:00','0','0','0');
@@ -355,6 +300,7 @@ insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_f
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('39','1','wgefgwwwww','stu2','wgegwgee','2013-05-19 19:44:13','0','2013-05-19 19:44:13','0','0','0');
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('40','1','wgefgwwwwwwwwwww','stu2','wgegwgeegegeg','2013-05-19 19:44:17','1','2013-05-19 19:51:29','0','0','0');
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('41','1','qyw','stu2','wtw','2013-05-19 19:44:24','1','2013-05-19 19:46:10','0','0','0');
-insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('42','1','你好啊','stu2','你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊','2013-05-19 19:56:48','0','2013-05-19 19:56:48','0','0','0');
+insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('42','1','你好啊','stu2','你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊你好啊','2013-05-19 19:56:48','1','2013-05-21 13:28:53','0','0','0');
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('43','1','session开始了','0900310102','session开始了','2013-05-19 23:59:09','2','2013-05-20 00:04:38','0','0','0');
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('44','2','管理员123发帖测试','123','管理员123发帖测试','2013-05-20 00:35:09','1','2013-05-20 13:58:18','0','0','0');
+insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('45','1','测试一下发帖','0900310315','测试而已','2013-05-20 19:41:14','0','2013-05-20 19:41:14','0','0','0');

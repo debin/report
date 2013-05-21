@@ -73,7 +73,7 @@ if($rel = mysql_fetch_array($result))
 }
 else
 {
-	echo '还没有已选课程';
+	echo '还没有已经被审核通过的课程';
 }
 
 ?>

@@ -2,6 +2,7 @@
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
 <script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
 </head>
+<div style="background-image:url(../static/image/topback.jpg);width:1024px;height:80px;margin-left: auto; margin-right: auto;"></div>
 <?php
 include '../config.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
@@ -15,7 +16,7 @@ session_start();
 if (!isset($_SESSION['user']) || NULL == $_SESSION['user'])
 {
 	echo 'session失效，请重新登陆<br /><br />';
-	echo "<a href='./login.php'>立即登陆</a>";
+	echo "<a href='../login.php'>立即登陆</a>";
 	die();
 }
 $user = $_SESSION['user']['id'];

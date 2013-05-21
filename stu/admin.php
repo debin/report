@@ -19,14 +19,15 @@ if ('stu' != $_SESSION ['user'] ['type']) {
 	die ();
 }
 ?>
+<div style="background-image:url(../static/image/topback.jpg);width:1024px;height:80px;margin-left: auto; margin-right: auto;"></div>
 <div class="sep3"></div>
 	<div
-		style="margin-left: auto; margin-right: auto; min-width: 960px; text-align: center; margin-top: 1px;">
+		style="margin-left: auto; margin-right: auto; min-width: 960px; text-align: center; margin-top: 1px;margin-top:10px;margin-bottom:5px;">
 		<ul class="heng">
 			<li><a href="../index.php">首页</a></li>
 			<li><a href="../bbs.php">讨论区</a></li>
 			<li><a href="../report.php">实验报告管理</a></li>
-			<li><a href="about_center.php">中心概括</a></li>
+			<li><a href="../about_center.php">中心概括</a></li>
 <?php
 // session_start();
 if (! isset ( $_SESSION ['user'] ) || NULL == $_SESSION ['user']) {

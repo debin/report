@@ -48,8 +48,8 @@ mysql_close($conn);
 				</tr>
 				
 				<tr>
-					<td>面向年纪</td>
-					<td><input width="10px" name="grade" type="text">(如2013-2)</input></td>
+					<td>面向年级</td>
+					<td><input width="10px" name="grade" type="text">(如2009)</input></td>
 				</tr>
 
 				<tr>

@@ -21,10 +21,11 @@ if ('admin' != $_SESSION ['user'] ['type']) {
 
 ?>
 
+<div style="background-image:url(../static/image/topback.jpg);width:1024px;height:80px;margin-left: auto; margin-right: auto;"></div>
 	<div class="sep3"></div>
 	<div
 		style="margin-left: auto; margin-right: auto; min-width: 960px; text-align: center;">
-		<ul class="heng">
+		<ul class="heng" style="margin-top:10px;margin-bottom:5px;">
 			<li><a href="../index.php">首页</a></li>
 			<li><a href="../bbs.php">讨论区</a></li>
 			<li><a href="../report.php">实验报告管理</a></li>
@@ -44,7 +45,7 @@ if ('admin' != $_SESSION ['user'] ['type']) {
 	</div>
 
 
-	<div class='sep10'></div>
+	<div class='sep3'></div>
 	<div style="float: left; width: 230;">
 		<ul style="list-style: none;">
 			<li>个人信息管理
@@ -114,6 +115,8 @@ if ('admin' != $_SESSION ['user'] ['type']) {
 			}
 			?>
 	</div>
+
+	<!-- 绑定左边导航点击事件 -->
 
 	<script type="text/javascript">
 var url = [ ];

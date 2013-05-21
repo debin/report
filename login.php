@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="./static/css/global.css">
 <script type="text/javascript" src="./static/jquery/jquery-1.8.3.js"></script>
 </head>
-
+<div style="background-image: url(./static/image/topback.jpg); width: 1024px; height: 80px; margin-left: auto; margin-right: auto;"></div>
 <?php
 include './config.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
@@ -78,10 +78,16 @@ switch ($action) {
 				$a['type'] = $identify;
 				$a['id'] = $user;
 				$_SESSION['user'] = $a;
+				
+				$url_return = "./index.php";
+				if (isset($_REQUEST['url_return']) && NULL != $_REQUEST['url_return'])
+				{
+					$url_return = $_REQUEST['url_return']; 
+				}
 				echo "<div class='center' style='width:720px;'>";
-				echo '登陆正确,2秒后跳转到首页<br /><br/>';
-				echo "<a href='./index.php'>立即跳转</a>";
-				echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"2;URL='./index.php' \">";	
+				echo '登陆正确,2秒后跳转回原页面<br /><br/>';
+				echo "<a href='{$url_return}'>立即跳转</a>";
+				echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"2;URL='{$url_return}' \">";	
 				echo "</div>";
 			}
 			else
@@ -111,10 +117,17 @@ switch ($action) {
 	default :
 		{
 			session_start();
+			$url_return = "./index.php";
+			if(isset($_SERVER["HTTP_REFERER"]) && NULL != $_SERVER["HTTP_REFERER"])
+			{
+				$url_return = $_SERVER["HTTP_REFERER"];
+			}
 			if (isset ( $_SESSION ['user'] ) && NULL != $_SESSION ['user']) {
-				echo '你已经登陆过了,2秒后自动跳转到首页';
-				echo "<a href='./index.php'>立即跳转</a>";
-				echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"2;URL='./index.php' \">";
+				echo "<div class='center' style='width:720px;'>";
+				echo '你已经登陆过了,2秒后自动跳转回原页面<br />';		
+				echo "<a href='{$url_return}'>立即跳转</a>";
+				echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"2;URL='{$url_return}' \">";
+				echo "<div>";
 				die ( );
 			}
 			echo "<div class='center' style='width:720px;'>";
@@ -144,7 +157,7 @@ switch ($action) {
 			echo '</tr>';
 			
 			echo "<tr><td><input type='hidden' name=action value='login' ></td></tr>";
-			
+			echo "<tr><td><input type='hidden' name=url_return value='{$url_return}' ></td></tr>";
 			echo '<tr>';
 			echo "<td><input type='submit' value='登录' class='button'></td>";
 			echo "<td><input type='reset' value='重置' class='button'></td>";
