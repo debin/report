@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php session_start ();?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
@@ -7,7 +8,6 @@
 <body>
 <?php
 // 判断用户身份
-session_start ();
 if (! isset ( $_SESSION ['user'] ) || NULL == $_SESSION ['user']) {
 	echo '你还没有登陆，请先登陆<br /><br />';
 	echo "<a href='../login.php'>立即登陆</a>";

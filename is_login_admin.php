@@ -1,7 +1,7 @@
-﻿<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<?php session_start ();?>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
 <?php
 //判断是否登陆
-session_start();
 if (!isset($_SESSION['user']) || NULL == $_SESSION['user'])
 {
 	echo '你还没有登陆，请先登陆<br /><br />';

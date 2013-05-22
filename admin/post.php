@@ -1,4 +1,4 @@
-﻿<head>
+<head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
 <script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
@@ -78,7 +78,9 @@ switch ($action)
 					echo '<tr>';
 					echo '<td>', "<input type=checkbox name = post_id[] value={$rel['post_id']}>", '</td>';
 					echo '<td>', $rel ["name"], '</td>';
-					echo "<td><a href=../bbs.php?topic={$rel['post_id']} target=_black>{$rel ['title']}</a></td>";
+					echo "<td><a href=../bbs.php?topic={$rel['post_id']} target=_black>";
+					echo mb_substr($rel ['title'],0,20,'utf-8');
+					echo "</a></td>";
 					echo '<td>', $rel ["author"], '</td>';
 					echo '<td>', $rel ["post_time"], '</td>';
 				}while ( $rel = mysql_fetch_array ( $result ) );
@@ -241,7 +243,7 @@ switch ($action)
 				$str_body=$rel2 ["body"];
 				if (strlen($str_body) > 50)
 				{
-					$str_body = substr($str_body, 0,48) . "……";
+					$str_body = mb_substr($str_body, 0,20,'utf-8') . "……";
 				}
 				echo '<td>', $str_body, '</td>';
 				echo '</tr>';

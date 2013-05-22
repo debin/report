@@ -1,10 +1,10 @@
+<?php session_start ();?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="./static/css/global.css"></link>
 <script type="text/javascript" src="./static/jquery/jquery-1.8.3.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Insert title here</title>
 
 </head>
 <body>
@@ -26,7 +26,7 @@ mysql_query ( "SET NAMES 'UTF8'" );
 			<li><a href="./report.php">实验报告管理</a></li>
 			<li><a href="about_center.php">中心概括</a></li>
 			<?php
-			session_start ();
+	//		session_start ();
 			if (! isset ( $_SESSION ['user'] ) || NULL == $_SESSION ['user']) {
 				echo "<li><a href='./login.php'>登陆</a></li>";
 			} else {
@@ -111,7 +111,7 @@ mysql_query ( "SET NAMES 'UTF8'" );
 			?>
 	                 <li><a
 					href=http://jsjzx.guet.edu.cn/shownews.aspx?nid=280><span style="font-size: 15px">第六次程序设计大赛培训时间安排表</span></a></li>
-				<li s;><a href=http://jsjzx.guet.edu.cn/shownews.aspx?nid=279><span style="font-size: 15px">2013-2014-1排课资料</span></a></li>
+				<li ><a href=http://jsjzx.guet.edu.cn/shownews.aspx?nid=279><span style="font-size: 15px">2013-2014-1排课资料</span></a></li>
 				<li><a href=http://jsjzx.guet.edu.cn/shownews.aspx?nid=278><span style="font-size: 15px">商学院12级六专业学生调课通知</span></a></li>
 				<li><a href=http://jsjzx.guet.edu.cn/shownews.aspx?nid=277><span style="font-size: 15px">第六届程序设计大赛报名通知</span></a></li>
 				<li><a href=http://jsjzx.guet.edu.cn/shownews.aspx?nid=276><span style="font-size: 15px">有小孩的教职工：请看六一节通知</span></a></li>
@@ -153,10 +153,10 @@ mysql_query ( "SET NAMES 'UTF8'" );
 			</div>
 			<ul
 				style="list-style: none; font-size: 18px; margin: 0px; padding: 0px;">
-				<li><a href="http://www.guet.edu.cn/">数据结构课程网站</a></li>
-				<li><a href="http://w5.guet.edu.cn/jxsjb/">大学计算机基础PBL网络课堂</a></li>
-				<li><a href="http://szhxy.guet.edu.cn/qxgl/">算法分析与设计课程网站</a></li>
-				<li><a href="http://lib.gliet.edu.cn/">电子商务课程网站</a></li>
+				<li><a href="http://metc.guet.edu.cn/">现教中心 </a></li>
+				<li><a href="http://www.guet.edu.cn/net-fuwu/ftp.asp">桂电 FTP </a></li>
+				<li><a href="http://w3.guet.edu.cn/cisco">培训认证 </a></li>
+				<li><a href="http://w3.guet.edu.cn/zhglc/guizhongyiqi/index.htm">设备共享 </a></li>
 				<li><a href="http://202.117.58.254/ctec/">桂电blackboar教学平台</a></li>
 				<li><a href="http://202.117.58.254/ctec/">程序设计训练基地</a></li>
 				<li><a href="http://202.117.58.254/ctec/">大学生创新实践基地</a></li>
@@ -172,7 +172,7 @@ mysql_query ( "SET NAMES 'UTF8'" );
 				style="list-style: none; font-size: 18px; margin: 0px; padding: 0px;">
 				<li><a href="http://www.guet.edu.cn/">桂电教育在线</a></li>
 				<li><a href="http://w5.guet.edu.cn/jxsjb/">计算机中心教学资源网站</a></li>
-				<li><a href="http://szhxy.guet.edu.cn/qxgl/">oracle数据库基础教学网站</a></li>
+				<li><a href="http://szhxy.guet.edu.cn/qxgl/">数据库基础教学网站</a></li>
 				<li><a href="http://lib.gliet.edu.cn/">网页设计学习网站</a></li>
 				<li><a href="http://202.117.58.254/ctec/">在线教学过程登记表</a></li>
 				<li><a href="http://202.117.58.254/ctec/">校级程序设计大赛(校内）</a></li>
@@ -191,7 +191,7 @@ mysql_query ( "SET NAMES 'UTF8'" );
 				<li><a href="http://w5.guet.edu.cn/jxsjb/">教师网络化办公系统</a></li>
 				<li><a href="http://szhxy.guet.edu.cn/qxgl/">实验预约系统</a></li>
 				<li><a href="http://lib.gliet.edu.cn/">计算机中心教学BBS</a></li>
-				<li><a href="http://202.117.58.254/ctec/">计算机一级等级考试样卷库</a></li>
+				<li><a href="http://202.117.58.254/ctec/">计算机等级考试样卷库</a></li>
 				<li><a href="http://202.117.58.254/ctec/">学习互助中心</a></li>
 				<li><a href="http://202.117.58.254/ctec/">程序在线智能测评系统</a></li>
 				<li><a href="http://202.117.58.254/ctec/">Android开发团队</a></li>

@@ -1,4 +1,6 @@
-﻿<head>
+<?php session_start ();?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="./static/css/global.css">
 <script type="text/javascript" src="./static/jquery/jquery-1.8.3.js"></script>
@@ -31,7 +33,7 @@ switch ($action) {
 	// 登陆，用户名判断
 	case 'login' :
 		{
-			session_start ();
+		//	session_start ();
 			$authcode = strtolower ( $_SESSION ['authcode'] );
 			unset ( $_SESSION ['authcode'] );
 			
@@ -102,7 +104,7 @@ switch ($action) {
 	
 	case 'logout' :
 		{
-			session_start ();
+	//		session_start ();
 			unset ( $_SESSION ['user'] );
 			echo "<div class='center' style='width:720px;'>";
 			echo '你已经退出登陆了,2秒后自动返回首页<br /><br/>';
@@ -116,7 +118,7 @@ switch ($action) {
 	// 默认为登陆界面
 	default :
 		{
-			session_start();
+	//		session_start();
 			$url_return = "./index.php";
 			if(isset($_SERVER["HTTP_REFERER"]) && NULL != $_SERVER["HTTP_REFERER"])
 			{

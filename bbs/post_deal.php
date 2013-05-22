@@ -1,4 +1,5 @@
-﻿<head>
+<?php session_start ();?>
+<head>
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
 <script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
 </head>
@@ -12,7 +13,6 @@ $now = date ( "Y-m-d G:i:s" );
 //$stu = 'stu2';
 
 //判断用户身份
-session_start();
 if (!isset($_SESSION['user']) || NULL == $_SESSION['user'])
 {
 	echo 'session失效，请重新登陆<br /><br />';
@@ -48,10 +48,13 @@ switch ($action)
  		{
  			die('帖子内容呢?');
  		}
- 		$sort = $_REQUEST ['sort'];
- 		$title = $_REQUEST ['title'];
- 		$body = $_REQUEST ['body'];
+ 		$sort = trim($_REQUEST ['sort']);
+ 		$title = trim($_REQUEST ['title']);
+ 		$body = trim($_REQUEST ['body']);
  		
+ 		//帖子字符转义
+ 		$title = addslashes ($title );
+ 		$body = addslashes ($body );
  		//把帖子插入到数据库
  		$queryStr=sprintf("insert into topic values(NULL,'%s','%s','%s','%s','%s','0','%s','0','0','0')",$sort,$title,$user,$body,$now,$now);
  		$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败: " . mysql_error () ) ;
@@ -82,7 +85,7 @@ switch ($action)
  			}
  			$post_id = $_REQUEST ['post_id'];
  			$reply_body = $_REQUEST ['reply_body'];
- 			
+ 			$reply_body = addslashes ($reply_body );
  		//	echo $post_id;
  		//	echo $reply_body;
  		

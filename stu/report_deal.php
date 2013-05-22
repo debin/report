@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 include '../config.php';
 include '../is_login_stu.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
@@ -31,6 +31,7 @@ switch ($action)
 $body = $_REQUEST ['body'];
 $cor_no = $_REQUEST ['cor_no'];
 $item_no = $_REQUEST ['item_no'];
+$body = addslashes ($body);
 
 //若已经过了报告截止提交时间
 $queryStr = sprintf ("select report_time,close_time from course where cor_no='%s'",$cor_no);

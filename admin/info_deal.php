@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 include '../config.php';
 include '../is_login_admin.php';
 $conn=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("连接失败:".mysql_error());

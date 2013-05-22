@@ -7,6 +7,7 @@
 </head>
 
 <?php
+session_start ();
 include './config.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
 mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
@@ -23,7 +24,7 @@ $now = date ( "Y-m-d G:i:s" );
 		<li><a href="./report.php">实验报告管理</a></li>
 			<li><a href="./about_center.php">中心概括</a></li>
 			<?php
-			session_start ();
+	//		session_start ();
 			if (! isset ( $_SESSION ['user'] ) || NULL == $_SESSION ['user']) {
 				echo "<li><a href='./login.php'>登陆</a></li>";
 			} else {
@@ -56,7 +57,9 @@ if (isset ( $_REQUEST ['topic'] )) {
 		
 		echo '<hr />';
 		echo '<div class=sep10></div>';
-		echo $rel ['body'];
+		echo '<pre>';
+		echo htmlspecialchars(stripslashes($rel ['body']));
+		echo '</pre>';
 		echo '<hr />';
 		
 		// 获取并显示回帖
@@ -101,7 +104,10 @@ if (isset ( $_REQUEST ['topic'] )) {
 				// echo '<div></div>';
 				echo "</div>";
 				
-				echo "<pre>{$rel3['body']}</pre>";
+				echo "<pre>";
+				echo htmlspecialchars(stripslashes($rel3['body']));
+				echo "</pre>";
+				
 			} while ( $rel3 = mysql_fetch_array ( $result3 ) );
 			
 			// 分页导航
@@ -177,7 +183,9 @@ else {
 		echo '<br />';
 		do {
 			echo "<div style='min-height:30px;'>";
-			echo "<span class='title' style='margin-left:20px;'><span style='display:inline-block;width:100px;'>[{$rel['name']}]</span>&nbsp<a href=./bbs.php?topic={$rel['post_id']}>{$rel['title']}</a></span>";
+			echo "<span class='title' style='margin-left:20px;'><span style='display:inline-block;width:100px;'>[{$rel['name']}]</span>&nbsp<a href=./bbs.php?topic={$rel['post_id']}>";
+            echo mb_substr($rel['title'], 0,21,'utf-8');
+            echo "</a></span>";
 			echo "<span style='float:right;font-size:15px;margin-right:10px'>最后回复:{$rel['last_reply_time']}</span>";
 			echo "<span style='float:right;font-size:15px;margin-right:10px'>楼主:{$rel['author']}</span>";
 			// echo "<span

@@ -1,11 +1,11 @@
-﻿<head>
+<head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
 <script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
 </head>
 <?php
-include '../config.php';
 include '../is_login_tea.php';
+include '../config.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
 mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
 mysql_query ( "SET NAMES 'UTF8'" );
@@ -115,12 +115,21 @@ switch($action)
 				echo '<br />';
 				echo '实验内容：:';
 				echo '<br />';
-				echo "<textarea name='body' style='width:700;height:400;'>{$rel['body']}</textarea>";
+				echo '<pre>';
+				echo "<textarea name='body' style='width:700;height:400;'>";
+
+				echo htmlspecialchars(stripslashes ($rel['body']));
 				
+				echo "</textarea>";
+				echo '</pre>';
 				echo '<br /><br />';
 				echo '实验报告模板:';
 				echo '<br />';
-				echo "<textarea name='report_format' style='width:700;height:500;'>{$rel['report_format']}</textarea>";
+				echo '<pre>';
+				echo "<textarea name='report_format' style='width:700;height:500;'>";
+				echo htmlspecialchars(stripslashes ($rel['report_format']));
+				echo "</textarea>";
+				echo '</pre>';
 				echo '<br /><br />';
 
 			}

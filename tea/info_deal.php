@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 include '../config.php';
 include '../is_login_tea.php';
 $conn=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("连接失败:".mysql_error());
@@ -18,12 +18,14 @@ switch($action)
 {
 	case 'update_info':
 		{
-			$tea_no = trim($_REQUEST['tea_no']);
+		//	$tea_no = trim($_REQUEST['tea_no']);
 			$name = trim($_REQUEST['name']);
 			$mail = trim($_REQUEST['mail']);
 			$mobile = trim($_REQUEST['mobile']);
+			$department = trim($_REQUEST['department']);
+			$skill = trim($_REQUEST['skill']);
 			
-			$queryStr = sprintf("update  tea set name='%s',mail='%s',mobile='%s' where tea_no='%s'",$name,$mail,$mobile,$tea_no);
+			$queryStr = sprintf("update  tea set name='%s',mail='%s',mobile='%s',department='%s',skill='%s' where tea_no='%s'",$name,$mail,$mobile,$department,$skill,$tea_no);
 			$result = mysql_query($queryStr,$conn) or die("查询失败:".mysql_error());
 			if($result == TRUE && 1==mysql_affected_rows())
 			{

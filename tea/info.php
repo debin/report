@@ -1,4 +1,4 @@
-﻿<head>
+<head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
 <script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
@@ -44,6 +44,16 @@ switch($action)
 			echo '<td>手机</td>';
 			echo '<td>', "<input  name = mobile value={$rel['mobile']}></input>",'</td>';
 			echo '</tr>';	
+			
+			echo '<tr>';
+			echo '<td>院系</td>';
+			echo '<td>', "<input  name = department value={$rel['department']}></input>",'</td>';
+			echo '</tr>';
+			
+			echo '<tr>';
+			echo '<td>主教</td>';
+			echo '<td>', "<input  name = skill value={$rel['skill']}></input>",'</td>';
+			echo '</tr>';
 			
 			echo '<tr>';
 			echo '<td>', "<input type=hidden name = tea_no value={$tea_no}></input>",'</td>';

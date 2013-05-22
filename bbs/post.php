@@ -1,4 +1,5 @@
-﻿<head>
+<?php session_start ();?>
+<head>
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
 <script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
 </head>
@@ -16,7 +17,6 @@ $now = date ( "Y-m-d G:i:s" );
 
 echo "<div id=topMain>";
 //判断用户身份
-session_start();
 if (!isset($_SESSION['user']) || NULL == $_SESSION['user'])
 {
 	echo '你还没有登陆，请先登陆<br /><br />';

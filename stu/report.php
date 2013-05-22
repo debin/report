@@ -1,4 +1,4 @@
-﻿<head>
+<head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
 <script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
@@ -104,7 +104,11 @@ switch($action)
 				//here
 			//	echo "实验:{$rel['item_no']}  {$rel['item_name']}";
 				echo "<form method='post' action='./report_deal.php?cor_no={$cor_no}&item_no={$item_no}'>";
-				echo "<textarea name='body' style='width:700;height:500;'>{$rel['body']}</textarea>";
+				echo '<pre>';
+				echo "<textarea name='body' style='width:700;height:500;'>";
+				echo htmlspecialchars(stripslashes ($rel['body']));
+				echo "</textarea>";
+				echo '</pre>';
 				echo '<br /><br />';
 				echo "<input name=action id=action value='' type=hidden></input>";
 				echo "<input type=button class=btn  value=保存></input>";
@@ -123,7 +127,11 @@ switch($action)
 					echo "课程号码:{$cor_no}<br />";
 					echo "实验:{$rel2['item_no']}  {$rel2['item_name']}";
 					echo "<form method='post' action='./report_deal.php?cor_no={$cor_no}&item_no={$item_no}'>";
-					echo "<textarea name='body' style='width:700;height:500;'>{$rel2['body']}</textarea>";
+					echo '<pre>';
+					echo "<textarea name='body' style='width:700;height:500;'>";
+					echo htmlspecialchars(stripslashes ($rel2['body']));
+					echo "</textarea>";
+					echo '</pre>';
 					echo '<br /><br />';
 					echo "<input name=action id=action value='' type=hidden></input>";
 					echo "<input type=button class=btn  value=保存 style='width:65px;background-image:url(../static/image/but_1.png)'></input>";

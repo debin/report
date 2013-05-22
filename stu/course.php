@@ -1,4 +1,4 @@
-﻿<head>
+<head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
 <script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
@@ -265,7 +265,7 @@ switch($action)
 				echo "实验内容:<br/><br/>";
 				echo "<pre>";
 				echo "<textarea style='width:700;height:400;' disabled>";
-				echo $rel['body'];
+				echo htmlspecialchars(stripslashes ($rel['body']));
 				echo '</textarea>';
 				echo '</pre>';
 				

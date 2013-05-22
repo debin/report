@@ -1,10 +1,11 @@
-﻿<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<?php session_start ();?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="./static/css/global.css"></link>
 <script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
+<div style="background-image: url(./static/image/topback.jpg); width: 1024px; height: 80px; margin-left: auto; margin-right: auto;"></div>
 <?php
-
 //判断用户身份
-session_start();
 if (!isset($_SESSION['user']) || NULL == $_SESSION['user'])
 {
 	echo "<div class='center' style='width:720px;'>";

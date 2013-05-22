@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 include '../config.php';
 include '../is_login_tea.php';
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
@@ -30,6 +30,8 @@ switch($action)
 			$exam_rate = $_POST ['exam_rate'];
 			$body = $_POST ['body'];
 			$report_format = $_POST['report_format'];
+			$body = addslashes ($body);
+			$report_format = addslashes ($report_format);
 			
 			//判断实验编号是否已经存在
 			$queryStr=sprintf("select count(*) from item where cor_no='%s' and item_no='%s'",$cor_no,$item_no);
@@ -64,7 +66,8 @@ switch($action)
 			$report_format=$_REQUEST['report_format'];
 			$exam_rate = $_REQUEST ['exam_rate'];
 			$body = $_REQUEST ['body'];
-			
+			$body = addslashes ($body);
+			$report_format = addslashes ($report_format);
 			if ($exam_rate < 0 || $exam_rate > 100)
 			{
 				die('成绩比重应在0到100之间');
