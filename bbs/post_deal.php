@@ -1,4 +1,7 @@
-<?php session_start ();?>
+<?php session_start ();
+header("Content-type: text/html; charset=utf-8"); 
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <head>
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
 <script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>

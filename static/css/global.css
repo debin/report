@@ -16,7 +16,7 @@ body{
     font-weight:bolder;
 }
 #topMain {
-	width: 920px;
+	width: 720px;
 	height: 40px;
 	text-align: left;
 	margin-left: auto;
@@ -128,13 +128,13 @@ a.dark:link, a.dark:visited, a.dark:active {
 	font-size:20px;
 }
 .title:hover{
-	font-size:25px;
+	font-size:95%;
 }
 a{
 	font-size:20px;
 }
 a:hover{
-	font-size:22px;
+	font-size:90%;
 
 }
 .author{

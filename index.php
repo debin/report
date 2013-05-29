@@ -1,4 +1,5 @@
 <?php session_start ();?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
@@ -126,7 +127,7 @@ mysql_query ( "SET NAMES 'UTF8'" );
 	<!-- 第一行的div结束 -->
 
 
-
+<!-- 第二行的div开始 -->
 	<div
 		style="clear: left; width: 1024px; margin-left: auto; margin-right: auto;">
 		<!--友情链接-->
@@ -197,7 +198,9 @@ mysql_query ( "SET NAMES 'UTF8'" );
 				<li><a href="http://202.117.58.254/ctec/">Android开发团队</a></li>
 			</ul>
 		</div>
-
+		
+	<!-- 第二行的div结束 -->
+	
 	</div>
 	<div></div>
 
@@ -234,8 +237,8 @@ if (isset ( $_SESSION ['user'] ) && NULL != $_SESSION ['user']) {
     	  $(this).toggleClass("on");
     	  $(this).siblings().removeAttr("class");
     	  });
-    	  t = setInterval("showAuto()", 1000);
-    	  $("#banner").hover(function(){clearInterval(t)}, function(){t = setInterval("showAuto()", 1000);});
+    	  t = setInterval("showAuto()", 2000);
+    	  $("#banner").hover(function(){clearInterval(t)}, function(){t = setInterval("showAuto()", 2000);});
     	  })
 
     	 function showAuto()

@@ -1,4 +1,6 @@
-<?php session_start ();?>
+<?php session_start ();
+header("Content-type: text/html; charset=utf-8"); ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <head>
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
 <script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
@@ -44,7 +46,7 @@ echo "</select>";
 echo '<br />';
 echo '帖子内容:';
 echo '<br />';
-echo "<textarea name=body style='width:720;height:500;'></textarea>";
+echo "<textarea name=body cols=87 rows=30 style='width:720;height:500;'></textarea>";
 echo '<br /><br />';	
 echo "<input class=button type=submit value=发帖></input>";
 echo '</form>';

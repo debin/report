@@ -60,19 +60,324 @@ CREATE TABLE `item` (
   `cor_no` varchar(12) NOT NULL,
   `exam_rate` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('46','1','贪心方法原理','实验1 贪心方法原理的实验内容<div></div>','实验1 贪心方法原理的报告模板<div></div> <a>a</a>','sf_2013001','25');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('47','2','动态规划原理1','实验2 动态规划原理1的实验内容','实验2 动态规划原理1的报告模板','sf_2013001','25');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('48','3','动态规划原理2','实验3 动态规划原理2 的实验报告内容','实验3 动态规划原理2 的实验报告模板','sf_2013001','25');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('49','4','回溯法','实验4 回溯法 的实验内容','实验4 回溯法 的实验报告模板','sf_2013001','25');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('50','1','汇编语言上机过程和Debug常用调试命令（验证）','实验1 汇编语言上机过程和Debug常用调试命令（验证）的实验内容','实验1 汇编语言上机过程和Debug常用调试命令（验证）的报告模板','hb_2013001','10');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('51','2','循环程序设计1（设计）','实验2 循环程序设计1（设计）的实验内容','实验2 循环程序设计1（设计）的报告模板','hb_2013001','10');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('52','3','循环程序设计2（设计）','实验3 循环程序设计2（设计） 的报告内容','实验3 循环程序设计2（设计） 的模板','hb_2013001','10');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('53','4','循环程序设计2（设计）','实验4 循环程序设计2（设计）的实验内容','实验4 循环程序设计2（设计）的模板','hb_2013001','10');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('54','5','分支程序设计1（设计）','实验5 分支程序设计1（设计）的实验内容','实验5 分支程序设计1（设计）的实验内容','hb_2013001','10');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('55','6','分支程序设计2（设计）','实验6 分支程序设计2（设计）的实验内容','实验6 分支程序设计2（设计）的实验报告模板','hb_2013001','10');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('56','7','子程序设计（设计）','实验7 子程序设计（设计）的实验内容','实验7 子程序设计（设计）的模板','hb_2013001','20');
-insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('57','8','子程序设计（设计）','实验8 子程序设计（设计）的实验内容','实验8 子程序设计（设计）的实验报告模板','hb_2013001','20');
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
+insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('46','1','用贪心方法解背包问题','一: 实验目的
+    掌握按贪心方法原理求背包问题最优解的方法
+
+二:问题描述
+   背包问题描述如下:  已知
+   背包容量M=120
+   物品种类数n=10
+   各种物品的总效益pi(i=1,2,………10) : 50,60,70,80,90,80,70,60,50,40
+   各种物品的总重量wi(i=1,2………10) : 17,30,25,41,80,70,64,56,47,38
+求: 各种物品所取重量占其总重量的比例xi(i=1,2,…..10),满足0<=xi<=1,
+
+三. 基本要求
+(1)按三种不同的量度标准分别计算所得最大总效益,然后比较哪个最大
+1.	按效益值由大到小取物品. 
+2. 按重量值由小到大取物品
+3.按比值pi/wi的值由大到小取物品
+
+','一: 实验目的
+    掌握按贪心方法原理求背包问题最优解的方法
+二:问题描述
+   背包问题描述如下:  已知
+   背包容量M=120
+   物品种类数n=10
+   各种物品的总效益pi(i=1,2,………10) : 50,60,70,80,90,80,70,60,50,40
+   各种物品的总重量wi(i=1,2………10) : 17,30,25,41,80,70,64,56,47,38
+求: 各种物品所取重量占其总重量的比例xi(i=1,2,…..10),满足0<=xi<=1,
+
+三. 基本要求
+(1)按三种不同的量度标准分别计算所得最大总效益,然后比较哪个最大
+1.按效益值由大到小取物品.
+2. 按重量值由小到大取物品
+3.按比值pi/wi的值由大到小取物品
+四．程序清单
+
+
+
+
+五．结果
+
+
+
+六．总结
+','sf_2013001','25');
+insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('47','2','动态规划原理1','一: 实验目的
+    掌握按动态规划原理解决计算图的任两结点间的距离的Floyd算法
+
+二:问题描述
+   
+  设图G 的结点个数n=10,给定一个10*10矩阵作为图G 的成本矩阵.
+  其中的元素99相当于无穷，表示相应的两个结点间没有边相连
+     0    99     8     7     6     5     4     3     2     1  
+     99    0     99    8     7     6     5     4     3     2
+     8    99     0     99   8      7     6     5     4     3
+     7     8     99    0    99     8     7     6     5     4
+C＝  6    7      8     99   0      99    8     7     6     5
+     5    6      7     8    99     0     99    8     7     6
+     4    5      6     7    8      99    0     99    8     7
+     3    4      5     6    7      8     99     0    99    8
+     2    3      4     5    6      7     8      99   0     99
+     1    2      3     4    5      6     7      8    99    0
+三. 基本要求
+（1）	算法采用三重循环。
+（2）	显示结果要清晰易懂
+（3）	本题运行结果 
+','一: 实验目的
+    掌握按动态规划原理解决计算图的任两结点间的距离的Floyd算法
+
+二:问题描述
+   
+  设图G 的结点个数n=10,给定一个10*10矩阵作为图G 的成本矩阵.
+  其中的元素99相当于无穷，表示相应的两个结点间没有边相连
+     0    99     8     7     6     5     4     3     2     1  
+     99    0     99    8     7     6     5     4     3     2
+     8    99     0     99   8      7     6     5     4     3
+     7     8     99    0    99     8     7     6     5     4
+C＝  6    7      8     99   0      99    8     7     6     5
+     5    6      7     8    99     0     99    8     7     6
+     4    5      6     7    8      99    0     99    8     7
+     3    4      5     6    7      8     99     0    99    8
+     2    3      4     5    6      7     8      99   0     99
+     1    2      3     4    5      6     7      8    99    0
+三. 基本要求
+（1）	算法采用三重循环。
+（2）	显示结果要清晰易懂
+（3）	本题运行结果 
+
+四．程序清单
+
+
+
+五．结果
+
+
+六．总结
+','sf_2013001','25');
+insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('48','3','动态规划原理2','一: 实验目的
+    掌握按动态规划原理求解一类特定条件下的流水线调度问题
+具体做法.
+
+二:问题描述
+   已知
+   作业个数n=10
+   各个作业第一道工序所须时间ai(I=1,2……,n)
+   各个作业第二道工序所须时间bi(I=1,2……,n)
+
+作业序号:  1    2     3    4     5    6    7     8    9   10
+    a;    25    30   35   40    45    50   55    60   65   70
+    b;    21    31  41    51    61    39   49   59    69   79
+
+规定:  (1)任一个作业必须先做完第一道工序才能做第二道工序
+
+(2) 任一个作业的任一道工序必须连续做完,才能中断而让别的作业做完.
+   求: 一种最优调度方案,即使总的完成时间最短的调度方案,用长度为n的一维数组s表示，使s[i]为按先后次序排在第ii位进行处理的作业的序号．
+
+三：要求：
+（１）	用一个４＊２０的二维数组Ｍ，第１行存放按从小到大排序的20个所给出的ai和bi，第２行存放相应的作业序号，第３行存放１或２(１代表是来自ai，２代表是来自bi), 第4行存放0或１（０代表作业序号未进入最优调度方案；１代表作业序号已进入最优调度方案）
+
+（２）	排序完后，按课本所述方法求一种最优调度方案，存放在S中。
+','一: 实验目的
+    掌握按动态规划原理求解一类特定条件下的流水线调度问题
+具体做法.
+
+二:问题描述
+   已知
+   作业个数n=10
+   各个作业第一道工序所须时间ai(I=1,2……,n)
+   各个作业第二道工序所须时间bi(I=1,2……,n)
+
+作业序号:  1    2     3    4     5    6    7     8    9   10
+    a;    25    30   35   40    45    50   55    60   65   70
+    b;    21    31  41    51    61    39   49   59    69   79
+
+规定:  (1)任一个作业必须先做完第一道工序才能做第二道工序
+
+(2) 任一个作业的任一道工序必须连续做完,才能中断而让别的作业做完.
+   求: 一种最优调度方案,即使总的完成时间最短的调度方案,用长度为n的一维数组s表示，使s[i]为按先后次序排在第ii位进行处理的作业的序号．
+
+三：要求：
+（１）	用一个４＊２０的二维数组Ｍ，第１行存放按从小到大排序的20个所给出的ai和bi，第２行存放相应的作业序号，第３行存放１或２(１代表是来自ai，２代表是来自bi), 第4行存放0或１（０代表作业序号未进入最优调度方案；１代表作业序号已进入最优调度方案）
+
+（２）	排序完后，按课本所述方法求一种最优调度方案，存放在S中。
+
+四．程序清单
+
+
+
+五．结果
+
+
+六．总结
+','sf_2013001','25');
+insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('49','4','回溯法','一: 实验目的
+    理解回溯法解8皇后问题的具体做法。
+
+二：问题描述
+假设已放了7个皇后的棋盘
+
+检查若X[8]=5是否使第8个皇后不被前面7个皇后中的任一个攻击。
+
+
+三： 基本要求
+（1）	按课本167页所述算法6。4编程序计算。
+（2）	结果：若X[8]=5，则第8个皇后不被前面7个皇后中的任一个攻击，也就是说8个皇后中的任何两个不能相应攻击。
+','一: 实验目的
+    理解回溯法解8皇后问题的具体做法。
+
+二：问题描述
+假设已放了7个皇后的棋盘
+
+检查若X[8]=5是否使第8个皇后不被前面7个皇后中的任一个攻击。
+
+
+三： 基本要求
+（1）	按课本167页所述算法6。4编程序计算。
+（2）	结果：若X[8]=5，则第8个皇后不被前面7个皇后中的任一个攻击，也就是说8个皇后中的任何两个不能相应攻击。
+四．程序清单
+
+
+
+
+五．结果
+
+
+六．总结','sf_2013001','25');
+insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('50','1','汇编语言上机过程和Debug常用调试命令（验证）','一．实验目的：
+学习程序设计的基本方法和技能，熟练掌握用汇编语言设计、编写、调试和运行程序的方法。
+
+二．实验题目：
+     熟悉与实验有关的系统软件(如编辑程序、汇编程序、连接程序和调试程序等)的使用方法。在调试过程中，学习及掌握debug程序的各种操作命令。
+
+三．问题描述：
+      试编写一程序：比较两个字符串string1和string2所含的字符是否相同，若相同则显示‘match’; 否则，显示‘no match’。
+
+
+
+','一．实验目的：
+学习程序设计的基本方法和技能，熟练掌握用汇编语言设计、编写、调试和运行程序的方法。
+
+二．实验题目：
+     熟悉与实验有关的系统软件(如编辑程序、汇编程序、连接程序和调试程序等)的使用方法。在调试过程中，学习及掌握debug程序的各种操作命令。
+
+三．问题描述：
+      试编写一程序：比较两个字符串string1和string2所含的字符是否相同，若相同则显示‘match’; 否则，显示‘no match’。
+
+四．	程序清单
+
+
+五．	总结','hb_2013001','20');
+insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('51','2','循环程序设计1（设计）','一.实验目的：
+学会用循环结构进行程序编程。
+
+二.实验题目：
+设计一个按表格形式显示ASC||码为10H—100H的所有字符的程序。
+
+三.实验要求：
+    按15行*16列的表格形式显示ASC||码为10H----100H的所有字符，即以行为主的顺序及ASC||码递增的次序依次显示对应的字符。每16个字符为一行,每行中的相邻两个字符之间用空白符(ASC||为0)隔开。
+','一.实验目的：
+学会用循环结构进行程序编程。
+
+二.实验题目：
+设计一个按表格形式显示ASC||码为10H—100H的所有字符的程序。
+
+三.实验要求：
+    按15行*16列的表格形式显示ASC||码为10H----100H的所有字符，即以行为主的顺序及ASC||码递增的次序依次显示对应的字符。每16个字符为一行,每行中的相邻两个字符之间用空白符(ASC||为0)隔开。
+
+四.程序清单
+
+五.总结','hb_2013001','20');
+insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('52','3','循环程序设计2（设计）','一.实验目的：
+学会用循环程序设计进行程序编程。
+
+二.实验题目：
+设计查找匹配字符串SEARCH的程序。
+
+三.问题要求：
+    程序接收用户键入的一个关键字以及一个句子。如果句子中不包含关键字则显示’no match’;如果句子中包含关键字则显示‘match’，且把该字在句子中的位置用十六进制数显示出来，要求程序的执行过程如下：
+    enter   keyword :abc
+    enter   sentence :we   are   studying  abc
+    match  at  location :11H of  the  sentence 
+    enter   sentence: xyz ,ok?
+    no  match
+    enter  sentence :^c
+','一.实验目的：
+学会用循环程序设计进行程序编程。
+
+二.实验题目：
+设计查找匹配字符串SEARCH的程序。
+
+三.问题要求：
+    程序接收用户键入的一个关键字以及一个句子。如果句子中不包含关键字则显示’no match’;如果句子中包含关键字则显示‘match’，且把该字在句子中的位置用十六进制数显示出来，要求程序的执行过程如下：
+    enter   keyword :abc
+    enter   sentence :we   are   studying  abc
+    match  at  location :11H of  the  sentence 
+    enter   sentence: xyz ,ok?
+    no  match
+    enter  sentence :^c
+ 
+四.程序清单
+
+五.总结
+','hb_2013001','20');
+insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('54','5','分支程序设计','一.实验目的：
+学会用分支程序设计进行程序编程。
+
+二.实验题目：
+设计一个程序能分类统计字符个数
+
+三.实验要求：
+        程序接收用户键入的一行字符(字符个数不超过80个，该字符串用回车符结束)，并按字母、数字及其它字符分类计数，然后将结果存入以letter、digit和other为名的存储单元中。
+
+','一.实验目的：
+学会用分支程序设计进行程序编程。
+
+二.实验题目：
+设计一个程序能分类统计字符个数
+
+三.实验要求：
+        程序接收用户键入的一行字符(字符个数不超过80个，该字符串用回车符结束)，并按字母、数字及其它字符分类计数，然后将结果存入以letter、digit和other为名的存储单元中。
+
+ 
+四.程序清单
+
+五.总结
+','hb_2013001','20');
+insert into `item`(`id`,`item_no`,`item_name`,`body`,`report_format`,`cor_no`,`exam_rate`) values('56','7','子程序设计','一．实验目的：
+学会用子程序设计进行程序编程。
+
+二．实验题目：
+设计一个能查找电话号码phone的程序。
+
+三．实验要求：
+i.要求程序建立一个可存放50项的电话号码表，每项包括人名(20个字符)及电话号码(8个字符)两部分；
+ii.程序可接收输入人名及相应的电话号码，并把它们加入电话号码表中；
+iii.凡有新的输入后，程序应按人名对电话号码表重新排序；
+iv.程序可接收需要查找电话号码的人名，并从电话号码表中查出其电话号码，再在屏幕上以如下格式显示出来。
+
+        name  tel
+        ****  ****
+','一．实验目的：
+学会用子程序设计进行程序编程。
+
+二．实验题目：
+设计一个能查找电话号码phone的程序。
+
+三．实验要求：
+i.要求程序建立一个可存放50项的电话号码表，每项包括人名(20个字符)及电话号码(8个字符)两部分；
+ii.程序可接收输入人名及相应的电话号码，并把它们加入电话号码表中；
+iii.凡有新的输入后，程序应按人名对电话号码表重新排序；
+iv.程序可接收需要查找电话号码的人名，并从电话号码表中查出其电话号码，再在屏幕上以如下格式显示出来。
+
+        name  tel
+        ****  ****
+
+四.程序清单
+
+五.总结
+','hb_2013001','20');
 CREATE TABLE `remark` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tea_no` varchar(12) NOT NULL DEFAULT '',
@@ -97,7 +402,7 @@ CREATE TABLE `reply` (
   `floor` int(11) DEFAULT NULL,
   `post_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`reply_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8;
 insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('69','123','你好啊
 哈哈','2013-05-22 17:06:34','1','49');
 insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('70','123','你好啊
@@ -114,6 +419,11 @@ insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) v
 insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('78','123','nia
 we','2013-05-22 17:33:04','1','55');
 insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('79','tea008','a\'\'<a></a>','2013-05-22 18:17:33','1','60');
+insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('80','123','aaa','2013-05-22 19:15:00','1','46');
+insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('81','123','可能是网络延时','2013-05-24 22:32:11','1','63');
+insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('82','0900310315','hello','2013-05-28 22:19:42','1','89');
+insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('83','0900310315','你好','2013-05-28 22:19:52','2','89');
+insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('84','tea008','测试啊啊啊啊啊啊','2013-05-29 09:33:02','1','88');
 CREATE TABLE `report` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cor_no` varchar(12) DEFAULT NULL,
@@ -125,7 +435,7 @@ CREATE TABLE `report` (
   `remark` varchar(60) DEFAULT NULL,
   `status` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 insert into `report`(`id`,`cor_no`,`stu_no`,`item_no`,`date`,`body`,`item_mark`,`remark`,`status`) values('16','sf_2013001','0900310315','1','2013-05-20','实验1 贪心方法原理的实验内容
 
 我提交<div>a</div>','80','做的不错','2');
@@ -137,6 +447,18 @@ insert into `report`(`id`,`cor_no`,`stu_no`,`item_no`,`date`,`body`,`item_mark`,
 insert into `report`(`id`,`cor_no`,`stu_no`,`item_no`,`date`,`body`,`item_mark`,`remark`,`status`) values('19','sf_2013001','0900310315','4','2013-05-20','实验4 回溯法 的实验内容
 
 已提交','90','做的不错','2');
+insert into `report`(`id`,`cor_no`,`stu_no`,`item_no`,`date`,`body`,`item_mark`,`remark`,`status`) values('20','hb_2013001','0900310315','1','2013-05-29','一．实验目的：
+学习程序设计的基本方法和技能，熟练掌握用汇编语言设计、编写、调试和运行程序的方法。
+
+二．实验题目：
+     熟悉与实验有关的系统软件(如编辑程序、汇编程序、连接程序和调试程序等)的使用方法。在调试过程中，学习及掌握debug程序的各种操作命令。
+
+三．问题描述：
+      试编写一程序：比较两个字符串string1和string2所含的字符是否相同，若相同则显示‘match’; 否则，显示‘no match’。
+
+aaaaaa
+qqq
+','80','做的不错','2');
 CREATE TABLE `sel_cor` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `stu_no` varchar(12) NOT NULL,
@@ -150,7 +472,7 @@ CREATE TABLE `sel_cor` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('19','0900310315','sf_2013001','A','1','77','80','79','75');
-insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('20','0900310315','hb_2013001','A','1','','','','');
+insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('20','0900310315','hb_2013001','A','1','','','0','');
 CREATE TABLE `sort` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(10) DEFAULT NULL,
@@ -239,7 +561,7 @@ CREATE TABLE `topic` (
   PRIMARY KEY (`post_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8;
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('46','2','如何成为Android高手','123','sss
-','2013-05-22 16:58:40','0','2013-05-22 16:58:40','0','0','0');
+','2013-05-22 16:58:40','1','2013-05-22 10:15:00','0','0','0');
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('47','1','sa','123','','2013-05-22 17:03:03','0','2013-05-22 17:03:03','0','0','0');
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('48','1','sa','123','1、Q：如何成为高手？
 
@@ -298,7 +620,7 @@ insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_f
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('60','2','线性代数B补考在哪里','tea008','线性代数B补考地点在哪里，知道的麻烦说下','2013-05-22 18:09:31','1','2013-05-22 18:17:33','0','0','0');
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('61','2','我的邮箱申请得了，为何在在登录时候总是说没有用户名呢？','tea008','我申请了本校的邮箱，已经申请下来了，为何在登录的时候总是显示用户名或密码错误，找回密码时却说没有用户名，很气愤，很无语，求速速解决~~~万分感谢~~~~','2013-05-22 18:09:52','0','2013-05-22 18:09:52','0','0','0');
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('62','1','你好吗你好吗你好吗你好吗你好吗你好吗你好吗你好吗你好吗你好吗你好吗','tea008','玩玩','2013-05-22 18:23:27','0','2013-05-22 18:23:27','0','0','0');
-insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('63','1','一卡通','tea008','为什么一卡通的自助刷卡购电进不去？','2013-05-22 18:25:44','0','2013-05-22 18:25:44','0','0','0');
+insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('63','1','一卡通','tea008','为什么一卡通的自助刷卡购电进不去？','2013-05-22 18:25:44','1','2013-05-24 08:32:11','0','0','0');
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('64','3','求职意向该怎么写？实例＋点评教你巧妙应对','tea008','例1
 
 求职意向：
@@ -630,11 +952,11 @@ insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_f
 
 　　3.学校将根据教育厅分配的名额数量，选择合适的项目推荐至教育厅，具体择优标准如下：以有效发明专利为主，以发明创造水平高和取得较大经济效益为选择标准，重点推荐已解决本行业本领域重要技术难题并取得重大经济效益的项目，通过加强专利运用和保护有效扩大市场份额的项目，获国外专利授权的项目。
 
-　　未尽事宜，请联系科技处。','2013-05-22 18:56:30','0','2013-05-22 18:56:30','0','0','0');
+　　未尽事宜，请联系科技处。','2013-05-22 18:56:30','1','2013-05-29 09:33:02','0','0','0');
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('89','3','关于转发中国科协《关于举办第十五届中国科协年会的通知》的通知','tea008','校内各单位、个人：
 根据自治区科协通知要求，现将中国科协《关于举办第十五届中国科协年会的通知》转发给你们，请按照通知要求撰写论文参加年会于2013年3月12日前将报名表电子档发至kejichu@guet.edu.cn, 同时报送报名表、论文的电子版和纸质材料至相应专题分会场组织单位（见附件）。
 未尽事宜，请致电2290810！
 附件：关于举办第十五届中国科协年会的通知
  
             科技处
-         2013年3月8日','2013-05-22 18:56:50','0','2013-05-22 18:56:50','0','0','0');
+         2013年3月8日','2013-05-22 18:56:50','2','2013-05-28 22:19:52','0','0','0');

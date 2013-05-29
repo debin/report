@@ -183,10 +183,42 @@ else {
 		echo '<br />';
 		do {
 			echo "<div style='min-height:30px;'>";
-			echo "<span class='title' style='margin-left:20px;'><span style='display:inline-block;width:100px;'>[{$rel['name']}]</span>&nbsp<a href=./bbs.php?topic={$rel['post_id']}>";
-            echo mb_substr($rel['title'], 0,21,'utf-8');
+			//打印分类
+			echo "<span style='display:inline-block;width:80px;'>[{$rel['name']}]</span>";
+			
+			//打印标题
+			echo "<span class='title' >&nbsp<a href=./bbs.php?topic={$rel['post_id']}>";
+
+			echo mb_substr($rel['title'], 0,18,'utf-8');
             echo "</a></span>";
-			echo "<span style='float:right;font-size:15px;margin-right:10px'>最后回复:{$rel['last_reply_time']}</span>";
+            
+			echo "<span style='float:right;font-size:15px;margin-right:10px'>最后回复:";
+
+            $last_reply =  strtotime($now)-strtotime($rel['last_reply_time']) ;
+        //  echo time($now);
+      
+            if ($last_reply<60)
+            {
+            	echo $last_reply;
+            	echo '秒前';
+            }
+            else if ($last_reply<3600) 
+            {
+            	echo floor($last_reply/60);
+            	echo '分钟前';
+            }
+            else if ($last_reply<86400)
+            {
+            	echo floor($last_reply/3600);
+            	echo '小时前';
+            }
+            else
+           {
+            	echo floor($last_reply/86400);
+            	echo '天前';
+            }
+
+            echo "</span>";
 			echo "<span style='float:right;font-size:15px;margin-right:10px'>楼主:{$rel['author']}</span>";
 			// echo "<span
 			// style='float:right;font-size:15px;margin-right:10px'>{$rel['author']}reply</span>";
