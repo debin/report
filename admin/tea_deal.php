@@ -1,26 +1,26 @@
+<?php 
+/*名称：教师管理后台
+ * 
+ */
+?>
 <?php
 include '../config.php';
 include '../is_login_admin.php';
-$conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
-mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
-mysql_query ( "SET NAMES 'UTF8'" );
 
 $action = trim($_REQUEST['action']);
 //echo $action;
 
-/**根据action参数的值显示后台页面:add 为添加班级
- * delete 删除班级
+/**根据action参数的值显示后台页面:add 为添加教师
+ * delete 删除教师
  * select 显示班级
- * 
+ * change_psw 更改教师密码
  */
-
 
 switch ($action)
 {
 	//添加教师，插入数据库
 	case 'add':
 		{
-			
 			if (!isset($_REQUEST['tea_no'])  || $_REQUEST['tea_no'] == NULL || !isset
 ($_REQUEST['department']) || $_REQUEST['department'] == NULL || !isset($_REQUEST['name'])  || $_REQUEST['name'] == NULL )
 			{

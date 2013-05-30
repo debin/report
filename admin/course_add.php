@@ -1,10 +1,12 @@
+<?php 
+/*名称：添加课程前台
+ * 
+ */
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <?php
 include '../config.php';
 include '../is_login_admin.php';
-$conn=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("连接失败:".mysql_error());
-mysql_select_db(DB_NAME,$conn) or die("选择数据库失败".mysql_error());
-mysql_query("SET NAMES 'UTF8'");
 
 $queryStr = "select tea_no,name  from tea";
 $result = mysql_query($queryStr,$conn) or die("查询失败:".mysql_error());
@@ -15,9 +17,9 @@ mysql_close($conn);
 ?>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>添加课程</title>
-<link rel="stylesheet" type="text/css" href="../static/css/global.css">
+<link rel="stylesheet" type="text/css" href="../static/css/global.css" />
 <script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
 </head>
 <body>

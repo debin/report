@@ -6,9 +6,6 @@
 <?php
 include '../config.php';
 include '../is_login_tea.php';
-$conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
-mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
-mysql_query ( "SET NAMES 'UTF8'" );
 //$tea_no = "tea";
 $today = date ( "Y-m-d" );
 
@@ -101,7 +98,6 @@ switch ($action) {
 			{
 				die('更新失败:该门课程还有报告还未批改，请先批改');
 			}
-
 			
 			// 获取选了本课程的学生名单
 			$queryStr = sprintf ( "select  stu_no  from sel_cor where  cor_no='%s'", $cor_no );

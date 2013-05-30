@@ -5,11 +5,9 @@
 <?php
 include '../config.php';
 include '../is_login_admin.php';
-$conn=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("连接失败:".mysql_error());
-mysql_select_db(DB_NAME,$conn) or die("选择数据库失败".mysql_error());
-mysql_query("SET NAMES 'UTF8'");
 
-$user='test';
+//$user='test';
+$user = $_SESSION['user']['id'];
 $queryStr = sprintf("select *  from admin where user='%s'",$user);
 $result = mysql_query($queryStr,$conn) or die("查询失败:".mysql_error());
 mysql_close();

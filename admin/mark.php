@@ -6,10 +6,8 @@
 <?php
 include '../config.php';
 include '../is_login_admin.php';
-$conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
-mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
-mysql_query ( "SET NAMES 'UTF8'" );
-$tea_no = "tea";
+
+//$tea_no = "tea";
 $today = date ( "Y-m-d" );
 
 $action = NULL;
@@ -65,7 +63,8 @@ switch ($action) {
 			echo '<td>综合分数</td>';
 			echo '</tr>';
 			
-			$queryStr = sprintf ( "select *  from course,sel_cor,stu where  sel_cor.cor_no='%s' and course.cor_no=sel_cor.cor_no and stu.stu_no=sel_cor.stu_no and course.tea_no='%s' ", $cor_no,$tea_no);
+			//获取所有学生分数
+			$queryStr = sprintf ( "select *  from course,sel_cor,stu where  sel_cor.cor_no='%s' and course.cor_no=sel_cor.cor_no and stu.stu_no=sel_cor.stu_no ", $cor_no);
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
 			if($rel=mysql_fetch_array($result))
 			{
@@ -103,7 +102,7 @@ switch ($action) {
 		};break;
 		
 		
-	// 显示所有未关闭课程
+	// 显示所有课程
 	default :
 		{
 			

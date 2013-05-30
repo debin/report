@@ -559,7 +559,7 @@ CREATE TABLE `topic` (
   `enable_post` tinyint(4) DEFAULT NULL,
   `top` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`post_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8;
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('46','2','如何成为Android高手','123','sss
 ','2013-05-22 16:58:40','1','2013-05-22 10:15:00','0','0','0');
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('47','1','sa','123','','2013-05-22 17:03:03','0','2013-05-22 17:03:03','0','0','0');
@@ -960,3 +960,6 @@ insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_f
  
             科技处
          2013年3月8日','2013-05-22 18:56:50','2','2013-05-28 22:19:52','0','0','0');
+insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('90','1','123','123','456','2013-05-29 16:45:02','0','2013-05-29 16:45:02','0','0','0');
+insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('91','1','a','123','ww','2013-05-29 16:53:00','0','2013-05-29 16:53:00','0','0','0');
+insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('92','1','16314','123','2312','2013-05-29 17:29:21','0','2013-05-29 17:29:21','0','0','0');

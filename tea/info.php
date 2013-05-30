@@ -6,9 +6,6 @@
 <?php
 include '../config.php';
 include '../is_login_tea.php';
-$conn=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("连接失败:".mysql_error());
-mysql_select_db(DB_NAME,$conn) or die("选择数据库失败".mysql_error());
-mysql_query("SET NAMES 'UTF8'");
 
 //$tea_no='tea';
 $queryStr = sprintf("select *  from tea where tea_no='%s'",$tea_no);
@@ -55,9 +52,9 @@ switch($action)
 			echo '<td>', "<input  name = skill value={$rel['skill']}></input>",'</td>';
 			echo '</tr>';
 			
-			echo '<tr>';
-			echo '<td>', "<input type=hidden name = tea_no value={$tea_no}></input>",'</td>';
-			echo '</tr>';
+	//		echo '<tr>';
+	//		echo '<td>', "<input type=hidden name = tea_no value={$tea_no}></input>",'</td>';
+	//		echo '</tr>';
 
 			echo '<tr>';
 			echo "<td><input class=button type='submit' value='提交'></input></td>";
@@ -93,9 +90,9 @@ switch($action)
 			echo '<td>', "<input type=password name = new_psw2></input>",'</td>';
 			echo '</tr>';
 			
-			echo '<tr>';
-			echo '<td>', "<input type=hidden name = tea_no value={$tea_no}></input>",'</td>';
-			echo '</tr>';
+	//		echo '<tr>';
+	//		echo '<td>', "<input type=hidden name = tea_no value={$tea_no}></input>",'</td>';
+	//		echo '</tr>';
 			
 			echo '<tr>';
 			echo "<td><input class=button type='submit' value='提交'></input></td>";

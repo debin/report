@@ -1,10 +1,8 @@
 <?php
 include '../config.php';
 include '../is_login_admin.php';
-$conn=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("连接失败:".mysql_error());
-mysql_select_db(DB_NAME,$conn) or die("选择数据库失败".mysql_error());
-mysql_query("SET NAMES 'UTF8'");
 
+$user = $_SESSION['user']['id'];
 $action = $_REQUEST['action'];
 //echo $action;
 
@@ -17,7 +15,7 @@ switch($action)
 {
 	case 'update_info':
 		{
-			$user = trim($_REQUEST['user']);
+		//	$user = trim($_REQUEST['user']);
 			$name = trim($_REQUEST['name']);
 			$mail = trim($_REQUEST['mail']);
 			$mobile = trim($_REQUEST['mobile']);
@@ -36,7 +34,7 @@ switch($action)
 		};break;
 	case 'update_psw':
 		{
-			$user = trim($_REQUEST['user']);
+		//	$user = trim($_REQUEST['user']);
 			$old_psw = strtolower(trim($_REQUEST['old_psw']));
 			$new_psw1 = strtolower(trim($_REQUEST['new_psw1']));
 			$new_psw2= strtolower(trim($_REQUEST['new_psw2']));		

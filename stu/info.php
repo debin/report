@@ -6,9 +6,6 @@
 <?php
 include '../config.php';
 include '../is_login_stu.php';
-$conn=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("连接失败:".mysql_error());
-mysql_select_db(DB_NAME,$conn) or die("选择数据库失败".mysql_error());
-mysql_query("SET NAMES 'UTF8'");
 
 //$stu_no='stu2';
 $queryStr = sprintf("select *  from stu where stu_no='%s'",$stu_no);

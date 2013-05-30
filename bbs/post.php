@@ -1,5 +1,12 @@
 <?php session_start ();
-header("Content-type: text/html; charset=utf-8"); ?>
+header("Content-type: text/html; charset=utf-8");
+ ?>
+ 
+ <?php 
+ /*发帖前台输入页面
+  * 
+  */
+ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <head>
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
@@ -9,9 +16,6 @@ header("Content-type: text/html; charset=utf-8"); ?>
 <div style="background-image:url(../static/image/topback.jpg);width:1024px;height:80px;margin-left: auto; margin-right: auto;"></div>
 <?php
 include '../config.php';
-$conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
-mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
-mysql_query ( "SET NAMES 'UTF8'" );
 $now = date ( "Y-m-d G:i:s" );
 //$stu = 'stu2';
 

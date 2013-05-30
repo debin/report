@@ -1,3 +1,8 @@
+<?php 
+/*名称：学生管理前台
+ * 
+ */
+?>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css">
@@ -6,18 +11,19 @@
 <?php
 include '../config.php';
 include '../is_login_admin.php';
-$conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
-mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
-mysql_query ( "SET NAMES 'UTF8'" );
-
 
 $action = $_REQUEST ['action'];
 // echo $action;
 
 /**
- * 根据action参数的值显示前台页面:add 为添加班级
- * delete 删除班级
+ * 根据action参数的值显示前台页面:
+ * select_class 显示班级的学生列表
+ * add_class 添加新班级
+ * delete_class 删除班级
  * select 显示班级
+ * add_stu 添加学生
+ * update_stu 更新学生信息
+ * delete_stu 删除学生
  */
 
 switch ($action) {
@@ -372,8 +378,7 @@ switch ($action) {
          frm1.submit();     	
        }
       var start = function() { $(".btn").click( submit_action );   }
-      $(start);
-	
+      $(start);	
 </script>
 			
 <?php 			
@@ -382,6 +387,5 @@ switch ($action) {
 	default :
 		break;
 }
-
 ?>
 

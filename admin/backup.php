@@ -1,3 +1,9 @@
+<?php 
+/*名称：备份还原模块
+ * 作用：根据action参数，进行备份或者是还原操作
+ */
+?>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css">
@@ -6,9 +12,7 @@
 <?php
 include '../config.php';
 include '../is_login_admin.php';
-$conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
-mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
-mysql_query ( "SET NAMES 'UTF8'" );
+
 
 $action = NULL;
 $action = $_REQUEST ['action'];

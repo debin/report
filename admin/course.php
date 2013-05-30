@@ -1,3 +1,8 @@
+<?php 
+/*名称：学生管理前台
+ * 
+ */
+?>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css">
@@ -6,9 +11,6 @@
 <?php
 include '../config.php';
 include '../is_login_admin.php';
-$conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
-mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
-mysql_query ( "SET NAMES 'UTF8'" );
 
 $action = NULL;
 if (isset ( $_REQUEST ['action'] )) {
@@ -126,11 +128,6 @@ switch ($action) {
 					echo '<td>', $rel ["item_no"], '</td>';
 					echo '<td>', $rel ["item_name"], '</td>';
 					echo '<td>', $rel ["exam_rate"], '</td>';
-					// echo "<td><a
-					// href='./update_item.php?action=update&cor_no=$cor_no&
-					// id={$rel['id']}'>修改</a></td>";
-					// echo "<td><a
-					// href='./update_item_deal.php?action=delete&id={$rel['id']}'>删除</a></td>";
 					echo '</tr>';
 				} while ( $rel = mysql_fetch_array ( $result ) );
 			} else {

@@ -1,16 +1,23 @@
 <?php session_start ();?>
+<?php 
+/* 名称：登陆模块
+*根据 url 或表单中的action参数进行相应处理
+*       signup：注册 ,暂无此功能
+*       login：  接收登陆界面的表单，进行登陆处理
+*       logout:退出处理
+*       default:显示用户登陆界面
+*/
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="./static/css/global.css">
+<link rel="stylesheet" type="text/css" href="./static/css/global.css" />
 <script type="text/javascript" src="./static/jquery/jquery-1.8.3.js"></script>
 </head>
 <div style="background-image: url(./static/image/topback.jpg); width: 1024px; height: 80px; margin-left: auto; margin-right: auto;"></div>
 <?php
 include './config.php';
-$conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
-mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
-mysql_query ( "SET NAMES 'UTF8'" );
 
 $action = NULL;
 if (isset ( $_REQUEST ['action'] )) {
@@ -35,19 +42,25 @@ switch ($action) {
 		{
 		//	session_start ();
 			$authcode = strtolower ( $_SESSION ['authcode'] );
-			unset ( $_SESSION ['authcode'] );
+			
 			
 			$img_code = strtolower ( trim ( $_REQUEST ['img_code'] ) );
 		
-			 if($authcode!=$img_code)
+	/*		 if($authcode!=$img_code)
 			 {
-			  die('验证码不正确');
+			 	echo "<div class='center' style='width:720px;'>";
+			 	echo "<div>";
+			     die('验证码不正确');
 			  }
-		
-			if (!isset ( $_REQUEST ['user'] ) ||  NULL == $_REQUEST ['user']) {
+	*/	
+			if (!isset ( $_REQUEST ['user'] ) ||  empty( $_REQUEST ['user'])) {
+				echo "<div class='center' style='width:720px;'>";
+				echo "<div>";
 				die ( '请输入用户' );
 			}
-			if (!isset ( $_REQUEST ['psw'] ) ||  NULL == $_REQUEST ['psw']) {
+			if (!isset ( $_REQUEST ['psw'] ) ||  empty( $_REQUEST ['psw'])) {
+				echo "<div class='center' style='width:720px;'>";
+				echo "<div>";
 				die ( '请输入密码' );
 			}
 			$user = trim ( $_REQUEST ['user'] );
@@ -86,6 +99,9 @@ switch ($action) {
 				{
 					$url_return = $_REQUEST['url_return']; 
 				}
+				
+				//释放验证码
+				unset ( $_SESSION ['authcode'] );
 				echo "<div class='center' style='width:720px;'>";
 				echo '登陆正确,2秒后跳转回原页面<br /><br/>';
 				echo "<a href='{$url_return}'>立即跳转</a>";
@@ -94,17 +110,19 @@ switch ($action) {
 			}
 			else
 			{
+				echo "<div class='center' style='width:720px;'>";
 				echo '密码不正确，2秒后自动返回登陆页面<br /><br/>';
 				echo "<a href='./login.php'>立即跳转</a>";
 				echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"2;URL='./login.php' \">";
+				echo "</div>";
 			}
 		}
 		;
 		break;
 	
+		//退出处理
 	case 'logout' :
 		{
-	//		session_start ();
 			unset ( $_SESSION ['user'] );
 			echo "<div class='center' style='width:720px;'>";
 			echo '你已经退出登陆了,2秒后自动返回首页<br /><br/>';
@@ -173,6 +191,8 @@ switch ($action) {
 }
 
 ?>
+
+<!-- 点击刷新验证码 -->
 <script type="text/javascript">
 var fresh=$("#fresh");
 fresh.click(function (){

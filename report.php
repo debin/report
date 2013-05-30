@@ -1,4 +1,9 @@
 <?php session_start ();?>
+<?php 
+/*名称：实验报告管理系统首页
+ * 功能：判断用户登陆类型，跳转到用户类型的系统首页
+ */
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="./static/css/global.css"></link>

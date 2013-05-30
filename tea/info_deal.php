@@ -1,14 +1,9 @@
 <?php
 include '../config.php';
 include '../is_login_tea.php';
-$conn=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("连接失败:".mysql_error());
-mysql_select_db(DB_NAME,$conn) or die("选择数据库失败".mysql_error());
-mysql_query("SET NAMES 'UTF8'");
-
 
 $action = $_REQUEST['action'];
 //echo $action;
-
 
 /**  根据参数 action 的值进行不同的后台处理：update_info 更新个人信息，
  * update_psw 更新密码
@@ -40,7 +35,7 @@ switch($action)
 		};break;
 	case 'update_psw':
 		{
-			$tea_no = trim($_REQUEST['tea_no']);
+	//		$tea_no = trim($_REQUEST['tea_no']);
 			$old_psw = strtolower(trim($_REQUEST['old_psw']));
 			$new_psw1 = strtolower(trim($_REQUEST['new_psw1']));
 			$new_psw2= strtolower(trim($_REQUEST['new_psw2']));		

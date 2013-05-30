@@ -1,3 +1,8 @@
+<?php 
+/*名称：教师管理前台
+ * 
+ */
+?>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css">
@@ -6,10 +11,6 @@
 <?php
 include '../config.php';
 include '../is_login_admin.php';
-$conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
-mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
-mysql_query ( "SET NAMES 'UTF8'" );
-
 
 $action = $_REQUEST ['action'];
 // echo $action;
@@ -67,8 +68,7 @@ switch ($action) {
 			echo $url;
 			echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0;URL={$url}\">";
 		};break;
-		
-		
+
 		//更改教师密码
 	case 'change_psw' :
 		{

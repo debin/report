@@ -1,4 +1,11 @@
 <?php
+/* 名称：数据库配置信息
+ * 
+ */
+
+?>
+
+<?php
 /** WordPress 数据库的名称 */
 define('DB_NAME', 'sy_shiyan');
 
@@ -16,5 +23,7 @@ define('DB_CHARSET', 'utf8');
 
 define('DB', 'sy_users');
 
-
-	?>
+$conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
+mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
+mysql_query ( "SET NAMES 'UTF8'" );
+?>

@@ -1,19 +1,24 @@
-
+<?php 
+/*名称：学生管理后台
+ * 
+ */
+?>
 
 <?php
 include '../config.php';
 include '../is_login_admin.php';
-$conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
-mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
-mysql_query ( "SET NAMES 'UTF8'" );
+
 
 $action = trim($_REQUEST['action']);
 //echo $action;
 
 /**根据action参数的值显示后台页面:add 为添加班级
- * delete 删除班级
- * select 显示班级
- * 
+ * delete_class 删除班级
+ * add_class 添加班级
+ * add_stu 添加学生
+ * update_stu 修改学生信息和密码
+ * delete_stu 删除学生
+ * change_class 换班级
  */
 
 
@@ -56,8 +61,6 @@ switch ($action)
 					die("班级号已存在");
 				}
 			}
-			
-			
 			//给班级批量添加学生
 			
 			echo '<table><tr>';
@@ -97,7 +100,6 @@ switch ($action)
 				}
 				
 			}
-			
 			
 			echo '</table>';
 			echo '<br />';
@@ -360,10 +362,10 @@ switch ($action)
 			{
 					$count_fail ++;
 					echo "<tr><td>";
-			echo $stu_nums[$i];
-			echo "</td><td>";
-			echo '失败';
-			echo "</td></tr>";
+	     		    echo $stu_nums[$i];
+		        	echo "</td><td>";
+		 	        echo '失败';
+		         	echo "</td></tr>";
 			}
 			}
 				

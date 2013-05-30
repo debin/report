@@ -1,3 +1,8 @@
+<?php 
+/*名称：帖子管理后台
+ * 
+ */
+?>
 <head>
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
 <script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
@@ -5,11 +10,9 @@
 <?php
 include '../config.php';
 include '../is_login_admin.php';
-$conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
-mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
-mysql_query ( "SET NAMES 'UTF8'" );
+
 $now = date ( "Y-m-d G:i:s" );
-$stu = 'stu2';
+//$stu = 'stu2';
 
 $action = NULL;
 if (isset ( $_REQUEST ['action'] )) {
@@ -17,7 +20,8 @@ if (isset ( $_REQUEST ['action'] )) {
 }
 echo '<div id=topMain>';
 /**
- * 根据action参数的值，进行不同的后台处理：new_post发表新帖子，reply_post回复帖子
+ * 根据action参数的值，进行不同的后台处理：post_update更新帖子，post_delete删除帖子
+ * reply_delete删除回复，sort_add增加分类，sort_update分类更新
  */
 switch ($action) {
 	// 更新帖子内容和标题

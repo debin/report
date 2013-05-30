@@ -1,3 +1,8 @@
+<?php 
+/*名称：教师列表
+ * 
+ */
+?>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
@@ -7,16 +12,13 @@
 <?php
 include '../config.php';
 include '../is_login_admin.php';
-$conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
-mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
-mysql_query ( "SET NAMES 'UTF8'" );
 
 // 分页中每一页的条目数量
 $page_size = 10;
 
 // 获取页码
-if (isset ( $_GET ['page'] )) {
-	$page = intval ( $_GET ['page'] );
+if (isset ( $_REQUEST ['page'] )) {
+	$page = intval ( $_REQUEST ['page'] );
 } 
 
 // 设置为第一页

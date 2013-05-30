@@ -1,4 +1,9 @@
 <?php session_start ();?>
+<?php 
+/*名称：学生是否登陆
+ * 
+ */
+?>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <?php
 //判断是否登陆

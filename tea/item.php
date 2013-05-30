@@ -6,9 +6,6 @@
 <?php
 include '../is_login_tea.php';
 include '../config.php';
-$conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
-mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
-mysql_query ( "SET NAMES 'UTF8'" );
 //$tea_no = "tea";
 $today = date("Y-m-d");
 
@@ -223,7 +220,7 @@ switch($action)
 					echo "<input name=report_time value=>(格式:2013-05-05)</input>";
 				}
 				echo '<br /><br />';
-				echo "<input type=hidden name=cor_no value={$_POST['cor_no']}></input>";
+				echo "<input type=hidden name=cor_no value={$_REQUEST['cor_no']}></input>";
 				echo "<input class=button type=submit value='提交'></input>";
 				echo '</form>';
 

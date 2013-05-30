@@ -1,7 +1,14 @@
+<?php
+/* 名称：论坛主页模块
+ * 若带有topic参数，则显示该参数值的主题内容
+ * 否则显示所有帖子列表
+ */
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="./static/css/global.css"></link>
 <script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
 </head>
@@ -9,9 +16,6 @@
 <?php
 session_start ();
 include './config.php';
-$conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
-mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
-mysql_query ( "SET NAMES 'UTF8'" );
 $now = date ( "Y-m-d G:i:s" );
 ?>
 <div style="background-image:url(./static/image/topback.jpg);width:1024px;height:80px;margin-left: auto; margin-right: auto;"></div>
@@ -38,7 +42,9 @@ $now = date ( "Y-m-d G:i:s" );
 
 <div id='topMain'>
 <?php
-// 若有主题的id，则显示主题
+
+// 若有主题的id，则显示主题和回复列表，并显示回复框
+
 if (isset ( $_REQUEST ['topic'] )) {
 	echo "<span style='height:30px;'>";
 	echo "<a href=./bbs.php style=''>首页</a>";
@@ -57,12 +63,11 @@ if (isset ( $_REQUEST ['topic'] )) {
 		
 		echo '<hr />';
 		echo '<div class=sep10></div>';
-		echo '<pre>';
+		echo '<pre style="width:720px;">';
 		echo htmlspecialchars(stripslashes($rel ['body']));
 		echo '</pre>';
 		echo '<hr />';
 		
-		// 获取并显示回帖
 		// 分页中每一页的条目数量
 		$page_size = 10;
 		

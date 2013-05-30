@@ -1,8 +1,13 @@
 <?php session_start ();?>
+<?php 
+/*名称：管理员端系统管理首页
+ * 作用：显示功能列表，已经响应用户点击请求
+ */
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
 <script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
 </head>

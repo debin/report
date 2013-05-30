@@ -1,3 +1,8 @@
+<?php 
+/*名称：添加课程后台
+ * 作用：添加课程，更新课程数据库
+ */
+?>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -9,9 +14,6 @@
 <?php 
 include '../config.php';
 include '../is_login_admin.php';
-$conn=mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die("连接失败:".mysql_error());
-mysql_select_db(DB_NAME,$conn) or die("选择数据库失败".mysql_error());
-mysql_query("SET NAMES 'UTF8'");
 
 if(!($_REQUEST['cor_no'] &&  $_REQUEST['cor_name'] && $_REQUEST['term'] && $_REQUEST['tea_no']  && $_REQUEST['usual_rate'] && $_REQUEST['report_rate'] && $_REQUEST['exam_rate'] ))
 {

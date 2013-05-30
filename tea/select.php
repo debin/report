@@ -6,9 +6,6 @@
 <?php
 include '../config.php';
 include '../is_login_tea.php';
-$conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
-mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
-mysql_query ( "SET NAMES 'UTF8'" );
 //$tea_no = "tea";
 $today = date ( "Y-m-d" );
 
@@ -16,7 +13,7 @@ $action = NULL;
 if (isset ( $_REQUEST ['action'] )) {
 	$action = $_REQUEST ['action'];
 }
-/**
+/**名称：选课审核前台
  * 根据action参数的值，进行不同处理：record_un 显示未审核课程，record_drop 学生退课记录
  */
 

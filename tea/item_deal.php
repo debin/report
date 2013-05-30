@@ -1,16 +1,13 @@
 <?php
 include '../config.php';
 include '../is_login_tea.php';
-$conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
-mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
-mysql_query ( "SET NAMES 'UTF8'" );
 //$tea_no = "tea";
 $today = date("Y-m-d");
 
 $action = NULL;
-if (isset($_GET['action']))
+if (isset($_REQUEST['action']))
 {
-	$action = $_GET['action'];
+	$action = $_REQUEST['action'];
 }
 
 /** 根据action参数的值，进行不同处理：add添加实验内容，update更新实验内容,delete删除处理
@@ -24,12 +21,12 @@ switch($action)
 	//添加实验项目，后台
 	case 'add':
 		{
-			$cor_no=$_POST['cor_no'];
-			$item_no=$_POST['item_no'];
-			$item_name = $_POST ['item_name'];
-			$exam_rate = $_POST ['exam_rate'];
-			$body = $_POST ['body'];
-			$report_format = $_POST['report_format'];
+			$cor_no=$_REQUEST['cor_no'];
+			$item_no=$_REQUEST['item_no'];
+			$item_name = $_REQUEST ['item_name'];
+			$exam_rate = $_REQUEST ['exam_rate'];
+			$body = $_REQUEST ['body'];
+			$report_format = $_REQUEST['report_format'];
 			$body = addslashes ($body);
 			$report_format = addslashes ($report_format);
 			
@@ -121,11 +118,11 @@ switch($action)
 		
 	case 'edit_time':
 		{
-			if(!isset($_POST['report_time']) || NULL==$_POST['report_time'])
+			if(!isset($_REQUEST['report_time']) || NULL==$_REQUEST['report_time'])
 			{
 				die("请先填写日期");
 			}
-			$report_time=$_POST['report_time'];
+			$report_time=$_REQUEST['report_time'];
 			
 			list($year, $month, $day) = explode('-', $report_time);
 			if(!checkdate($month,$day,$year))

@@ -9,9 +9,6 @@ header("Content-type: text/html; charset=utf-8");
 <div style="background-image:url(../static/image/topback.jpg);width:1024px;height:80px;margin-left: auto; margin-right: auto;"></div>
 <?php
 include '../config.php';
-$conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
-mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
-mysql_query ( "SET NAMES 'UTF8'" );
 $now = date ( "Y-m-d G:i:s" );
 //$stu = 'stu2';
 

@@ -1,4 +1,8 @@
-<!-- 帖子管理 -->
+<?php 
+/*名称：帖子管理前台
+ * 
+ */
+?>
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -8,12 +12,14 @@
 <?php
 include '../config.php';
 include '../is_login_admin.php';
-$conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
-mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
-mysql_query ( "SET NAMES 'UTF8'" );
-$now = date ( "Y-m-d G:i:s" );
-$user = '123';
 
+$now = date ( "Y-m-d G:i:s" );
+//$user = '123';
+
+/**
+ * 根据action参数的值，进行不同的前台处理：post_manage管理帖子，post_delete删除帖子
+ * reply_manage管理回复，post_update更新帖子，post_sort分类管理，sort_add添加分类，sort_update分类更新
+ */
 
 $action=NULL;
 if (isset($_REQUEST['action']))

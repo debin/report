@@ -148,7 +148,9 @@ a:hover{
 }
 pre{
 	font-size:18px;
-//	background-color:rgb(230,230,230);
+	white-space: pre-wrap;
+    word-wrap: break-word;
+
 }
 ul{
 	font-size:20px;
@@ -196,6 +198,4 @@ p.white
 	{
 	position:absolute;
 } <!-- 让四张图片都可以重叠在一起-->
-
-
 
