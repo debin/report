@@ -10,7 +10,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="./static/css/global.css"></link>
-<script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="./static/jquery/jquery-1.8.3.js"></script>
 </head>
 
 <?php
@@ -187,9 +187,9 @@ else {
 	if ($rel = mysql_fetch_array ( $result )) {
 		echo '<br />';
 		do {
-			echo "<div style='min-height:30px;'>";
+			echo "<div class=bbs_topic_list>";
 			//打印分类
-			echo "<span style='display:inline-block;width:80px;'>[{$rel['name']}]</span>";
+			echo "<span class=bbs_topic_list_sort >[{$rel['name']}]</span>";
 			
 			//打印标题
 			echo "<span class='title' >&nbsp<a href=./bbs.php?topic={$rel['post_id']}>";

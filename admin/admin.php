@@ -1,7 +1,7 @@
 <?php session_start ();?>
 <?php 
 /*名称：管理员端系统管理首页
- * 作用：显示功能列表，已经响应用户点击请求
+ * 作用：显示功能列表，响应用户点击请求
  */
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

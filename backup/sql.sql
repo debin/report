@@ -7,7 +7,7 @@ CREATE TABLE `admin` (
   `mobile` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-insert into `admin`(`user`,`psw`,`name`,`mail`,`mobile`) values('123','6fd742a61bd034804c00c49b18045020','123','123@admin.com','');
+insert into `admin`(`user`,`psw`,`name`,`mail`,`mobile`) values('123','6fd742a61bd034804c00c49b18045020','123','123@admin.com','159');
 insert into `admin`(`user`,`psw`,`name`,`mail`,`mobile`) values('test','5fa62ae6176f3746142503a6ebe96cb3','小明','test@admin.com','15878361552');
 CREATE TABLE `course` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -402,7 +402,7 @@ CREATE TABLE `reply` (
   `floor` int(11) DEFAULT NULL,
   `post_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`reply_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8;
 insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('69','123','你好啊
 哈哈','2013-05-22 17:06:34','1','49');
 insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('70','123','你好啊
@@ -424,6 +424,7 @@ insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) v
 insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('82','0900310315','hello','2013-05-28 22:19:42','1','89');
 insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('83','0900310315','你好','2013-05-28 22:19:52','2','89');
 insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('84','tea008','测试啊啊啊啊啊啊','2013-05-29 09:33:02','1','88');
+insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('85','123','w','2013-05-30 23:32:29','2','88');
 CREATE TABLE `report` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cor_no` varchar(12) DEFAULT NULL,
@@ -952,7 +953,7 @@ insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_f
 
 　　3.学校将根据教育厅分配的名额数量，选择合适的项目推荐至教育厅，具体择优标准如下：以有效发明专利为主，以发明创造水平高和取得较大经济效益为选择标准，重点推荐已解决本行业本领域重要技术难题并取得重大经济效益的项目，通过加强专利运用和保护有效扩大市场份额的项目，获国外专利授权的项目。
 
-　　未尽事宜，请联系科技处。','2013-05-22 18:56:30','1','2013-05-29 09:33:02','0','0','0');
+　　未尽事宜，请联系科技处。','2013-05-22 18:56:30','2','2013-05-30 23:32:29','0','0','0');
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('89','3','关于转发中国科协《关于举办第十五届中国科协年会的通知》的通知','tea008','校内各单位、个人：
 根据自治区科协通知要求，现将中国科协《关于举办第十五届中国科协年会的通知》转发给你们，请按照通知要求撰写论文参加年会于2013年3月12日前将报名表电子档发至kejichu@guet.edu.cn, 同时报送报名表、论文的电子版和纸质材料至相应专题分会场组织单位（见附件）。
 未尽事宜，请致电2290810！

@@ -128,7 +128,7 @@ a.dark:link, a.dark:visited, a.dark:active {
 	font-size:20px;
 }
 .title:hover{
-	font-size:95%;
+	font-size:100%;
 }
 a{
 	font-size:20px;
@@ -194,8 +194,26 @@ p.white
 	{ 
 	background:#900
 }
+
+<!-- 让四张图片都可以重叠在一起-->
 #banner_list a
 	{
 	position:absolute;
-} <!-- 让四张图片都可以重叠在一起-->
+} 
 
+.bbs_topic_list{
+	min-height:30px;
+	border-top:1px;
+	border-bottom:1px;
+//	border-top-style:solid;
+//	border-bottom-style:solid;
+}
+.bbs_topic_list:hover{
+	background-color:rgb(213, 231, 233);
+}
+.bbs_topic_list_sort{
+	display:inline-block;
+	width:70px;
+    border:1px;
+    border-style:solid;
+}

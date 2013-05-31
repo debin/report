@@ -1,4 +1,10 @@
 <?php session_start ();?>
+<?php 
+/*名称：学生端系统管理首页
+ * 作用：显示功能列表，响应用户点击请求
+ */
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -19,10 +25,11 @@ if ('stu' != $_SESSION ['user'] ['type']) {
 	die ();
 }
 ?>
-<div style="background-image:url(../static/image/topback.jpg);width:1024px;height:80px;margin-left: auto; margin-right: auto;"></div>
-<div class="sep3"></div>
+<div
+		style="background-image: url(../static/image/topback.jpg); width: 1024px; height: 80px; margin-left: auto; margin-right: auto;"></div>
+	<div class="sep3"></div>
 	<div
-		style="margin-left: auto; margin-right: auto; min-width: 960px; text-align: center; margin-top: 1px;margin-top:10px;margin-bottom:5px;">
+		style="margin-left: auto; margin-right: auto; min-width: 960px; text-align: center; margin-top: 1px; margin-top: 10px; margin-bottom: 5px;">
 		<ul class="heng">
 			<li><a href="../index.php">首页</a></li>
 			<li><a href="../bbs.php">讨论区</a></li>
@@ -41,47 +48,49 @@ if (! isset ( $_SESSION ['user'] ) || NULL == $_SESSION ['user']) {
 	</div>
 
 	<div class='sep10'></div>
-	<div style="float: left; width: 220;">
-		<ul style="list-style: none;">
-			<li>个人信息管理
-				<ul style="list-style: none;">
-					<li><a id="update_info" class='menu' href="#">个人信息</a></li>
-					<li><a id="update_psw" class='menu' href="#">密码修改</a></li>
-				</ul>
-			</li>
-			<li><br /></li>
+	<div style="min-width: 1024px;">
+		<!-- 左栏功能列表 -->
+		<div style="float: left; width: 220;">
+			<ul style="list-style: none;">
+				<li>个人信息管理
+					<ul style="list-style: none;">
+						<li><a id="update_info" class='menu' href="#">个人信息</a></li>
+						<li><a id="update_psw" class='menu' href="#">密码修改</a></li>
+					</ul>
+				</li>
+				<li><br /></li>
 
-			<li>选课管理
-				<ul style="list-style: none;">
-					<li><a id="course_select" class='menu' href="#">选择课程</a></li>
-					<li><a id="course_selected" class='menu' href="#">已选课程</a></li>
-				</ul>
-			</li>
-			<li><br /></li>
+				<li>选课管理
+					<ul style="list-style: none;">
+						<li><a id="course_select" class='menu' href="#">选择课程</a></li>
+						<li><a id="course_selected" class='menu' href="#">已选课程</a></li>
+					</ul>
+				</li>
+				<li><br /></li>
 
-			<li>报告管理
-				<ul style="list-style: none;">
-					<li><a id="view_date" class='menu' href="#">提交截止时间</a></li>
-					<li><a id="report_show_course" class='menu' href="#">填写实验报告</a></li>
-				</ul>
-			</li>
+				<li>报告管理
+					<ul style="list-style: none;">
+						<li><a id="view_date" class='menu' href="#">提交截止时间</a></li>
+						<li><a id="report_show_course" class='menu' href="#">填写实验报告</a></li>
+					</ul>
+				</li>
 
-			<li><br /></li>
-			<li>成绩查看
-				<ul style="list-style: none;">
-					<li><a id="mark" class='menu' href="#">查看成绩</a></li>
-				</ul>
-			</li>
-		</ul>
+				<li><br /></li>
+				<li>成绩查看
+					<ul style="list-style: none;">
+						<li><a id="mark" class='menu' href="#">查看成绩</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+		<div class="sep3"></div>
+		<div style="width: 960; text-align: center;">
+			<div class='sep10'></div>
+			<iframe id="iframe_content" width=720 height=600 scrolling=auto
+				frameborder=0 src="./index.php" style=""></iframe>
+		</div>
 	</div>
-
-	<div class="sep3"></div>
-	<div style="float: left;">
-		<div class='sep10'></div>
-		<iframe id="iframe_content" width=720 height=600 scrolling=auto
-			frameborder=0 src="./index.php" style=""></iframe>
-	</div>
-
 	<div style="clear: both; text-align: center;">
 		<hr />
 	© 2013

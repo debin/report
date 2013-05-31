@@ -178,7 +178,7 @@ switch($action)
 			}
 			echo '</table>';
 			echo '<br /><br />';
-			echo '请点击课号进行下一步操作';
+			echo '请点击进入按钮进行下一步操作';
 		};break;
 }
 

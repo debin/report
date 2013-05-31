@@ -1,4 +1,9 @@
 <?php session_start ();?>
+<?php 
+/*名称：教师端系统管理首页
+ * 作用：显示功能列表，响应用户点击请求
+ */
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
@@ -44,6 +49,8 @@ if ('tea' != $_SESSION ['user'] ['type']) {
 
 
 	<div class='sep3'></div>
+	<div style="min-width: 1024px;">
+		<!-- 左栏功能列表 -->
 	<div style="float: left; width: 220;">
 		<ul style="list-style: none;">
 			<li>个人信息管理
@@ -92,12 +99,13 @@ if ('tea' != $_SESSION ['user'] ['type']) {
 
 	</div>
 
-	<div style="float: left; width: 720;">
+	<div style="width: 960;text-align: center;">
 		<div class='sep10'></div>
 		<iframe id="iframe_content" width=720 height=600 scrolling=auto
 			frameborder=0 src="./index.php"></iframe>
 	</div>
-
+</div>
+	
 	<div style="clear: both; text-align: center;">
 		<hr />
 		© 2013 By 梁德斌
