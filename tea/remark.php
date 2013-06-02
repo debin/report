@@ -97,7 +97,7 @@ switch($action)
 			echo "<form  method='post' action='./remark.php'>";
 			//	echo "正常";
 			echo '<table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td />';
 			echo '<td>编号</td>';
 			echo '<td>内容</td>';

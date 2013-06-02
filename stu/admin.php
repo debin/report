@@ -28,56 +28,55 @@ if ('stu' != $_SESSION ['user'] ['type']) {
 <div
 		style="background-image: url(../static/image/topback.jpg); width: 1024px; height: 80px; margin-left: auto; margin-right: auto;"></div>
 	<div class="sep3"></div>
-	<div
-		style="margin-left: auto; margin-right: auto; min-width: 960px; text-align: center; margin-top: 1px; margin-top: 10px; margin-bottom: 5px;">
-		<ul class="heng">
-			<li><a href="../index.php">首页</a></li>
-			<li><a href="../bbs.php">讨论区</a></li>
-			<li><a href="../report.php">实验报告管理</a></li>
-			<li><a href="../about_center.php">中心概括</a></li>
+<div class="nav">
+	<ul class="nav_mid" >
+		<li><a href="../index.php" class="font_white">首页</a></li>
+		<li><a href="../bbs.php" class="font_white">讨论区</a></li>
+		<li><a href="../report.php" class="font_white">实验报告管理</a></li>
+		<li><a href="../about_center.php" class="font_white">中心概括</a></li>
 <?php
 // session_start();
 if (! isset ( $_SESSION ['user'] ) || NULL == $_SESSION ['user']) {
-	echo "<li><a href='../login.php'>登陆</a></li>";
+	echo "<li><a href='../login.php' class='font_white'>登陆</a></li>";
 } else {
 	
-	echo "<li><a href='../login.php?action=logout'>退出</a></li>";
+	echo "<li><a href='../login.php?action=logout' class='font_white'>退出</a></li>";
 }
 ?>			
 	</ul>
 	</div>
 
 	<div class='sep10'></div>
-	<div style="min-width: 1024px;">
+	<div style="width: 1024px;margin-left:auto;margin-right:auto;">
 		<!-- 左栏功能列表 -->
-		<div style="float: left; width: 220;">
-			<ul style="list-style: none;">
-				<li>个人信息管理
-					<ul style="list-style: none;">
+		<div style="float: left; width: 220;background-color:rgb(204, 204, 255);">
+			<ul style="padding-left:10px;padding-right:10px;">
+				<li><div style="font-weight:bold;"><br/>个人信息管理</div>
+					<ul class="nav_left" >
 						<li><a id="update_info" class='menu' href="#">个人信息</a></li>
 						<li><a id="update_psw" class='menu' href="#">密码修改</a></li>
 					</ul>
 				</li>
-				<li><br /></li>
 
-				<li>选课管理
-					<ul style="list-style: none;">
+
+				<li><div style="font-weight:bold;"><br/>选课管理</div>
+					<ul class="nav_left" >
 						<li><a id="course_select" class='menu' href="#">选择课程</a></li>
 						<li><a id="course_selected" class='menu' href="#">已选课程</a></li>
 					</ul>
 				</li>
-				<li><br /></li>
 
-				<li>报告管理
-					<ul style="list-style: none;">
+
+				<li><div style="font-weight:bold;"><br/>报告管理</div>
+					<ul class="nav_left" >
 						<li><a id="view_date" class='menu' href="#">提交截止时间</a></li>
 						<li><a id="report_show_course" class='menu' href="#">填写实验报告</a></li>
 					</ul>
 				</li>
 
-				<li><br /></li>
-				<li>成绩查看
-					<ul style="list-style: none;">
+
+				<li><div style="font-weight:bold;"><br/>成绩查看</div>
+					<ul class="nav_left" >
 						<li><a id="mark" class='menu' href="#">查看成绩</a></li>
 					</ul>
 				</li>

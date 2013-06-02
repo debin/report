@@ -115,7 +115,7 @@ switch ($action) {
 			mysql_close ();
 			
 			echo '<table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td>实验编号</td>';
 			echo '<td>实验名称</td>';
 			echo '<td>成绩百分比</td>';
@@ -158,7 +158,7 @@ switch ($action) {
 			// echo '课程名称：',$_POST['cor_name'];
 	//		echo "<form method='post' action='./group.php?tea_no={$tea_no}'>";
 			echo '<table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 	//		echo '<td />';
 			
 			echo '<td>实验批次</td>';
@@ -285,7 +285,7 @@ switch ($action) {
 			
 			echo "<form method='post' action='./course.php'>";
 			echo '<table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td />';
 			echo '<td>课程号</td>';
 			echo '<td>课程名称</td>';

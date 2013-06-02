@@ -32,71 +32,66 @@ if ('admin' != $_SESSION ['user'] ['type']) {
 	<div class="sep3"></div>
 
 	<!-- 导航条 -->
-	<div
-		style="margin-left: auto; margin-right: auto; min-width: 960px; text-align: center;">
-		<ul class="heng" style="margin-top: 10px; margin-bottom: 5px;">
-			<li><a href="../index.php">首页</a></li>
-			<li><a href="../bbs.php">讨论区</a></li>
-			<li><a href="../report.php">实验报告管理</a></li>
-			<li><a href="../about_center.php">中心概括</a></li>
+<div class="nav">
+	<ul class="nav_mid" >
+		<li><a href="../index.php" class="font_white">首页</a></li>
+		<li><a href="../bbs.php" class="font_white">讨论区</a></li>
+		<li><a href="../report.php" class="font_white">实验报告管理</a></li>
+		<li><a href="../about_center.php" class="font_white">中心概括</a></li>
 			<?php
 			// session_start();
 			if (! isset ( $_SESSION ['user'] ) || NULL == $_SESSION ['user']) {
-				echo "<li><a href='../login.php'>登陆</a></li>";
+				echo "<li><a href='../login.php' class='font_white'>登陆</a></li>";
 			} else {
 				
-				echo "<li><a href='../login.php?action=logout'>退出</a></li>";
+				echo "<li><a href='../login.php?action=logout' class='font_white'>退出</a></li>";
 			}
 			?>
-
-
 		</ul>
 	</div>
 
-
 	<div class='sep3'></div>
-	<div style="min-width: 1024px;">
+	<div style="width: 1024px;margin-left:auto;margin-right:auto;">
 		<!-- 左栏功能列表 -->
-		<div style="float: left; width: 230;">
-			<ul style="list-style: none;">
-				<li>个人信息管理
-					<ul style="list-style: none;">
+		<div style="float: left; width: 230;background-color:rgb(204, 204, 255);">
+			<ul style="padding-left:10px;padding-right:10px;">
+				<li ><div style="font-weight:bold;">个人信息管理</div>
+					<ul class="nav_left" >
 						<li><a id="update_info" class='menu' href="#">个人信息</a></li>
 						<li><a id="update_psw" class='menu' href="#">密码维护</a></li>
 					</ul>
 				</li>
 
-				<li>学生与教师管理
-					<ul style="list-style: none;">
+				<li><div style="font-weight:bold;"><br/>学生与教师管理</div>
+					<ul class="nav_left" >
 						<li><a id="stu" class='menu' href="#">学生信息维护</a></li>
 						<li><a id="tea" class='menu' href="#">教师信息维护</a></li>
 					</ul>
 				</li>
 
-				<li>课程管理
-					<ul style="list-style: none;">
+				<li><div style="font-weight:bold;"><br/>课程管理</div>
+					<ul class="nav_left" >
 						<li><a id="view_course" class='menu' href="#">查看课程</a></li>
 						<li><a id="insert_course" class='menu' href="#">新添课程</a></li>
 					</ul>
 				</li>
 
-
-				<li>成绩管理
-					<ul style="list-style: none;">
+				<li><div style="font-weight:bold;"><br/>成绩管理</div>
+					<ul class="nav_left" >
 						<li><a id="view_mark" class='menu' href="#">查看成绩</a></li>
 					</ul>
 				</li>
 
-				<li>帖子管理
-					<ul style="list-style: none;">
+				<li><div style="font-weight:bold;"><br/>帖子管理</div>
+					<ul class="nav_left" >
 						<li><a id="post_manage" class='menu' href="#">帖子管理</a></li>
 						<li><a id="post_sort" class='menu' href="#">分类管理</a></li>
 					</ul>
 				</li>
 
-				<li>系统管理
-					<ul style="list-style: none;">
-						<li><a id="submit" class='menu' href="#">权限管理</a></li>
+				<li><div style="font-weight:bold;"><br/>系统管理</div>
+					<ul class="nav_left" >
+						<li><a id="submit" class='menu' href="#"><!--  权限管理--></a></li>
 						<li><a id="backup" class='menu' href="#">系统备份</a></li>
 						<li><a id="restore" class='menu' href="#">系统还原</a></li>
 					</ul>
@@ -104,17 +99,17 @@ if ('admin' != $_SESSION ['user'] ['type']) {
 			</ul>
 		</div>
 
-
-
 		<!-- 右边框架 -->
 		<div class='sep10'></div>
-		<div style="text-align: center;mid-width:960;font-size:150%;">
+		<div style="text-align: center;width:960;font-size:150%;background-color:;float:left;margin-top:20px;margin-left:50px;">
 			<iframe id="iframe_content" width=760 height=600 scrolling=auto
-				frameborder=0 src="./index.php" style=""></iframe>
-
+				frameborder=0 src="./index.php" style="text-align:center;"></iframe>
 		</div>
 
+
+
 	</div>
+	
 	<div style="clear: both; text-align: center;">
 		<hr />
 	© 2013
@@ -128,8 +123,8 @@ if ('admin' != $_SESSION ['user'] ['type']) {
 			?>
 	</div>
 
+	
 	<!-- 绑定左边导航点击事件 -->
-
 	<script type="text/javascript">
 var url = [ ];
 url['update_info']="./info.php?action=update_info";

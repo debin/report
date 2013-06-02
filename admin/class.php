@@ -291,7 +291,7 @@ switch ($action) {
 			echo '<br />';
 			echo "<form method='post' action='./class.php'>";
 			echo '<table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td />';
 			echo '<td>学号</td>';
 			echo '<td>姓名</td>';

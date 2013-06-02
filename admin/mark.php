@@ -49,7 +49,7 @@ switch ($action) {
 			}
 			
 			echo '<table class=table_border>';
-			echo '<tr >';		
+			echo '<tr  class="first">';		
 			echo '<td>学号</td>';
 			echo '<td>姓名</td>';
 			foreach($item_list as $item_no=>$exam_rate)
@@ -140,7 +140,7 @@ switch ($action) {
 			
 			echo '课程列表:<br /><br />';
 			echo '<table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td>课号</td>';
 			echo '<td>课程名称</td>';
 			echo '<td>学期</td>';

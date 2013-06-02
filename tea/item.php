@@ -33,7 +33,7 @@ switch($action)
 		//	echo '课程名称：',$_POST['cor_name'];
 			echo "<form method='post' action='./item.php'>";
 			echo '<table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td />';
 					
 			echo '<td>实验编号</td>';
@@ -236,7 +236,7 @@ switch($action)
 			echo "<form  method='post' action='./item.php'>";
 		//	echo "正常";
 			echo '<table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td />';
 			echo '<td>课号</td>';
 			echo '<td>课程名称</td>';

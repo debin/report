@@ -20,19 +20,18 @@ include './config.php';
 		style="background-image: url(./static/image/topback.jpg); width: 1024px; height: 80px; margin-left: auto; margin-right: auto;"></div>
 	<!--导航菜单-->
 	<div class="sep3"></div>
-	<div
-		style="margin-left: auto; margin-right: auto; min-width: 960px; margin-top: 0px; text-align: center; clear: both;">
-		<ul class="heng" style="margin-top: 10px; margin-bottom: 5px;">
-			<li><a href="./index.php">首页</a></li>
-			<li><a href="./bbs.php">讨论区</a></li>
-			<li><a href="./report.php">实验报告管理</a></li>
-			<li><a href="about_center.php">中心概括</a></li>
+<div class="nav">
+	<ul class="nav_mid" >
+		<li><a href="./index.php" class="font_white">首页</a></li>
+		<li><a href="./bbs.php" class="font_white">讨论区</a></li>
+		<li><a href="./report.php" class="font_white">实验报告管理</a></li>
+			<li><a href="./about_center.php" class="font_white">中心概括</a></li>
 			<?php
 	//		session_start ();
 			if (! isset ( $_SESSION ['user'] ) || NULL == $_SESSION ['user']) {
-				echo "<li><a href='./login.php'>登陆</a></li>";
+				echo "<li><a href='./login.php' class='font_white'>登陆</a></li>";
 			} else {
-				echo "<li><a href='./login.php?action=logout'>退出</a></li>";
+				echo "<li><a href='./login.php?action=logout' class='font_white'>退出</a></li>";
 			}
 			?>
 		</ul>
@@ -74,7 +73,7 @@ include './config.php';
 								title="" alt="" /></a>
 						</div>
 
-						<ul class="heng"
+						<ul class="nav_mid"
 							style="z-index: 1002; filter: Alpha(Opacity =   80); opacity: 0.8; margin: 0px;">
 							<li class="on">1</li>
 							<li>2</li>
@@ -95,7 +94,7 @@ include './config.php';
 				<span style="float: left; margin-left: 60px;"><strong>通知</strong></span>
 			</div>
 
-			<marquee direction=up scrollAmount=3>
+			<marquee direction=up scrollAmount=2>
 			<ul
 				style="list-style: none; font-size: 18px; margin: 0px; padding: 0px; ">
 			<?php

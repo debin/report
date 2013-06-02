@@ -66,7 +66,7 @@ switch ($action)
 			//显示班级学生
 			echo "<form method='post' action='./post.php'>";
 			echo '<table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td />';
 			echo '<td>分类</td>';
 			echo '<td>标题</td>';
@@ -86,7 +86,7 @@ switch ($action)
 					echo '<tr>';
 					echo '<td>', "<input type=checkbox name = post_id[] value={$rel['post_id']}>", '</td>';
 					echo '<td>', $rel ["name"], '</td>';
-					echo "<td><a href=../bbs.php?topic={$rel['post_id']} target=_black>";
+					echo "<td><a href=../bbs.php?topic={$rel['post_id']}  target='_blank'>";
 					echo mb_substr($rel ['title'],0,20,'utf-8');
 					echo "</a></td>";
 					echo '<td>', $rel ["author"], '</td>';
@@ -230,7 +230,7 @@ switch ($action)
 			echo '<br />';
 			echo "<form method='post' action='./post.php'>";
 			echo '<table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td />';
 			echo '<td>楼层</td>';
 			echo '<td>发表人</td>';
@@ -306,7 +306,7 @@ switch ($action)
 			//显示分类列表
 			echo "<form method='post' action='./post.php'>";
 			echo '<table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td />';
 			echo '<td>编号</td>';
 			echo '<td>分类名</td>';

@@ -31,7 +31,7 @@ switch($action)
 			echo '课程编号：',$cor_no;
 			echo "<form method='post' action='./group.php?tea_no={$tea_no}'>";
 			echo '<table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td />';
 					
 			echo '<td>实验批次</td>';
@@ -142,9 +142,7 @@ switch($action)
 			//	echo '</tr>';
 			    
 			    echo '</form>';
-			}
-
-			
+			}	
 		};break;
 		
 	//新添实验项目
@@ -201,17 +199,13 @@ switch($action)
 				echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0;URL={$url}\">";	
 			};break;
 	
-
-		
 		//显示所有课程
 	default:
 		{
-
-			
 			echo "<form  method='post' action='./group.php?tea_no={$tea_no}'>";
 		//	echo "正常";
 			echo '<table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td />';
 			echo '<td>课号</td>';
 			echo '<td>课程名称</td>';
@@ -248,9 +242,7 @@ switch($action)
 
 			echo '</table>';
             echo '<br />';
-            
-    
-            
+
 			echo "<table style='align:center;'>";
 			echo '<tr>';
 			echo '<td>','<input type=button class=btn value=查看批次>','</input>','</td>';

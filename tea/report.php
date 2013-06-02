@@ -28,7 +28,7 @@ switch ($action) {
 			$cor_no = $_REQUEST ['cor_no'];
 			
 			echo '<table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			// echo '<td />';
 			echo '<td>实验编号</td>';
 			echo '<td>实验名称</td>';
@@ -76,7 +76,7 @@ switch ($action) {
 			echo "实验课程:{$cor_no}<br/>";
 			echo "实验编号:{$item_no}<br/><br/>";
 			echo '<table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td>学生学号</td>';
 			echo '<td>姓名</td>';
 			echo '<td>提交时间</td>';
@@ -199,7 +199,7 @@ switch ($action) {
 		{
 			echo '报告管理';
 			echo '<table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td>课号</td>';
 			echo '<td>课程名称</td>';
 			echo '<td>学期</td>';
@@ -239,7 +239,7 @@ switch ($action) {
 			$cor_no = $_REQUEST ['cor_no'];
 			
 			echo '<table  class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td>实验批次</td>';
 			echo '<td>开始时间(周)</td>';
 			echo '<td>结束时间(周)</td>';
@@ -296,7 +296,7 @@ switch ($action) {
 			
 			echo "课程编号:{$cor_no},批次:{$group} 的学生列表<br /><br />";
 			echo '<table  class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			// echo '<td />';
 			echo '<td>学生学号</td>';
 			echo '<td>学生姓名</td>';
@@ -337,7 +337,7 @@ switch ($action) {
 			
 			echo "学号:{$stu_no}的实验报告<br />";
 			echo '<table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td>实验编号</td>';
 			echo '<td>实验名称</td>';
 			echo '<td>提交日期</td>';
@@ -470,7 +470,7 @@ switch ($action) {
 	default :
 		{
 			echo '<table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td>课号</td>';
 			echo '<td>课程名称</td>';
 			echo '<td>学期</td>';

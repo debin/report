@@ -28,7 +28,7 @@ switch($action)
 			$cor_no = $_REQUEST ['cor_no'];
 			echo "<form method='post' action='./course_deal.php'>";
 			echo '<table  class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td />';
 				
 			echo '<td>实验批次</td>';
@@ -81,7 +81,7 @@ switch($action)
 		{
 			echo "<form method='post' action='./course.php'>";
 			echo '<table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td />';
 			echo '<td>课号</td>';
 			echo '<td>课程名称</td>';
@@ -161,7 +161,7 @@ switch($action)
 			if($rel = mysql_fetch_array ( $result ))
 			{
 				echo '<table class=table_border>';
-				echo '<tr>';
+				echo '<tr class="first">';
 				echo '<td>实验批次</td>';
 				echo '<td>开始时间(周)</td>';
 				echo '<td>结束时间(周)</td>';
@@ -199,7 +199,7 @@ switch($action)
 			mysql_close ();
 			
 			echo '<br /><table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 	//		echo '<td />';
 			echo '<td>实验编号</td>';
 			echo '<td>实验名称</td>';
@@ -282,7 +282,7 @@ switch($action)
 			
 			echo "<form method='post' action='./course.php'>";
 			echo '<table   class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td />';
 			echo '<td>课号</td>';
 			echo '<td>课程名称</td>';

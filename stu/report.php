@@ -32,7 +32,7 @@ switch($action)
 			
 			
 			echo '<br /><table  class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 	//		echo '<td />';
 			echo '<td>实验编号</td>';
 			echo '<td>实验名称</td>';
@@ -146,7 +146,7 @@ switch($action)
 	default:
 		{
 			echo '<table  class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td>课号</td>';
 			echo '<td>课程名称</td>';
 			echo '<td>课程批次</td>';

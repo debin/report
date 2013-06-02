@@ -51,7 +51,7 @@ mysql_close ();
 
 echo "<form method='post' action='./tea.php'>";
 echo '<table class=table_border>';
-echo '<tr>';
+echo '<tr class="first">';
 echo '<td />';
 echo '<td>教师编号</td>';
 echo '<td>姓名</td>';

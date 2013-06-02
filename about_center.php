@@ -2,7 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="./static/css/global.css"></link>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Insert title here</title>
 </head>
 <body>
@@ -10,17 +10,18 @@
 	<div class="sep3"></div>
 	<div
 		style="margin-left: auto; margin-right: auto; min-width: 960px; text-align: center;">
-		<ul class="heng" style="margin-top:10px;margin-bottom:5px;">
-			<li><a href="./index.php">首页</a></li>
-			<li><a href="./bbs.php">讨论区</a></li>
-			<li><a href="./report.php">实验报告管理</a></li>
-			<li><a href="./about_center.php">中心概括</a></li>
+<div class="nav">
+	<ul class="nav_mid" >
+		<li><a href="./index.php" class="font_white">首页</a></li>
+		<li><a href="./bbs.php" class="font_white">讨论区</a></li>
+		<li><a href="./report.php" class="font_white">实验报告管理</a></li>
+			<li><a href="./about_center.php" class="font_white">中心概括</a></li>
 			<?php
 			session_start ();
 			if (! isset ( $_SESSION ['user'] ) || NULL == $_SESSION ['user']) {
-				echo "<li><a href='./login.php'>登陆</a></li>";
+				echo "<li><a href='./login.php' class='font_white'>登陆</a></li>";
 			} else {
-				echo "<li><a href='./login.php?action=logout'>退出</a></li>";
+				echo "<li><a href='./login.php?action=logout' class='font_white'>退出</a></li>";
 			}
 			?>
 		</ul>

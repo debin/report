@@ -24,7 +24,7 @@ CREATE TABLE `course` (
   `grade` varchar(5) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `cor_no` (`cor_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 insert into `course`(`id`,`cor_no`,`term`,`tea_no`,`cor_name`,`usual_rate`,`report_rate`,`exam_rate`,`select_time`,`report_time`,`close_time`,`grade`) values('18','sf_2013001','2013-2','tea008','计算机算法','10','30','60','2013-07-01','2013-06-15','2013-07-20','2009');
 insert into `course`(`id`,`cor_no`,`term`,`tea_no`,`cor_name`,`usual_rate`,`report_rate`,`exam_rate`,`select_time`,`report_time`,`close_time`,`grade`) values('19','hb_2013001','2013-2','tea008','计算机汇编','10','30','60','2013-07-01','2013-06-15','2013-07-20','2009');
 CREATE TABLE `groups` (
@@ -520,7 +520,7 @@ insert into `stu`(`stu_no`,`psw`,`mail`,`name`,`statue`,`mobile`,`class_no`,`gra
 insert into `stu`(`stu_no`,`psw`,`mail`,`name`,`statue`,`mobile`,`class_no`,`grade`) values('0900310312','709566396bef124fb0ecb7e8f23571c8','','','1','','09003103','2009');
 insert into `stu`(`stu_no`,`psw`,`mail`,`name`,`statue`,`mobile`,`class_no`,`grade`) values('0900310313','a4e9e1a45d33574cbb16222b841a2d6f','','','1','','09003103','2009');
 insert into `stu`(`stu_no`,`psw`,`mail`,`name`,`statue`,`mobile`,`class_no`,`grade`) values('0900310314','2f7e6c6d2801bf6872941155b1d88f67','','','1','','09003103','2009');
-insert into `stu`(`stu_no`,`psw`,`mail`,`name`,`statue`,`mobile`,`class_no`,`grade`) values('0900310315','859d85f7c42448e9b4d8f97ed2105e4c','liangdebin@ldb.com','梁德斌','1','13800138000','09003103','2009');
+insert into `stu`(`stu_no`,`psw`,`mail`,`name`,`statue`,`mobile`,`class_no`,`grade`) values('0900310315','859d85f7c42448e9b4d8f97ed2105e4c','liangdebin@ldb.com','梁德斌','1','13800138001','09003103','2009');
 insert into `stu`(`stu_no`,`psw`,`mail`,`name`,`statue`,`mobile`,`class_no`,`grade`) values('0900310316','9dc86bbaef5c9035c277492a1b060eb2','','','1','','09003103','2009');
 insert into `stu`(`stu_no`,`psw`,`mail`,`name`,`statue`,`mobile`,`class_no`,`grade`) values('0900310317','e00959d0d443c7a07a05d76405cf763a','','','1','','09003103','2009');
 insert into `stu`(`stu_no`,`psw`,`mail`,`name`,`statue`,`mobile`,`class_no`,`grade`) values('0900310318','8fbee763c3ede18a59fdf9bcbf5afae6','','','1','','09003103','2009');

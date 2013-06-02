@@ -48,7 +48,7 @@ switch($action)
 			echo '</tr>';
 			
 			echo '<tr>';
-			echo '<td>主教</td>';
+			echo '<td>教学领域</td>';
 			echo '<td>', "<input  name = skill value={$rel['skill']}></input>",'</td>';
 			echo '</tr>';
 			

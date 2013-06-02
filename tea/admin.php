@@ -28,20 +28,20 @@ if ('tea' != $_SESSION ['user'] ['type']) {
 <div
 		style="background-image: url(../static/image/topback.jpg); width: 1024px; height: 80px; margin-left: auto; margin-right: auto;"></div>
 	<div class="sep3"></div>
-	<div
-		style="margin-left: auto; margin-right: auto; min-width: 960px; text-align: center; margin-top: 1px;">
-		<ul class="heng" style="margin-top:10px;margin-bottom:5px;">
-			<li><a href="../index.php">首页</a></li>
-			<li><a href="../bbs.php">讨论区</a></li>
-			<li><a href="../report.php">实验报告管理</a></li>
-			<li><a href="../about_center.php">中心概括</a></li>
+		<!-- 导航条 -->
+<div class="nav">
+	<ul class="nav_mid" >
+		<li><a href="../index.php" class="font_white">首页</a></li>
+		<li><a href="../bbs.php" class="font_white">讨论区</a></li>
+		<li><a href="../report.php" class="font_white">实验报告管理</a></li>
+		<li><a href="../about_center.php" class="font_white">中心概括</a></li>
 					<?php
 					// session_start();
 					if (! isset ( $_SESSION ['user'] ) || NULL == $_SESSION ['user']) {
-						echo "<li><a href='../login.php'>登陆</a></li>";
+						echo "<li><a href='../login.php' class='font_white'>登陆</a></li>";
 					} else {
 						
-						echo "<li><a href='../login.php?action=logout'>退出</a></li>";
+						echo "<li><a href='../login.php?action=logout' class='font_white'>退出</a></li>";
 					}
 					?>			
 	</ul>
@@ -49,20 +49,20 @@ if ('tea' != $_SESSION ['user'] ['type']) {
 
 
 	<div class='sep3'></div>
-	<div style="min-width: 1024px;">
+	<div style="width: 1024px;margin-left:auto;margin-right:auto;">
 		<!-- 左栏功能列表 -->
-	<div style="float: left; width: 220;">
-		<ul style="list-style: none;">
-			<li>个人信息管理
-				<ul style="list-style: none;">
+	<div style="float: left; width: 220;background-color:rgb(204, 204, 255);">
+		<ul style="padding-left:10px;padding-right:10px;">
+			<li><div style="font-weight:bold;">个人信息管理</div>
+				<ul class="nav_left" >
 					<li><a id="update_info" class='menu' href="#">个人信息</a></li>
 					<li><a id="update_psw" class='menu' href="#">修改密码</a></li>
 				</ul>
 			</li>
 
 
-			<li>课程管理
-				<ul style="list-style: none;">
+			<li><div style="font-weight:bold;"><br/>课程管理</div>
+				<ul class="nav_left" >
 					<li><a id="update_group" class='menu' href="#">课程批次管理</a></li>
 					<li><a id="update_item" class='menu' href="#">实验管理</a></li>
 
@@ -70,23 +70,23 @@ if ('tea' != $_SESSION ['user'] ['type']) {
 			</li>
 
 
-			<li>选课管理
-				<ul style="list-style: none;">
-					<li><a class='menu' href="#">选课信息</a></li>
+			<li><div style="font-weight:bold;"><br/>选课管理</div>
+				<ul class="nav_left" >
+					<li><a class='menu' href="#"><!--  选课信息--></a></li>
 					<li><a id='record' class='menu' href="#">审核管理</a></li>
 				</ul>
 			</li>
 
 
-			<li>报告管理
-				<ul style="list-style: none;">
+			<li><div style="font-weight:bold;"><br/>报告管理</div>
+				<ul class="nav_left" >
 					<li><a id='report_manage' class='menu' href="#">报告管理</a></li>
 					<li><a id='report_correct' class='menu' href="#">报告批改</a></li>
 					<li><a id='remark' class='menu' href="#">评语管理</a></li>
 				</ul>
 			</li>
-			<li style="list-style: none;">成绩管理
-				<ul style="list-style: none;">
+			<li ><div style="font-weight:bold;"><br/>成绩管理</div>
+				<ul class="nav_left" >
 					<li><a id='mark_exam' class='menu' href="#">考试成绩</a></li>
 					<li><a id='mark_update' class='menu' href="#">成绩更新</a></li>
 					<li><a id='mark_all_cor' class='menu' href="#">成绩报表</a></li>
@@ -98,9 +98,10 @@ if ('tea' != $_SESSION ['user'] ['type']) {
 		</ul>
 
 	</div>
-
-	<div style="width: 960;text-align: center;">
-		<div class='sep10'></div>
+	
+	<!-- 右边框架 -->
+	<div class='sep10'></div>
+	<div style="text-align: center;width:960;font-size:150%;background-color:;float:left;margin-top:20px;margin-left:50px;">
 		<iframe id="iframe_content" width=720 height=600 scrolling=auto
 			frameborder=0 src="./index.php"></iframe>
 	</div>

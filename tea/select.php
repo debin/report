@@ -29,7 +29,7 @@ switch ($action) {
 			echo '未审核名单:<br />';
 			echo "<form  method='post' action='./select_deal.php'>";
 			echo '<table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 		    echo '<td />';
 			echo '<td>学生学号</td>';
 			echo '<td>姓名</td>';
@@ -76,7 +76,7 @@ switch ($action) {
 	
 			echo "实验课程:{$cor_no}的退课记录<br/><br/>";
 			echo '<table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td>学生学号</td>';
 			echo '<td>姓名</td>';
 			echo '</tr>';
@@ -107,7 +107,7 @@ switch ($action) {
 		{
 			echo "<form  method='post' action='./select.php'>";
 			echo '<table class=table_border>';
-			echo '<tr>';
+			echo '<tr class="first">';
 			echo '<td />';
 			echo '<td>课号</td>';
 			echo '<td>课程名称</td>';

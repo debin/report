@@ -13,7 +13,7 @@ $today = date("Y-m-d");
 
 echo '我的实验成绩:<br /><br />';
 echo '<table class=table_border>';
-echo '<tr>';
+echo '<tr class="first">';
 echo '<td>课号</td>';
 echo '<td>课程名称</td>';
 echo '<td>课程批次</td>';
