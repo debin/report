@@ -88,7 +88,7 @@ include './config.php';
 		</div>
 
 		<!-- 通知 -->
-		<div style="float: left; width: 250px; margin-left: 5px;">
+		<div style="float: left; width: 264px; margin-left: 5px;">
 			<div
 				style="text-align: center; background-color: rgb(204, 204, 255); overflow: auto;">
 				<span style="float: left; margin-left: 60px;"><strong>通知</strong></span>
@@ -167,7 +167,7 @@ include './config.php';
 		<div
 			style="float: left; width: 250px; height: 250px; margin-left: 0px;">
 			<div style="text-align: center; background-color: rgb(204, 204, 255)">
-				<span><strong>-</strong></span>
+				<div>&nbsp</div>
 			</div>
 			<ul
 				style="list-style: none; font-size: 18px; margin: 0px; padding: 0px;">

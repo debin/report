@@ -1,5 +1,5 @@
 <?php
-$im = imagecreate(120,40);
+$im = imagecreate(120,30);
 $string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 $yan=NULL;
 for($i=0;$i<4;$i++)

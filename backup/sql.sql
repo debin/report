@@ -24,7 +24,7 @@ CREATE TABLE `course` (
   `grade` varchar(5) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `cor_no` (`cor_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 insert into `course`(`id`,`cor_no`,`term`,`tea_no`,`cor_name`,`usual_rate`,`report_rate`,`exam_rate`,`select_time`,`report_time`,`close_time`,`grade`) values('18','sf_2013001','2013-2','tea008','计算机算法','10','30','60','2013-07-01','2013-06-15','2013-07-20','2009');
 insert into `course`(`id`,`cor_no`,`term`,`tea_no`,`cor_name`,`usual_rate`,`report_rate`,`exam_rate`,`select_time`,`report_time`,`close_time`,`grade`) values('19','hb_2013001','2013-2','tea008','计算机汇编','10','30','60','2013-07-01','2013-06-15','2013-07-20','2009');
 CREATE TABLE `groups` (

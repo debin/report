@@ -1,3 +1,9 @@
+<?php
+/*名称：学期、教师列表
+ * 
+ */
+
+?>
 <head>
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
 <script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
