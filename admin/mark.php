@@ -1,3 +1,8 @@
+<?php 
+/*名称：成绩查看
+ * 功能：课程列表，成绩单
+ */
+?>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
@@ -18,9 +23,7 @@ if (isset ( $_REQUEST ['action'] )) {
  * 根据action参数的值，进行不同处理：mark_exam_update 显示某课程平时和考试成绩，record_drop 学生退课记录
  */
 
-switch ($action) {
-	
-			
+switch ($action) {	
 		// 打印该门课程的成绩单
 	case 'mark_list':
 		{
@@ -85,8 +88,7 @@ switch ($action) {
 						else 
 						{
 							echo '<td>0</td>';
-						}
-						
+						}			
 					}
 					
 					echo '<td />';
@@ -95,13 +97,11 @@ switch ($action) {
 					echo '<td>', $rel ["exam_mark"], '</td>';
 					echo '<td>', $rel ["mark"], '</td>';
 					echo '</tr>';
-				}while($rel = mysql_fetch_array ( $result ));
-				
+				}while($rel = mysql_fetch_array ( $result ));	
 			}
 		mysql_close();
 		};break;
-		
-		
+	
 	// 显示所有课程
 	default :
 		{
@@ -181,8 +181,7 @@ switch ($action) {
 			echo "<a href=./mark.php?action=default&page={$next}>下一页</a>";
 			echo "<a href=./mark.php?action=default&page={$pages}>尾页</a>";
 			}
-			echo "共有{$pages}页 ({$page}/{$pages})";
-			
+			echo "共有{$pages}页 ({$page}/{$pages})";		
 		}
 }
 

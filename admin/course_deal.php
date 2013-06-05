@@ -1,6 +1,6 @@
 <?php 
 /*名称：课程管理后台
- * 
+ * 功能：更新课程，删除课程
  */
 ?>
 
@@ -12,8 +12,8 @@ $action = $_REQUEST ['action'];
 // echo $action;
 
 /**
- * 根据参数 action 的值进行不同的后台处理：update_info 更新个人信息，
- * update_psw 更新密码
+ * 根据参数 action 的值进行不同的后台处理：update_cor 更新课程，
+ * delete_cor 删除课程
  */
 switch ($action) {
 	

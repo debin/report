@@ -1,7 +1,7 @@
 <?php session_start ();?>
 <?php 
-/*名称：系统首页
- * 
+/*名称：首页
+ * 功能：显示导航，中心介绍，友情链接，通知，教学资源，网络服务
  */
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

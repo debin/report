@@ -1,6 +1,6 @@
 <?php 
 /*名称：学生管理后台
- * 
+ * 功能：处理添加班级请求，删除班级，添加学生，修改学生信息，删除学生，换班
  */
 ?>
 
@@ -8,9 +8,7 @@
 include '../config.php';
 include '../is_login_admin.php';
 
-
 $action = trim($_REQUEST['action']);
-//echo $action;
 
 /**根据action参数的值显示后台页面:add 为添加班级
  * delete_class 删除班级
@@ -20,7 +18,6 @@ $action = trim($_REQUEST['action']);
  * delete_stu 删除学生
  * change_class 换班级
  */
-
 
 switch ($action)
 {
@@ -98,7 +95,6 @@ switch ($action)
 					echo '失败';
 					echo "</td></tr>";
 				}
-				
 			}
 			
 			echo '</table>';
@@ -110,12 +106,11 @@ switch ($action)
 		
 		//添加学生，对数据库的操作
 	case 'add_stu':
-		{
-			
+		{	
 			$class_no = $_REQUEST['class_no'];
 			$start_no = $_REQUEST['start_no'];
 			$grade = $_REQUEST['grade'];
-			
+
 			//统计相应结果次数
 			$count_sucess = 0;
 			$count_fail = 0;
@@ -184,11 +179,8 @@ switch ($action)
 			echo '<br />';
 			echo "{$count_sucess }个学生添加成功<br />";
 			echo "{$count_fail }个学生添加失败<br />";
-			mysql_close ();
-			
-			
+			mysql_close ();	
 		};break;
-		
 		
 		//修改学生信息，后台	
 	case 'update_stu':
@@ -222,7 +214,7 @@ switch ($action)
 			mysql_close();
 			
 		};break;
-		//删除班级，对数据的后天操作
+		//删除班级，对数据库的操作
 	case 'delete_class':
 		{
 			$class_nums=$_REQUEST['class_no'];
@@ -375,8 +367,7 @@ switch ($action)
 			echo "{$count_fail }个学生改变班级失败<br />";
 			
 			mysql_close();	
-		};break;
-		
+		};break;	
 	default:
 		break;
 }

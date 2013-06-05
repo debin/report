@@ -1,6 +1,6 @@
 <?php 
 /*名称：教师管理后台
- * 
+ * 功能：添加教师，删除教师，改密码
  */
 ?>
 <?php
@@ -11,8 +11,8 @@ $action = trim($_REQUEST['action']);
 //echo $action;
 
 /**根据action参数的值显示后台页面:add 为添加教师
+ * add 添加教师
  * delete 删除教师
- * select 显示班级
  * change_psw 更改教师密码
  */
 
@@ -48,9 +48,7 @@ switch ($action)
 					mysql_close ();
 					die("教师编号号已存在");
 				}
-			}
-			
-			
+			}	
 			//给数据库添加教师
 			
 				$psw = substr($tea_no, -6);
@@ -77,9 +75,7 @@ switch ($action)
 				}
 			mysql_close ();		
 		};break;
-		
-	
-		
+
 			//删除教师，对数据的后天操作
 	case 'delete':
 		{
@@ -179,10 +175,10 @@ switch ($action)
 			{
 					$count_fail ++;
 					echo "<tr><td>";
-			echo $tea_nums[$i];
-			echo "</td><td>";
-			echo '失败';
-			echo "</td></tr>";
+					echo $tea_nums [$i];
+					echo "</td><td>";
+					echo '失败';
+					echo "</td></tr>";
 			}
 			}
 				

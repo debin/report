@@ -1,6 +1,6 @@
 <?php 
 /*名称：教师管理前台
- * 
+ * 功能：添加教师，删除教师，更改密码
  */
 ?>
 <head>
@@ -106,8 +106,7 @@ switch ($action) {
 			echo "<td><input  class=button type='submit' value='更改密码'></input></td>";
 			echo "<td><input  class=button type='reset' value='重置'></input></td>";
 			echo '<tr>';
-			echo '</form>';
-			
+			echo '</form>';		
 		};break;
 		
 	default :

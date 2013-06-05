@@ -1,6 +1,6 @@
 <?php 
 /*名称：添加课程前台
- * 
+ * 功能：提示输入课程信息
  */
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -10,10 +10,7 @@ include '../is_login_admin.php';
 
 $queryStr = "select tea_no,name  from tea";
 $result = mysql_query($queryStr,$conn) or die("查询失败:".mysql_error());
-
-
 mysql_close($conn);
-
 ?>
 <html>
 <head>
@@ -24,7 +21,7 @@ mysql_close($conn);
 </head>
 <body>
 
-	<div class="center" align="" style="margin-left:auto;margin-right:auto;">
+	<div class="center"  style="margin-left:auto;margin-right:auto;">
 		添加课程
 
 		<form method="post" action="./course_add_deal.php">
@@ -101,9 +98,6 @@ mysql_close($conn);
 					<td><input class=button type="submit" value="添加"></input></td>
 					<td><input class=button type="reset" value="重填"></input></td>
 				</tr>
-
-
-
 			</table>
 		</form>
 

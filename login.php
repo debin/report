@@ -1,8 +1,12 @@
 <?php session_start ();?>
 <?php
 /*
- * 名称：登陆模块 根据 url 或表单中的action参数进行相应处理 signup：注册 ,暂无此功能 login： 接收登陆界面的表单，进行登陆处理
- * logout:退出处理 default:显示用户登陆界面
+ * 名称：登陆模块
+ * 功能： 根据 url 或表单中的action参数进行相应处理
+ * signup：注册 ,暂无此功能
+ * login： 接收登陆界面的表单，进行登陆处理
+ * logout:退出处理
+ * default:显示用户登陆界面
  */
 ?>
 

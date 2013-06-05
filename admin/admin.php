@@ -24,9 +24,7 @@ if ('admin' != $_SESSION ['user'] ['type']) {
 	echo "<a href='../index.php'>回到首页</a>";
 	die ();
 }
-
 ?>
-
 <div
 		style="background-image: url(../static/image/topback.jpg); width: 1024px; height: 80px; margin-left: auto; margin-right: auto;"></div>
 	<div class="sep3"></div>
@@ -106,8 +104,6 @@ if ('admin' != $_SESSION ['user'] ['type']) {
 				frameborder=0 src="./index.php" style="text-align:center;"></iframe>
 		</div>
 
-
-
 	</div>
 	
 	<div style="clear: both; text-align: center;">
@@ -122,7 +118,6 @@ if ('admin' != $_SESSION ['user'] ['type']) {
 			}
 			?>
 	</div>
-
 	
 	<!-- 绑定左边导航点击事件 -->
 	<script type="text/javascript">
@@ -148,7 +143,6 @@ url['restore']="./backup.php?action=restore";
       var start=function() { $(".menu").click( menuEvent );   }
       $(start);
 
-	
 </script>
 </body>
 </html>

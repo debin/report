@@ -1,7 +1,7 @@
 <?php session_start ();?>
 <?php 
 /*名称：学生端系统管理首页
- * 作用：显示功能列表，响应用户点击请求
+ * 功能：显示功能列表，响应用户点击请求
  */
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -58,14 +58,12 @@ if (! isset ( $_SESSION ['user'] ) || NULL == $_SESSION ['user']) {
 					</ul>
 				</li>
 
-
 				<li><div style="font-weight:bold;"><br/>选课管理</div>
 					<ul class="nav_left" >
 						<li><a id="course_select" class='menu' href="#">选择课程</a></li>
 						<li><a id="course_selected" class='menu' href="#">已选课程</a></li>
 					</ul>
 				</li>
-
 
 				<li><div style="font-weight:bold;"><br/>报告管理</div>
 					<ul class="nav_left" >

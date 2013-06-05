@@ -1,6 +1,6 @@
 <?php 
 /*名称：备份还原模块
- * 作用：根据action参数，进行备份或者是还原操作
+ * 功能：根据action参数，进行备份或者是还原操作
  */
 ?>
 
@@ -12,7 +12,6 @@
 <?php
 include '../config.php';
 include '../is_login_admin.php';
-
 
 $action = NULL;
 $action = $_REQUEST ['action'];
@@ -101,8 +100,7 @@ switch ($action) {
 			}
 			$filename = "sql.sql";
 			$mysql_file = "../backup/" . $filename; // 指定要恢复的MySQL备份文件路径,请自已修改此路径
-			restore ( $mysql_file ); // 执行MySQL恢复命令
-			
+			restore ( $mysql_file ); // 执行MySQL恢复命令	
 		};break;
 	
 	default :

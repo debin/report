@@ -63,8 +63,7 @@ switch($action)
 			}
 	
 			mysql_close();
-			
-			
+						
 		}break;
 	default:
 		echo "未知传值";

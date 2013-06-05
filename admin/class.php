@@ -1,6 +1,6 @@
 <?php 
 /*名称：学生管理前台
- * 
+ * 功能：显示班级中的学生列表，添加学生界面，删除班级，删除学生，换班，修改学生信息
  */
 ?>
 <head>
@@ -72,7 +72,6 @@ switch ($action) {
 				}
 				$class_no = $_REQUEST['class_no'];
 				
-				
 				echo "<form method='post' action='./class_deal.php?action=add_stu&class_no={$class_no}'>";
 				echo '<table>';
 				echo '<tr>';
@@ -93,8 +92,7 @@ switch ($action) {
 				echo '<tr>';
 				echo "<td><input class=button type='submit' value='提交'></input></td>";
 				echo "<td><input class=button type='reset' value='重置'></input></td>";
-				echo '</tr>';
-				
+				echo '</tr>';			
 			};break;
 			
 	//删除班级，来自 class_select.php 的请求
@@ -148,8 +146,7 @@ switch ($action) {
 			for($i = 0 ; $i < count($stu_nums) ; $i++)
 			{
 			$url =$url .  "&stu_no[{$i}]=" . $stu_nums[$i];
-			}
-			
+			}		
 		//	echo '这是用来测试的:';
 		//	echo $url;
 			
@@ -164,14 +161,11 @@ switch ($action) {
 			while($rel = mysql_fetch_array($result))
 			{
 				echo "<option value='{$rel['class_no']}'>{$rel['class_no']}</option>";
-			}
-			
+			}			
 			echo '</select>';
 			echo "<input type='hidden' name=old_class value={$old_class}></input>";
-			echo "<input class=button type='submit' value='改变班级'></input>";
-			
-			echo '</form>';
-			
+			echo "<input class=button type='submit' value='改变班级'></input>";			
+			echo '</form>';			
 		};break;
 		
 		//修改学生信息，前台
@@ -189,7 +183,6 @@ switch ($action) {
 			$queryStr = sprintf ( "select  *  from stu where  stu_no='%s' ", $stu_no );
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
 			mysql_close ();
-			
 
 			if ($rel = mysql_fetch_array ( $result ))
 			{
@@ -237,8 +230,7 @@ switch ($action) {
 		
 	//显示某一个班级的学生,有导航:增加，查看，删除，改变班级			
 	case 'select_class' :
-		{
-			
+		{		
 			// 分页中每一页的条目数量
 			$page_size = 10;
 			
@@ -345,7 +337,6 @@ switch ($action) {
 			echo '<td>', '<input type=button class=btn  value=换班>', '</input>', '</td>';
 			echo '</tr></table>';
 			echo '</form>';
-			
 			?>
 			
 <!-- 绑定导航条点击事件 -->
@@ -382,8 +373,7 @@ switch ($action) {
 </script>
 			
 <?php 			
-		};break;
-		
+		};break;		
 	default :
 		break;
 }
