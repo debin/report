@@ -1,14 +1,14 @@
+<?php 
+/*名称：批次管理后台
+ * 功能：添加批次，更新批次，删除批次
+ */
+?>
 <?php
 include '../config.php';
 include '../is_login_tea.php';
 
 //$tea_no = "tea";
-
-$action = NULL;
-if (isset($_GET['action']))
-{
-	$action = $_GET['action'];
-}
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 
 /** 根据action参数的值，进行不同处理：add添加实验内容，update更新实验内容,delete删除处理
  *    edit_time编辑实验报告提交时间
@@ -57,9 +57,7 @@ switch($action)
 			$week_nums = trim($_REQUEST['week_nums']);
 			$lesson_seq = trim($_REQUEST['lesson_seq']);
 			$num= trim($_REQUEST['num']);
-
-			
-			
+	
 			$queryStr = sprintf ( "update groups set  groups='%s',cor_no='%s' ,week_start='%s',week_end='%s',week_nums='%s',lesson_seq='%s',num='%s' where  id='%s'", $groups,$cor_no,$week_start,$week_end,$week_nums,$lesson_seq,$num,$id);
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败: " . mysql_error () ) ;
 
@@ -96,27 +94,7 @@ switch($action)
 			mysql_close ();
 		};break;
 		
-	case 'edit_time':
-		{
-			if(!isset($_POST['report_time']) || NULL==$_POST['report_time'])
-			{
-				die("请先填写日期");
-			}
-			$report_time=$_POST['report_time'];
-			$queryStr = sprintf("update course set  report_time='%s' where cor_no='%s'",$report_time,$_POST['cor_no']);
-			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败: " . mysql_error () ) ;	
-			if($result!=NULL && 1==mysql_affected_rows())
-			{
-				echo "修改成功";
-			}
-			else
-			{
-				echo "修改失败了";
-			}
-		};break;
 	default:
-		echo '提交不成功';
-		
+		break;
 }
-
 ?>

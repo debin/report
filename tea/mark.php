@@ -1,3 +1,8 @@
+<?php 
+/*名称：成绩管理前台
+ * 功能：修改平时成绩和考试成绩，更新学生成绩，显示所有课程，课程成绩单，显示未关闭课程
+ */
+?>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
@@ -10,16 +15,13 @@ include '../is_login_tea.php';
 //$tea_no = "tea";
 $today = date ( "Y-m-d" );
 
-$action = NULL;
-if (isset ( $_REQUEST ['action'] )) {
-	$action = $_REQUEST ['action'];
-}
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 /**
  * 根据action参数的值，进行不同处理：mark_exam_update 显示某课程平时和考试成绩，record_drop 学生退课记录
  */
 
 switch ($action) {
-	// 显示某课程的平时成绩和考试成绩
+	// 修改某课程的平时成绩和考试成绩
 	case 'mark_exam_update' :
 		{
 			if (! isset ( $_REQUEST ['cor_no'] )) {
@@ -31,13 +33,7 @@ switch ($action) {
 			$page_size = 10;
 				
 			// 获取页码
-			if (isset ( $_REQUEST ['page'] )) {
-				$page = intval ( $_REQUEST ['page'] );
-			}
-			// 设置为第一页
-			else {
-				$page = 1;
-			}
+			$page = isset ( $_REQUEST ['page'] )?intval($_REQUEST ['page']):1;
 			
 			// 获取选取本课程的人数
 			$queryStr =sprintf("select  count(*)  from sel_cor where cor_no='%s' and status='1'",$cor_no);
@@ -272,7 +268,6 @@ switch ($action) {
 		mysql_close();
 		};break;
 		
-		
 	// 显示所有未关闭课程，可点击进入修改平时成绩和考试成绩
 	default :
 		{
@@ -305,5 +300,4 @@ switch ($action) {
 			echo '</table>';
 		}
 }
-
 ?>

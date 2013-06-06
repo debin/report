@@ -1,3 +1,8 @@
+<?php 
+/*名称：成绩查看
+ * 功能：查看成绩单
+ */
+?>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
@@ -23,7 +28,6 @@ echo '<td>平时分</td>';
 echo '<td>考试分</td>';
 echo '<td>综合成绩</td>';
 echo '</tr>';
-
 
 $queryStr = sprintf("select * from course,sel_cor,tea where sel_cor.stu_no='%s' and sel_cor.cor_no=course.cor_no and tea.tea_no=course.tea_no and sel_cor.status='1'",$stu_no);
 $result = mysql_query($queryStr,$conn) or die("查询失败:".mysql_error());
@@ -72,5 +76,4 @@ else
 {
 	echo '还没有已经被审核通过的课程';
 }
-
 ?>

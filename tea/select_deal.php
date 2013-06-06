@@ -1,14 +1,14 @@
+<?php 
+/*名称：选课审核后台
+ * 功能：同意选课，不同意选课
+ */
+?>
 <?php
 include '../config.php';
 include '../is_login_tea.php';
 //$tea_no = "tea";
 
-$action = NULL;
-if (isset($_REQUEST['action']))
-{
-	$action = $_REQUEST['action'];
-}
-
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 /** 根据action参数的值，进行不同处理：verify 通过审核，unverify 不通过审核
  *
  */
@@ -47,8 +47,7 @@ switch($action)
 			echo '<br />';
 			echo "{$count_sucess }个学生审核成功<br />";
 			echo "{$count_fail }个学生审核失败<br />";
-			mysql_close ();
-			
+			mysql_close ();	
 		};break;
 		
 		//审核不通过
@@ -81,11 +80,9 @@ switch($action)
 					echo '<br />';
 					echo "{$count_sucess }个学生拒绝成功<br />";
 					echo "{$count_fail }个学生拒绝失败<br />";
-					mysql_close ();
-						
+					mysql_close ();				
 			};break;
 	default:
 		echo '提交不成功';	
 }
-
 ?>

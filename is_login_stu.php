@@ -21,8 +21,4 @@ if( 'stu' != $_SESSION['user']['type'])
 	die();
 }
 $stu_no= $_SESSION['user']['id'];
-	
-
-
-
 ?>

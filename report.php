@@ -35,9 +35,8 @@ switch($_SESSION['user']['type'])
 		case 'admin':
 			{
 				echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0;URL='./admin/admin.php' \">";
-			};break;
-		
-		
+			};break;	
+			
+		default:break;	
 }
-
 ?>

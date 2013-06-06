@@ -16,8 +16,7 @@ $user = $_SESSION['user']['id'];
 $queryStr = sprintf("select *  from admin where user='%s'",$user);
 $result = mysql_query($queryStr,$conn) or die("查询失败:".mysql_error());
 mysql_close();
-$action=$_REQUEST['action'];
-//echo $action;
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 
 /**  根据参数 action 的值显示不同的前台页面：update_info 更新个人信息，
  * update_psw 更新密码

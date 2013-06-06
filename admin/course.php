@@ -12,10 +12,7 @@
 include '../config.php';
 include '../is_login_admin.php';
 
-$action = NULL;
-if (isset ( $_REQUEST ['action'] )) {
-	$action = $_REQUEST ['action'];
-}
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 switch ($action) {
 	
 	// 更新课程信息，前台
@@ -243,13 +240,8 @@ switch ($action) {
 			$page_size = 10;
 			
 			// 获取页码
-			if (isset ( $_REQUEST ['page'] )) {
-				$page = intval ( $_GET ['page'] );
-			} 			// 设置为第一页
-			else {
-				$page = 1;
-			}
-			
+			$page = isset ( $_REQUEST ['page'] )?intval($_REQUEST ['page']):1;
+
 			// 获取搜索条件，学期与教师
 			$Str = " where course.tea_no=tea.tea_no";
 			// 若选择了教师
@@ -379,5 +371,4 @@ switch ($action) {
        }
       var start = function() { $(".btn").click( submit_action );   }
       $(start);
-	
 </script>

@@ -1,3 +1,8 @@
+<?php 
+/*名称：报告管理前台
+ * 功能：显示实验内容列表，编辑实验报告，显示已选课程
+ */
+?>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
@@ -11,11 +16,7 @@ $today = date("Y-m-d");
 //echo $today;
 //$stu_no = "stu2";
 
-$action = NULL;
-if (isset($_REQUEST['action']))
-{
-	$action = $_REQUEST['action'];
-}
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 switch($action)
 {
 		//显示某课程的实验内容列表
@@ -29,8 +30,7 @@ switch($action)
 			//显示实验内容列表
 			$queryStr = sprintf ( "select  *  from item where  cor_no='%s'", $cor_no );
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
-			
-			
+
 			echo '<br /><table  class=table_border>';
 			echo '<tr class="first">';
 	//		echo '<td />';
@@ -59,8 +59,7 @@ switch($action)
 			echo '</table>';
 			mysql_close ();	
 		};break;
-		
-		
+	
 		//编辑实验报告
 	case 'report_update':
 		{
@@ -98,7 +97,6 @@ switch($action)
 				}
 				echo "课程号码:{$cor_no}<br />";
 				
-				//here
 			//	echo "实验:{$rel['item_no']}  {$rel['item_name']}";
 				echo "<form method='post' action='./report_deal.php?cor_no={$cor_no}&item_no={$item_no}'>";
 				echo '<pre>';
@@ -140,8 +138,7 @@ switch($action)
 			}
 			mysql_close();	
 		};break;
-		
-		
+	
 		//默认显示已选课程
 	default:
 		{
@@ -181,7 +178,6 @@ switch($action)
 			echo '请点击进入按钮进行下一步操作';
 		};break;
 }
-
 ?>
 
 <!-- 绑定导航条点击事件 -->
@@ -209,5 +205,4 @@ switch($action)
  }
 var start = function() { $(".btn").click( submit_action );   }
 $(start);
-	
 </script>

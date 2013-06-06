@@ -1,3 +1,8 @@
+<?php 
+/*名称：成绩管理后台
+ * 功能：修改平时成绩和考试成绩，更新学生综合成绩
+ */
+?>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
@@ -9,10 +14,7 @@ include '../is_login_tea.php';
 //$tea_no = "tea";
 $today = date ( "Y-m-d" );
 
-$action = NULL;
-if (isset ( $_REQUEST ['action'] )) {
-	$action = $_REQUEST ['action'];
-}
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 /**
  * 根据action参数的值，进行不同处理：exam_update 更新平时成绩和考试成绩
  */
@@ -144,6 +146,4 @@ switch ($action) {
 	default :
 		break;
 }
-
 ?>
-

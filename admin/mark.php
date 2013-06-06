@@ -15,10 +15,7 @@ include '../is_login_admin.php';
 //$tea_no = "tea";
 $today = date ( "Y-m-d" );
 
-$action = NULL;
-if (isset ( $_REQUEST ['action'] )) {
-	$action = $_REQUEST ['action'];
-}
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 /**
  * 根据action参数的值，进行不同处理：mark_exam_update 显示某课程平时和考试成绩，record_drop 学生退课记录
  */

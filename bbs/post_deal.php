@@ -1,3 +1,8 @@
+ <?php 
+ /*名称：发帖后台
+  * 功能：发布帖子，发表回复
+  */
+ ?>
 <?php session_start ();
 header("Content-type: text/html; charset=utf-8"); 
 ?>
@@ -121,9 +126,6 @@ switch ($action)
  		};break;
  		
  	default:	break;
-
 }
 echo '</div>';
-
-
 ?>

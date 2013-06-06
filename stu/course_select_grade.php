@@ -1,3 +1,8 @@
+<?php 
+/*名称：年级选择
+ * 功能：选择年级
+ */
+?>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
@@ -18,12 +23,4 @@ echo '</input>';
 //		echo "<input type='hidden'  name=stu_no value={$stu_no}></input>";
 echo "<input class=button type='submit' value='查看'></input>";
 echo "</form>";
-
-
-
-
-
 ?>
-
-
-

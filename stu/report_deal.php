@@ -1,10 +1,15 @@
+<?php 
+/*名称：报告管理后台
+ * 功能：更新实验报告
+ */
+?>
 <?php
 include '../config.php';
 include '../is_login_stu.php';
 
 //$stu_no = 'stu2';
 $today = date("Y-m-d");
-$action = $_REQUEST ['action'];
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 
 switch ($action) 
 {
@@ -74,6 +79,4 @@ else
 		echo '操作失败';
 	}
 }
-
 ?>
-

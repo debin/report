@@ -1,3 +1,8 @@
+<?php
+/* 名称：学期选择 
+ * 功能：在课程列表之前，先进行学期选择
+ */
+?>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
@@ -6,9 +11,9 @@
 <?php
 include '../config.php';
 include '../is_login_tea.php';
-//$tea_no = "tea";
+// $tea_no = "tea";
 
-$action = $_REQUEST ['action'];
+$action = isset ( $_REQUEST ['action'] ) ? $_REQUEST ['action'] : NULL;
 
 // 根据action 设置表单的action值
 switch ($action) {

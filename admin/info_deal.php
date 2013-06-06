@@ -8,7 +8,7 @@ include '../config.php';
 include '../is_login_admin.php';
 
 $user = $_SESSION['user']['id'];
-$action = $_REQUEST['action'];
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 //echo $action;
 
 

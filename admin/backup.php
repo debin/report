@@ -1,5 +1,5 @@
-<?php 
-/*名称：备份还原模块
+<?php
+/*名称：备份还原模块 
  * 功能：根据action参数，进行备份或者是还原操作
  */
 ?>
@@ -13,8 +13,7 @@
 include '../config.php';
 include '../is_login_admin.php';
 
-$action = NULL;
-$action = $_REQUEST ['action'];
+$action = isset ( $_REQUEST ['action'] ) ? $_REQUEST ['action'] : NULL;
 switch ($action) {
 	case 'backup' :
 		{
@@ -54,16 +53,12 @@ switch ($action) {
 		break;
 	case 'restore' :
 		{
-/*			$filename = "test20101216923.sql";
-			$host = "localhost"; // 主机名
-			$user = "root"; // MYSQL用户名
-			$password = "123456"; // 密码
-			$dbname = "test"; // 在此指定您要恢复的数据库名，不存在则必须先创建,请自已修改数据库名
-			mysql_connect ( $host, $user, $password );
-			mysql_select_db ( $dbname );
-			
-			*/
-
+			/*
+			 * $filename = "test20101216923.sql"; $host = "localhost"; // 主机名
+			 * $user = "root"; // MYSQL用户名 $password = "123456"; // 密码 $dbname =
+			 * "test"; // 在此指定您要恢复的数据库名，不存在则必须先创建,请自已修改数据库名 mysql_connect (
+			 * $host, $user, $password ); mysql_select_db ( $dbname );
+			 */
 			function restore($fname) {
 				if (file_exists ( $fname )) {
 					$sql_value = "";
@@ -100,12 +95,12 @@ switch ($action) {
 			}
 			$filename = "sql.sql";
 			$mysql_file = "../backup/" . $filename; // 指定要恢复的MySQL备份文件路径,请自已修改此路径
-			restore ( $mysql_file ); // 执行MySQL恢复命令	
-		};break;
+			restore ( $mysql_file ); // 执行MySQL恢复命令
+		}
+		;
+		break;
 	
 	default :
 		break;
 }
-
 ?>
-

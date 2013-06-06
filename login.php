@@ -1,12 +1,8 @@
 <?php session_start ();?>
 <?php
 /*
- * 名称：登陆模块
- * 功能： 根据 url 或表单中的action参数进行相应处理
- * signup：注册 ,暂无此功能
- * login： 接收登陆界面的表单，进行登陆处理
- * logout:退出处理
- * default:显示用户登陆界面
+ * 名称：登陆模块 功能： 根据 url 或表单中的action参数进行相应处理 signup：注册 ,暂无此功能 login：
+ * 接收登陆界面的表单，进行登陆处理 logout:退出处理 default:显示用户登陆界面
  */
 ?>
 
@@ -21,10 +17,7 @@
 <?php
 include './config.php';
 
-$action = NULL;
-if (isset ( $_REQUEST ['action'] )) {
-	$action = $_REQUEST ['action'];
-}
+$action = isset ( $_REQUEST ['action'] ) ? $_REQUEST ['action'] : NULL;
 
 switch ($action) {
 	case 'signup' :
@@ -47,16 +40,16 @@ switch ($action) {
 			
 			$img_code = strtolower ( trim ( $_REQUEST ['img_code'] ) );
 			
-			//若验证码不对
-			  if($authcode!=$img_code) {
-			  	echo "<div class='center' style='width:720px;'>"; 
-			  	echo '验证码不正确，2秒后自动返回登陆页面<br /><br/>';
-			  	echo "<a href='./login.php'>立即跳转</a>";
-			  	echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"2;URL='./login.php' \">";
-			  	echo "<div>"; 
-			  	die();
-			   }
-			 
+			// 若验证码不对
+			if ($authcode != $img_code) {
+				echo "<div class='center' style='width:720px;'>";
+				echo '验证码不正确，2秒后自动返回登陆页面<br /><br/>';
+				echo "<a href='./login.php'>立即跳转</a>";
+				echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"2;URL='./login.php' \">";
+				echo "<div>";
+				die ();
+			}
+			
 			if (! isset ( $_REQUEST ['user'] ) || empty ( $_REQUEST ['user'] )) {
 				echo "<div class='center' style='width:720px;'>";
 				echo "<div>";
@@ -190,7 +183,6 @@ switch ($action) {
 		;
 		break;
 }
-
 ?>
 
 <!-- 点击刷新验证码 -->

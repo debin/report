@@ -1,25 +1,23 @@
+<?php 
+/*名称：评语管理后台
+ * 功能：修改评语，新添评语，删除评语
+ */
+?>
 <?php
 include '../config.php';
 include '../is_login_tea.php';
 //$tea_no = "tea";
 
-$action = NULL;
-if (isset($_GET['action']))
-{
-	$action = $_GET['action'];
-}
-
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 /** 根据action参数的值，进行不同处理后台：add添加评语，update更新评语,delete删除评语
  *
  */
 
 switch($action)
 {
-	
 	//添加评语，后台
 	case 'add':
-		{
-			
+		{	
 			$no=$_REQUEST['no'];
 			$body = $_REQUEST ['body'];
 
@@ -54,8 +52,7 @@ switch($action)
 			{
 				echo '修改评语失败';
 			}
-			mysql_close ();
-			
+			mysql_close ();	
 		};break;
 		
 		//删除评语
@@ -97,8 +94,6 @@ switch($action)
 		};break;
 		
 	default:
-		echo '参数不正确';
 		break;	
 }
-
 ?>

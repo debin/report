@@ -17,6 +17,5 @@ else
 {
 	echo "F";
 }
-
 //echo $authcode;
 ?>

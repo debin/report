@@ -1,23 +1,22 @@
+<?php 
+/*名称：实验项目管理后台
+ * 功能：新添实验项目，更新实验内容，删除实验项目，修改实验报告提交截止时间
+ */
+?>
 <?php
 include '../config.php';
 include '../is_login_tea.php';
 //$tea_no = "tea";
 $today = date("Y-m-d");
 
-$action = NULL;
-if (isset($_REQUEST['action']))
-{
-	$action = $_REQUEST['action'];
-}
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 
 /** 根据action参数的值，进行不同处理：add添加实验内容，update更新实验内容,delete删除处理
  *    edit_time编辑实验报告提交时间
  *
  */
-
 switch($action)
 {
-	
 	//添加实验项目，后台
 	case 'add':
 		{
@@ -93,8 +92,7 @@ switch($action)
 			{
 				echo '修改失败';
 			}
-			mysql_close ();
-			
+			mysql_close ();		
 		};break;
 	case 'delete':
 		{
@@ -142,8 +140,6 @@ switch($action)
 			}
 		};break;
 	default:
-		echo '提交不成功';
-		
+		break;
 }
-
 ?>

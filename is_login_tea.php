@@ -21,9 +21,4 @@ if( 'tea' != $_SESSION['user']['type'])
 	die();
 }
 $tea_no= $_SESSION['user']['id'];
-
-
-
-
-
 ?>

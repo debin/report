@@ -438,7 +438,7 @@ CREATE TABLE `report` (
   `remark` varchar(60) DEFAULT NULL,
   `status` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 insert into `report`(`id`,`cor_no`,`stu_no`,`item_no`,`date`,`body`,`item_mark`,`remark`,`status`) values('16','sf_2013001','0900310315','1','2013-05-20','实验1 贪心方法原理的实验内容
 
 我提交<div>a</div>','80','做的不错','2');

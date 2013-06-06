@@ -17,14 +17,7 @@ include '../is_login_admin.php';
 $page_size = 10;
 
 // 获取页码
-if (isset ( $_REQUEST ['page'] )) {
-	$page = intval ( $_REQUEST ['page'] );
-} 
-
-// 设置为第一页
-else {
-	$page = 1;
-}
+$page = isset ( $_REQUEST ['page'] )?intval($_REQUEST ['page']):1;
 
 // 获取班级总数
 $queryStr = "select  count(distinct tea_no)  from tea";
@@ -145,5 +138,4 @@ echo '<br />';
        }
       var start=function() { $(".btn").click( submit_action );   }
       $(start);
-	
 </script>

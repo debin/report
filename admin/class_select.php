@@ -1,9 +1,8 @@
-<?php 
-/*名称：班级列表
+<?php
+/* 名称：班级列表 
  * 作用：显示班级列表
  */
 ?>
-
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
@@ -13,19 +12,11 @@
 include '../config.php';
 include '../is_login_admin.php';
 
-
 // 分页中每一页的条目数量
 $page_size = 5;
 
 // 获取页码
-if (isset ( $_GET ['page'] )) {
-	$page = intval ( $_GET ['page'] );
-} 
-
-// 设置为第一页
-else {
-	$page = 1;
-}
+$page = isset ( $_REQUEST ['page'] ) ? intval ( $_REQUEST ['page'] ) : 1;
 
 // 获取班级总数
 $queryStr = "select  count(distinct class_no)  from stu";
@@ -40,9 +31,9 @@ if ($numrows % $page_size) {
 	$pages ++;
 }
 
-//前一页和后一页
-$prev=$page-1;
-$next=$page+1;
+// 前一页和后一页
+$prev = $page - 1;
+$next = $page + 1;
 
 // 计算记录偏移量
 $offset = $page_size * ($page - 1);
@@ -55,14 +46,14 @@ echo '<table>';
 echo '<tr>';
 echo '<td />';
 echo '<td>班级号</td>';
-//echo '<td>入学年份</td>';
+// echo '<td>入学年份</td>';
 echo '</tr>';
 if ($rel = mysql_fetch_array ( $result )) {
 	do {
 		echo '<tr>';
 		echo '<td>', "<input type=checkbox name = class_no[] value={$rel['class_no']}>", '</td>';
 		echo '<td>', $rel ["class_no"], '</td>';
-	//	echo '<td>', $rel ["grade"], '</td>';
+		// echo '<td>', $rel ["grade"], '</td>';
 		echo '</tr>';
 	} while ( $rel = mysql_fetch_array ( $result ) );
 } 
@@ -74,14 +65,12 @@ else {
 }
 echo '</table>';
 
-//分页导航
-if($page>1)
-{
+// 分页导航
+if ($page > 1) {
 	echo "<a href=./class_select.php?page=1>首页</a>";
 	echo "<a href=./class_select.php?page={$prev}>上一页</a>";
 }
-if ($page<$pages)
-{
+if ($page < $pages) {
 	echo "<a href=./class_select.php?page={$next}>下一页</a>";
 	echo "<a href=./class_select.php?page={$pages}>尾页</a>";
 }
@@ -90,7 +79,7 @@ echo '<table>';
 echo '<br />';
 echo '<tr>';
 
-//功能导航
+// 功能导航
 echo '<td>', "<input name=action id=action value='' type=hidden></input>", '</td>';
 echo '<td>', '<input type=button class=btn  value=增加 style="width:65px;">', '</input>', '</td>';
 echo '<td>', '<input type=button class=btn  value=查看 style="width:65px;">', '</input>', '</td>';
@@ -134,5 +123,4 @@ echo '注意:删除请谨慎，删除班级后该班学生也会被删除';
        }
       var start=function() { $(".btn").click( submit_action );   }
       $(start);
-	
 </script>
