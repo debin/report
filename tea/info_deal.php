@@ -1,8 +1,13 @@
+<?php 
+/*名称：个人信息管理后台
+ * 功能：修改个人信息，修改密码
+ */
+?>
 <?php
 include '../config.php';
 include '../is_login_tea.php';
 
-$action = $_REQUEST['action'];
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 //echo $action;
 
 /**  根据参数 action 的值进行不同的后台处理：update_info 更新个人信息，
@@ -61,16 +66,11 @@ switch($action)
 			{
 				echo "修改失败";
 			}
-	
 			mysql_close();
-			
-			
+						
 		}break;
 	default:
 		echo "未知传值";
 		break;
 }
-
-
-
 ?>

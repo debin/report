@@ -1,6 +1,6 @@
 <?php session_start ();?>
-<?php 
-/*名称：管理员端系统管理首页
+<?php
+/*名称：管理员端系统管理首页 
  * 作用：显示功能列表，响应用户点击请求
  */
 ?>
@@ -24,20 +24,18 @@ if ('admin' != $_SESSION ['user'] ['type']) {
 	echo "<a href='../index.php'>回到首页</a>";
 	die ();
 }
-
 ?>
-
 <div
 		style="background-image: url(../static/image/topback.jpg); width: 1024px; height: 80px; margin-left: auto; margin-right: auto;"></div>
 	<div class="sep3"></div>
 
 	<!-- 导航条 -->
-<div class="nav">
-	<ul class="nav_mid" >
-		<li><a href="../index.php" class="font_white">首页</a></li>
-		<li><a href="../bbs.php" class="font_white">讨论区</a></li>
-		<li><a href="../report.php" class="font_white">实验报告管理</a></li>
-		<li><a href="../about_center.php" class="font_white">中心概括</a></li>
+	<div class="nav">
+		<ul class="nav_mid">
+			<li><a href="../index.php" class="font_white">首页</a></li>
+			<li><a href="../bbs.php" class="font_white">讨论区</a></li>
+			<li><a href="../report.php" class="font_white">实验报告管理</a></li>
+			<li><a href="../about_center.php" class="font_white">中心概括</a></li>
 			<?php
 			// session_start();
 			if (! isset ( $_SESSION ['user'] ) || NULL == $_SESSION ['user']) {
@@ -51,65 +49,70 @@ if ('admin' != $_SESSION ['user'] ['type']) {
 	</div>
 
 	<div class='sep3'></div>
-	<div style="width: 1024px;margin-left:auto;margin-right:auto;">
+	<div style="width: 1024px; margin-left: auto; margin-right: auto;">
 		<!-- 左栏功能列表 -->
-		<div style="float: left; width: 230;background-color:rgb(204, 204, 255);">
-			<ul style="padding-left:10px;padding-right:10px;">
-				<li ><div style="font-weight:bold;">个人信息管理</div>
-					<ul class="nav_left" >
+		<div
+			style="float: left; width: 230; background-color: rgb(204, 204, 255);">
+			<ul style="padding-left: 10px; padding-right: 10px;">
+				<li><div style="font-weight: bold;">个人信息管理</div>
+					<ul class="nav_left">
 						<li><a id="update_info" class='menu' href="#">个人信息</a></li>
 						<li><a id="update_psw" class='menu' href="#">密码维护</a></li>
-					</ul>
-				</li>
+					</ul></li>
 
-				<li><div style="font-weight:bold;"><br/>学生与教师管理</div>
-					<ul class="nav_left" >
+				<li><div style="font-weight: bold;">
+						<br />学生与教师管理
+					</div>
+					<ul class="nav_left">
 						<li><a id="stu" class='menu' href="#">学生信息维护</a></li>
 						<li><a id="tea" class='menu' href="#">教师信息维护</a></li>
-					</ul>
-				</li>
+					</ul></li>
 
-				<li><div style="font-weight:bold;"><br/>课程管理</div>
-					<ul class="nav_left" >
+				<li><div style="font-weight: bold;">
+						<br />课程管理
+					</div>
+					<ul class="nav_left">
 						<li><a id="view_course" class='menu' href="#">查看课程</a></li>
 						<li><a id="insert_course" class='menu' href="#">新添课程</a></li>
-					</ul>
-				</li>
+					</ul></li>
 
-				<li><div style="font-weight:bold;"><br/>成绩管理</div>
-					<ul class="nav_left" >
+				<li><div style="font-weight: bold;">
+						<br />成绩管理
+					</div>
+					<ul class="nav_left">
 						<li><a id="view_mark" class='menu' href="#">查看成绩</a></li>
-					</ul>
-				</li>
+					</ul></li>
 
-				<li><div style="font-weight:bold;"><br/>帖子管理</div>
-					<ul class="nav_left" >
+				<li><div style="font-weight: bold;">
+						<br />帖子管理
+					</div>
+					<ul class="nav_left">
 						<li><a id="post_manage" class='menu' href="#">帖子管理</a></li>
 						<li><a id="post_sort" class='menu' href="#">分类管理</a></li>
-					</ul>
-				</li>
+					</ul></li>
 
-				<li><div style="font-weight:bold;"><br/>系统管理</div>
-					<ul class="nav_left" >
-						<li><a id="submit" class='menu' href="#"><!--  权限管理--></a></li>
+				<li><div style="font-weight: bold;">
+						<br />系统管理
+					</div>
+					<ul class="nav_left">
+						<li><a id="submit" class='menu' href="#"> <!--  权限管理-->
+						</a></li>
 						<li><a id="backup" class='menu' href="#">系统备份</a></li>
 						<li><a id="restore" class='menu' href="#">系统还原</a></li>
-					</ul>
-				</li>
+					</ul></li>
 			</ul>
 		</div>
 
 		<!-- 右边框架 -->
 		<div class='sep10'></div>
-		<div style="text-align: center;width:960;font-size:150%;background-color:;float:left;margin-top:20px;margin-left:50px;">
+		<div
+			style="text-align: center; width: 960; font-size: 150%; background-color:; float: left; margin-top: 20px; margin-left: 50px;">
 			<iframe id="iframe_content" width=760 height=600 scrolling=auto
-				frameborder=0 src="./index.php" style="text-align:center;"></iframe>
+				frameborder=0 src="./index.php" style="text-align: center;"></iframe>
 		</div>
-
-
-
+		
 	</div>
-	
+
 	<div style="clear: both; text-align: center;">
 		<hr />
 	© 2013
@@ -123,9 +126,8 @@ if ('admin' != $_SESSION ['user'] ['type']) {
 			?>
 	</div>
 
-	
-	<!-- 绑定左边导航点击事件 -->
-	<script type="text/javascript">
+<!-- 绑定左边导航点击事件 -->
+<script type="text/javascript">
 var url = [ ];
 url['update_info']="./info.php?action=update_info";
 url['update_psw']="./info.php?action=update_psw";
@@ -134,21 +136,17 @@ url['insert_course']="./course_add.php";
 url['stu']="./class_select.php";
 url['tea']="./tea_select.php";
 url['view_mark']="./mark.php";
-
 url['post_manage']="./post.php?action=post_manage";
 url['post_sort']="./post.php?action=post_sort";
-
 url['backup']="./backup.php?action=backup";
 url['restore']="./backup.php?action=restore";
 
-      var menuEvent = function menuEvent(e)
-      {
-        	$('#iframe_content').attr('src',url[e.target.id]);       	
-       }
-      var start=function() { $(".menu").click( menuEvent );   }
-      $(start);
-
-	
+var menuEvent = function menuEvent(e)
+ {
+     $('#iframe_content').attr('src',url[e.target.id]);       	
+}
+var start=function() { $(".menu").click( menuEvent );   }
+$(start);
 </script>
 </body>
 </html>

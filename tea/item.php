@@ -1,3 +1,8 @@
+<?php 
+/*名称：实验项目管理前台
+ * 功能：查看实验项目列表，修改实验项目，新添实验项目，修改实验报告提交截止时间
+ */
+?>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
@@ -9,11 +14,7 @@ include '../config.php';
 //$tea_no = "tea";
 $today = date("Y-m-d");
 
-$action=NULL;
-if (isset($_REQUEST['action']))
-{
-	$action = $_REQUEST['action'];
-}
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 /** 根据action参数的值，进行不同处理：select选择课号查看实验内容，add添加实验内容，update更新实验内容
  *    edit_time编辑实验报告提交时间
  * 
@@ -96,8 +97,7 @@ switch($action)
 			$queryStr = sprintf ( "select  *  from item where  id='%s' ", $id);
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
 			mysql_close ();
-			
-		
+
 			if($rel=mysql_fetch_array($result))
 			{
 				echo "<form method='post' action='./item_deal.php?action=update&id={$rel['id']}'>";
@@ -128,7 +128,6 @@ switch($action)
 				echo "</textarea>";
 				echo '</pre>';
 				echo '<br /><br />';
-
 			}
 			echo "<td><input type='hidden' name=cor_no value={$cor_no}></input></td>";
 			echo "<td><input type='hidden' name=item_no_old value={$rel['item_no']}></input></td>";
@@ -212,8 +211,7 @@ switch($action)
 				if($rel=mysql_fetch_array($result))
 				{
 					
-					echo "<input name=report_time value={$rel['report_time']}>(格式:2013-05-05)</input>";
-					
+					echo "<input name=report_time value={$rel['report_time']}>(格式:2013-05-05)</input>";	
 				}
 				else
 				{
@@ -222,17 +220,12 @@ switch($action)
 				echo '<br /><br />';
 				echo "<input type=hidden name=cor_no value={$_REQUEST['cor_no']}></input>";
 				echo "<input class=button type=submit value='提交'></input>";
-				echo '</form>';
-
-				
-				
+				echo '</form>';		
 			};break;
 		
 		//显示所有课程
 	default:
 		{
-
-			
 			echo "<form  method='post' action='./item.php'>";
 		//	echo "正常";
 			echo '<table class=table_border>';
@@ -279,9 +272,7 @@ switch($action)
 
 			echo '</table>';
             echo '<br />';
-            
-    
-            
+
 			echo "<table style='align:center;'>";
 			echo '<tr>';
 			echo '<td>','<input type=button class=btn value=查看>','</input>','</td>';
@@ -293,12 +284,7 @@ switch($action)
 			echo '</form>';
 		}
 }
-
 ?>
-
-
-
-
 
 <!-- 绑定导航条点击事件 -->
 
@@ -332,10 +318,8 @@ switch($action)
         	  break;
           }
     //    alert($('#action').attr('value'));
-       
          frm1.submit();     	
        }
       var start=function() { $(".btn").click( submit_action );   }
       $(start);
-	
 </script>

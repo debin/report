@@ -1,7 +1,7 @@
 <?php session_start ();?>
-<?php 
+<?php
 /*名称：学生端系统管理首页
- * 作用：显示功能列表，响应用户点击请求
+ * 功能：显示功能列表，响应用户点击请求
  */
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -28,12 +28,12 @@ if ('stu' != $_SESSION ['user'] ['type']) {
 <div
 		style="background-image: url(../static/image/topback.jpg); width: 1024px; height: 80px; margin-left: auto; margin-right: auto;"></div>
 	<div class="sep3"></div>
-<div class="nav">
-	<ul class="nav_mid" >
-		<li><a href="../index.php" class="font_white">首页</a></li>
-		<li><a href="../bbs.php" class="font_white">讨论区</a></li>
-		<li><a href="../report.php" class="font_white">实验报告管理</a></li>
-		<li><a href="../about_center.php" class="font_white">中心概括</a></li>
+	<div class="nav">
+		<ul class="nav_mid">
+			<li><a href="../index.php" class="font_white">首页</a></li>
+			<li><a href="../bbs.php" class="font_white">讨论区</a></li>
+			<li><a href="../report.php" class="font_white">实验报告管理</a></li>
+			<li><a href="../about_center.php" class="font_white">中心概括</a></li>
 <?php
 // session_start();
 if (! isset ( $_SESSION ['user'] ) || NULL == $_SESSION ['user']) {
@@ -47,39 +47,41 @@ if (! isset ( $_SESSION ['user'] ) || NULL == $_SESSION ['user']) {
 	</div>
 
 	<div class='sep10'></div>
-	<div style="width: 1024px;margin-left:auto;margin-right:auto;">
+	<div style="width: 1024px; margin-left: auto; margin-right: auto;">
 		<!-- 左栏功能列表 -->
-		<div style="float: left; width: 220;background-color:rgb(204, 204, 255);">
-			<ul style="padding-left:10px;padding-right:10px;">
-				<li><div style="font-weight:bold;"><br/>个人信息管理</div>
-					<ul class="nav_left" >
+		<div
+			style="float: left; width: 220; background-color: rgb(204, 204, 255);">
+			<ul style="padding-left: 10px; padding-right: 10px;">
+				<li><div style="font-weight: bold;">
+						<br />个人信息管理
+					</div>
+					<ul class="nav_left">
 						<li><a id="update_info" class='menu' href="#">个人信息</a></li>
 						<li><a id="update_psw" class='menu' href="#">密码修改</a></li>
-					</ul>
-				</li>
+					</ul></li>
 
-
-				<li><div style="font-weight:bold;"><br/>选课管理</div>
-					<ul class="nav_left" >
+				<li><div style="font-weight: bold;">
+						<br />选课管理
+					</div>
+					<ul class="nav_left">
 						<li><a id="course_select" class='menu' href="#">选择课程</a></li>
 						<li><a id="course_selected" class='menu' href="#">已选课程</a></li>
-					</ul>
-				</li>
+					</ul></li>
 
-
-				<li><div style="font-weight:bold;"><br/>报告管理</div>
-					<ul class="nav_left" >
+				<li><div style="font-weight: bold;">
+						<br />报告管理
+					</div>
+					<ul class="nav_left">
 						<li><a id="view_date" class='menu' href="#">提交截止时间</a></li>
 						<li><a id="report_show_course" class='menu' href="#">填写实验报告</a></li>
-					</ul>
-				</li>
+					</ul></li>
 
-
-				<li><div style="font-weight:bold;"><br/>成绩查看</div>
-					<ul class="nav_left" >
+				<li><div style="font-weight: bold;">
+						<br />成绩查看
+					</div>
+					<ul class="nav_left">
 						<li><a id="mark" class='menu' href="#">查看成绩</a></li>
-					</ul>
-				</li>
+					</ul></li>
 			</ul>
 		</div>
 
@@ -102,11 +104,9 @@ if (! isset ( $_SESSION ['user'] ) || NULL == $_SESSION ['user']) {
 		}
 		?>
 	</div>
-
-
-	<script type="text/javascript">
+<!-- 绑定左边导航点击事件 -->
+<script type="text/javascript">
 var url = [ ];
-
 url['pass']="../signup.html";
 url['update_info']="./info.php?action=update_info";
 url['update_psw']="./info.php?action=update_psw";
@@ -114,16 +114,12 @@ url['course_select']="./course_select_grade.php?action=course_select";
 url['course_selected']="./course.php?action=view_selected";
 url['report_show_course']="./report.php?action=default";
 url['mark']="./mark.php";
-      var menuEvent = function menuEvent(e)
-      {
-    	//  alert(url[e.target.id]);
-        	$('#iframe_content').attr('src',url[e.target.id]);
-        	
-    //	  ('#iframe_content').attr('location',url[e.target.id]);
-       }
-      var start=function() { $(".menu").click( menuEvent );   }
-      $(start);
-      
+var menuEvent = function menuEvent(e)
+{
+	$('#iframe_content').attr('src',url[e.target.id]);	
+}
+var start=function() { $(".menu").click( menuEvent );   }
+$(start); 
 </script>
 </body>
 </html>

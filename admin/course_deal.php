@@ -1,6 +1,6 @@
-<?php 
-/*名称：课程管理后台
- * 
+<?php
+/* 名称：课程管理后台 
+ * 功能：更新课程，删除课程
  */
 ?>
 
@@ -8,16 +8,16 @@
 include '../config.php';
 include '../is_login_admin.php';
 
-$action = $_REQUEST ['action'];
+$action = isset ( $_REQUEST ['action'] ) ? $_REQUEST ['action'] : NULL;
 // echo $action;
 
 /**
- * 根据参数 action 的值进行不同的后台处理：update_info 更新个人信息，
- * update_psw 更新密码
+ * 根据参数 action 的值进行不同的后台处理：update_cor 更新课程，
+ * delete_cor 删除课程
  */
 switch ($action) {
 	
-	//更新课程，后台处理
+	// 更新课程，后台处理
 	case 'update_cor' :
 		{
 			$id = trim ( $_REQUEST ['id'] );
@@ -31,9 +31,8 @@ switch ($action) {
 			$report_rate = trim ( $_REQUEST ['report_rate'] );
 			$exam_rate = trim ( $_REQUEST ['exam_rate'] );
 			
-			if (100 != ($usual_rate + $exam_rate +$report_rate))
-			{
-				die('更新失败:平时成绩、考试成绩、报告成绩总和不等于100');
+			if (100 != ($usual_rate + $exam_rate + $report_rate)) {
+				die ( '更新失败:平时成绩、考试成绩、报告成绩总和不等于100' );
 			}
 			
 			$queryStr = sprintf ( "update  course set cor_no='%s',term='%s',tea_no='%s',cor_name='%s',usual_rate='%s',report_rate='%s',
@@ -53,7 +52,7 @@ where id='%s'", $cor_no, $term, $tea_no, $cor_name, $usual_rate, $report_rate, $
 		;
 		break;
 	
-		//删除课程，后台
+	// 删除课程，后台
 	case 'delete_cor' :
 		{
 			$cor_nums = $_REQUEST ['cor_no'];
@@ -95,11 +94,11 @@ where id='%s'", $cor_no, $term, $tea_no, $cor_name, $usual_rate, $report_rate, $
 			echo "{$count_fail }门课程删除失败<br />";
 			
 			mysql_close ();
-		};break;
+		}
+		;
+		break;
 	
 	default :
-		echo "未知传值";
 		break;
 }
-
 ?>

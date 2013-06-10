@@ -1,6 +1,6 @@
 <?php 
 /*名称：帖子管理后台
- * 
+ * 功能：更新帖子，删帖，删回复，添加分类，修改分类
  */
 ?>
 <head>
@@ -14,10 +14,7 @@ include '../is_login_admin.php';
 $now = date ( "Y-m-d G:i:s" );
 //$stu = 'stu2';
 
-$action = NULL;
-if (isset ( $_REQUEST ['action'] )) {
-	$action = $_REQUEST ['action'];
-}
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 echo '<div id=topMain>';
 /**
  * 根据action参数的值，进行不同的后台处理：post_update更新帖子，post_delete删除帖子
@@ -167,5 +164,4 @@ switch ($action) {
 		break;
 }
 echo '</div>';
-
 ?>

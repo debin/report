@@ -1,6 +1,6 @@
 <?php 
 /*名称：帖子管理前台
- * 
+ * 功能：帖子列表，回复列表，修改帖子，分类列表，修改分类
  */
 ?>
 
@@ -21,12 +21,7 @@ $now = date ( "Y-m-d G:i:s" );
  * reply_manage管理回复，post_update更新帖子，post_sort分类管理，sort_add添加分类，sort_update分类更新
  */
 
-$action=NULL;
-if (isset($_REQUEST['action']))
-{
-	$action = $_REQUEST['action'];
-}
-
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 switch ($action)
 {
 	//帖子管理,显示帖子列表
@@ -37,12 +32,7 @@ switch ($action)
 			$page_size = 10;
 			
 			// 获取页码
-			if (isset ( $_GET ['page'] )) {
-				$page = intval ( $_GET ['page'] );
-			} 	// 设置为第一页
-			else {
-				$page = 1;
-			}
+			$page = isset ( $_REQUEST ['page'] )?intval($_REQUEST ['page']):1;
 			
 			// 获取主题总数
 			$queryStr = sprintf ( "select  count(post_id)  from topic" );
@@ -195,12 +185,7 @@ switch ($action)
 			$page_size = 10;
 			
 			// 获取页码
-			if (isset ( $_REQUEST ['reply_page'] )) {
-				$reply_page = intval ( $_REQUEST ['reply_page'] );
-			} 	// 设置为第一页
-			else {
-				$reply_page = 1;
-			}
+			$reply_page = isset ( $_REQUEST ['reply_page'] )?intval($_REQUEST ['reply_page']):1;
 			
 			// 获取回帖总数
 			$queryStr = sprintf ( "select  count(reply_id)  from reply where post_id='%s'",$post_id );
@@ -376,14 +361,10 @@ switch ($action)
 			else
 			{
 				echo '找不到该分类编号';
-			}
-			
-		};break;
-		
-		
+			}	
+		};break;	
 	default:break;
 }
-
 ?>
 
 <!-- 绑定导航条点击事件 -->

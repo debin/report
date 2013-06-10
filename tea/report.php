@@ -1,3 +1,9 @@
+<?php 
+/*名称：报告管理前台
+ * 功能：显示实验项目列表，未批改报告列表，批改报告，显示所有课程，显示批次，某批次学生列表，某学生报告列表，
+ * 更新报告成绩，显示未关闭课程，
+ */
+?>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
@@ -9,10 +15,7 @@ include '../is_login_tea.php';
 //$tea_no = "tea";
 $today = date ( "Y-m-d" );
 
-$action = NULL;
-if (isset ( $_REQUEST ['action'] )) {
-	$action = $_REQUEST ['action'];
-}
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 /**
  * 根据action参数的值，进行不同处理：select选择课号查看实验内容，add添加实验内容，update更新实验内容
  * edit_time编辑实验报告提交时间
@@ -500,6 +503,4 @@ switch ($action) {
 			echo '</table>';
 		}
 }
-
 ?>
-

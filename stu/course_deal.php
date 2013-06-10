@@ -1,9 +1,13 @@
+<?php 
+/*名称：学生端课程管理后台
+ * 功能：选课，退课
+ */
+?>
 <?php
 include '../config.php';
 include '../is_login_stu.php';
 
-$action = $_REQUEST['action'];
-
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 switch($action)
 {
 	//选课
@@ -56,7 +60,6 @@ switch($action)
 			}
 			mysql_close()	;
 		    };break;
-		    
 
 	//退课的后台处理
 	case 'course_unselect':
@@ -79,16 +82,10 @@ switch($action)
 			else
 			{
 				echo '退课失败';
-			}	
-			
+			}			
 		}break;
 		
 	default:
 		break;   
 }
-			
-
-
-
 ?>
-

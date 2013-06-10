@@ -47,7 +47,6 @@ if ('tea' != $_SESSION ['user'] ['type']) {
 	</ul>
 	</div>
 
-
 	<div class='sep3'></div>
 	<div style="width: 1024px;margin-left:auto;margin-right:auto;">
 		<!-- 左栏功能列表 -->
@@ -60,7 +59,6 @@ if ('tea' != $_SESSION ['user'] ['type']) {
 				</ul>
 			</li>
 
-
 			<li><div style="font-weight:bold;"><br/>课程管理</div>
 				<ul class="nav_left" >
 					<li><a id="update_group" class='menu' href="#">课程批次管理</a></li>
@@ -69,14 +67,12 @@ if ('tea' != $_SESSION ['user'] ['type']) {
 				</ul>
 			</li>
 
-
 			<li><div style="font-weight:bold;"><br/>选课管理</div>
 				<ul class="nav_left" >
 					<li><a class='menu' href="#"><!--  选课信息--></a></li>
 					<li><a id='record' class='menu' href="#">审核管理</a></li>
 				</ul>
 			</li>
-
 
 			<li><div style="font-weight:bold;"><br/>报告管理</div>
 				<ul class="nav_left" >
@@ -118,8 +114,8 @@ if ('tea' != $_SESSION ['user'] ['type']) {
 				}
 				?>
 	</div>
-
-	<script type="text/javascript">
+<!-- 绑定左边导航点击事件 -->
+<script type="text/javascript">
 var url = [ ];
 url['update_info']="./info.php?action=update_info";
 url['update_psw']="./info.php?action=update_psw";
@@ -132,17 +128,14 @@ url['record']="./select.php?action=default";
 url['mark_exam']="./mark.php?action=default";
 url['mark_update']="./mark.php?action=mark_update";
 url['mark_all_cor']="./mark.php?action=mark_all_cor";
-      var menuEvent = function menuEvent(e)
-      {
-    	//  alert(url[e.target.id]);
-        	$('#iframe_content').attr('src',url[e.target.id]);    	
-       }
-
-      //绑定点击事件
-      var start=function() { $(".menu").click( menuEvent );   }
-      $(start);
-
-	
+var menuEvent = function menuEvent(e)
+{
+    //  alert(url[e.target.id]);
+	$('#iframe_content').attr('src',url[e.target.id]);    	
+}
+//绑定点击事件
+var start=function() { $(".menu").click( menuEvent );   }
+$(start);
 </script>
 </body>
 </html>

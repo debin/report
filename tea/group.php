@@ -1,3 +1,8 @@
+<?php 
+/*名称：批次管理前台
+ * 功能：显示实验批次，修改批次，添加批次，删除批次，显示所有课程
+ */
+?>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
@@ -8,11 +13,7 @@ include '../config.php';
 include '../is_login_tea.php';
 //$tea_no = $_REQUEST['tea_no'];
 
-$action=NULL;
-if (isset($_REQUEST['action']))
-{
-	$action = $_POST['action'];
-}
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 /** 根据action参数的值，进行不同处理：select选择课号查看批次，add添加批次，update更新批次
  * 
  */
@@ -99,8 +100,7 @@ switch($action)
 			$queryStr = sprintf ( "select  *  from groups where  id='%s' ", $id);
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
 			mysql_close ();
-			
-		
+
 			if($rel=mysql_fetch_array($result))
 			{
 				echo "<form method='post' action='./group_deal.php?action=update&id={$rel['id']}'>";	
@@ -145,7 +145,7 @@ switch($action)
 			}	
 		};break;
 		
-	//新添实验项目
+	//新添实验批次
 	case 'add':
 		{
 			echo "<form method='post' action='./group_deal.php?action=add'>";
@@ -254,12 +254,7 @@ switch($action)
 			echo '</form>';
 		}
 }
-
 ?>
-
-
-
-
 
 <!-- 绑定导航条点击事件 -->
 
@@ -295,5 +290,4 @@ switch($action)
        }
       var start=function() { $(".btn").click( submit_action );   }
       $(start);
-	
 </script>

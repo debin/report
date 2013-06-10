@@ -1,3 +1,8 @@
+<?php 
+/*名称：评语管理前台
+ * 功能：修改评语，新添评语，删除评语，显示所有评语
+ */
+?>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
@@ -10,11 +15,7 @@ include '../is_login_tea.php';
 ?>
 
 <?php
-$action=NULL;
-if (isset($_REQUEST['action']))
-{
-	$action = $_REQUEST['action'];
-}
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 /** 根据action参数的值，进行不同处理：select选择课号查看实验内容，add添加实验内容，update更新实验内容
  *    edit_time编辑实验报告提交时间
  * 
@@ -50,8 +51,7 @@ switch($action)
 				echo '<br />';
 				echo "<input class=button type='submit' value='提交'></input>";
 				echo '</form>';
-			}
-			
+			}		
 		};break;
 		
 	//新添评语，前台
@@ -92,7 +92,6 @@ switch($action)
 		//默认显示所有评语
 	default:
 		{
-
 			echo '我的评语<br /><br />';
 			echo "<form  method='post' action='./remark.php'>";
 			//	echo "正常";
@@ -140,7 +139,6 @@ switch($action)
 			echo '</form>';
 			};break;
 }
-
 ?>
 <!-- 绑定导航条点击事件 -->
 
@@ -175,5 +173,4 @@ switch($action)
        }
       var start=function() { $(".btn").click( submit_action );   }
       $(start);
-	
 </script>

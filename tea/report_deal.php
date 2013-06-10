@@ -1,13 +1,15 @@
+<?php 
+/*名称：报告管理后台
+ * 功能：批改报告
+ * 
+ */
+?>
 <?php
 include '../config.php';
 include '../is_login_tea.php';
 //$tea_no = "tea";
 
-$action = NULL;
-if (isset($_REQUEST['action']))
-{
-	$action = $_REQUEST['action'];
-}
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 
 /** 根据action参数的值，进行不同处理：correct_report批改报告
  *
@@ -41,13 +43,12 @@ switch($action)
 			$remark = $_REQUEST['remark'];
 			$id = $_REQUEST['id'];
 		//	echo $id;
-		
+	
 			if ($item_mark < 0 || $item_mark > 100)
 			{
 				die("批改失败:分数应在0到100之间");
 			}
-	
-
+			
 			$queryStr = sprintf ("update report set  item_mark='%s',remark='%s',status='2' where id='%s'", $item_mark,$remark,$id);
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败: " . mysql_error () ) ;
 
@@ -62,10 +63,8 @@ switch($action)
 			mysql_close ();
 			
 		};break;
-
-	default:
-		echo '提交不成功';
 		
+	default:
+		echo '提交不成功';	
 }
-
 ?>

@@ -1,7 +1,7 @@
 <?php
 /* 名称：论坛主页模块
- * 若带有topic参数，则显示该参数值的主题内容
- * 否则显示所有帖子列表
+ * 功能：显示帖子内容和回复，显示帖子列表
+ * 
  */
 ?>
 
@@ -71,12 +71,7 @@ if (isset ( $_REQUEST ['topic'] )) {
 		$page_size = 10;
 		
 		// 获取页码
-		if (isset ( $_GET ['reply_page'] )) {
-			$reply_page = intval ( $_GET ['reply_page'] );
-		} 		// 设置为第一页
-		else {
-			$reply_page = 1;
-		}
+		$reply_page = isset ( $_REQUEST ['reply_page'] )?intval($_REQUEST ['reply_page']):1;
 		
 		// 获取回帖总数
 		$queryStr = sprintf ( "select  count(reply_id)  from reply where post_id='%s'", $post_id );
@@ -154,12 +149,7 @@ else {
 	$page_size = 15;
 	
 	// 获取页码
-	if (isset ( $_GET ['page'] )) {
-		$page = intval ( $_GET ['page'] );
-	} 	// 设置为第一页
-	else {
-		$page = 1;
-	}
+	$page = isset ( $_REQUEST ['page'] )?intval($_REQUEST ['page']):1;
 	
 	// 获取主题总数
 	$queryStr = sprintf ( "select  count(post_id)  from topic" );
@@ -248,10 +238,8 @@ else {
 	echo "共有{$pages}页 ({$page}/{$pages})";
 	echo "</div>";
 }
-
 ?>
 </div>
-
 
 <div style="clear: both; text-align: center;">
 	<hr />

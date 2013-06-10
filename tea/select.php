@@ -1,3 +1,8 @@
+<?php
+/* 名称：选课审核前台 
+ * 功能：显示某课程未审核名单，已退课记录，显示未关闭课程
+ */
+?>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
@@ -6,14 +11,12 @@
 <?php
 include '../config.php';
 include '../is_login_tea.php';
-//$tea_no = "tea";
+// $tea_no = "tea";
 $today = date ( "Y-m-d" );
 
-$action = NULL;
-if (isset ( $_REQUEST ['action'] )) {
-	$action = $_REQUEST ['action'];
-}
-/**名称：选课审核前台
+$action = isset ( $_REQUEST ['action'] ) ? $_REQUEST ['action'] : NULL;
+/**
+ * 名称：选课审核前台
  * 根据action参数的值，进行不同处理：record_un 显示未审核课程，record_drop 学生退课记录
  */
 
@@ -30,7 +33,7 @@ switch ($action) {
 			echo "<form  method='post' action='./select_deal.php'>";
 			echo '<table class=table_border>';
 			echo '<tr class="first">';
-		    echo '<td />';
+			echo '<td />';
 			echo '<td>学生学号</td>';
 			echo '<td>姓名</td>';
 			echo '<td>批次</td>';
@@ -42,7 +45,7 @@ switch ($action) {
 			if ($rel = mysql_fetch_array ( $result )) {
 				do {
 					echo '<tr>';
-					 echo '<td>', "<input type=checkbox name=id[] value={$rel['id']}>",'</td>';
+					echo '<td>', "<input type=checkbox name=id[] value={$rel['id']}>", '</td>';
 					echo '<td>', $rel ["stu_no"], '</td>';
 					echo '<td>', $rel ["name"], '</td>';
 					echo '<td>', $rel ["groups"], '</td>';
@@ -51,14 +54,13 @@ switch ($action) {
 				echo '</table>';
 				echo '<td>', "<input name=action id=action value='' type=hidden></input>", '</td>';
 				echo '<td>', '<input type=button class=btn  value=通过>', '</input>', '</td>';
-				echo '<td>', '<input type=button class=btn  value=拒绝>', '</input>', '</td>';	
+				echo '<td>', '<input type=button class=btn  value=拒绝>', '</input>', '</td>';
 			} else {
 				echo '<tr><td>';
 				echo "该课程无未审核学生";
 				echo '</tr></td>';
 				echo '</table>';
 			}
-		
 			
 			echo '</tr>';
 			echo '</form>';
@@ -73,7 +75,7 @@ switch ($action) {
 				die ( '请先选择一门课程' );
 			}
 			$cor_no = $_REQUEST ['cor_no'];
-	
+			
 			echo "实验课程:{$cor_no}的退课记录<br/><br/>";
 			echo '<table class=table_border>';
 			echo '<tr class="first">';
@@ -101,7 +103,6 @@ switch ($action) {
 		;
 		break;
 	
-	
 	// 审核记录，默认显示未关闭课程
 	default :
 		{
@@ -111,21 +112,22 @@ switch ($action) {
 			echo '<td />';
 			echo '<td>课号</td>';
 			echo '<td>课程名称</td>';
-			echo '<td>学期</td>';		
+			echo '<td>学期</td>';
 			echo '</tr>';
 			
-			//查询打印未关闭课程
+			// 查询打印未关闭课程
 			$queryStr = sprintf ( "select  *  from course where tea_no='%s' and close_time>='%s'", $tea_no, $today );
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
 			mysql_close ();
 			if ($rel = mysql_fetch_array ( $result )) {
 				do {
 					echo '<tr>';
-				    echo '<td>', "<input type=radio name=cor_no value={$rel['cor_no']}>", '</td>';
+					echo '<td>', "<input type=radio name=cor_no value={$rel['cor_no']}>", '</td>';
 					echo '<td>', $rel ["cor_no"], '</td>';
 					echo '<td>', $rel ["cor_name"], '</td>';
 					echo '<td>', $rel ["term"], '</td>';
-		//			echo "<td><a href='./report.php?action=view_item_list&cor_no={$rel['cor_no']}'>进入</a></td>";
+					// echo "<td><a
+					// href='./report.php?action=view_item_list&cor_no={$rel['cor_no']}'>进入</a></td>";
 					echo '</tr>';
 				} while ( $rel = mysql_fetch_array ( $result ) );
 			} else {
@@ -136,13 +138,12 @@ switch ($action) {
 			echo '</table>';
 			echo '<br /><br />';
 			echo '<input type=hidden name=action id=action value="" />';
-			echo '<td>','<input type=button class=btn value=未审核>','</input>','</td>';
-			echo '<td>','<input type=button class=btn value=已退课>','</input>','</td>';
+			echo '<td>', '<input type=button class=btn value=未审核>', '</input>', '</td>';
+			echo '<td>', '<input type=button class=btn value=已退课>', '</input>', '</td>';
 			echo '</tr>';
 			echo '</form>';
 		}
 }
-
 ?>
 <!-- 绑定导航条点击事件 -->
 
@@ -169,6 +170,5 @@ switch ($action) {
          frm1.submit();     	
        }
       var start=function() { $(".btn").click( submit_action );   }
-      $(start);
-	
+      $(start);	
 </script>

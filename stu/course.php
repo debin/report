@@ -1,3 +1,8 @@
+<?php 
+/*名称：学生端课程管理前台
+ * 功能：查看批次，查看已选课程，退课，显示实验内容和批次，显示可选课程
+ */
+?>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
@@ -8,14 +13,9 @@
 include '../config.php';
 include '../is_login_stu.php';
 $today = date("Y-m-d");
-//echo $today;
 //$stu_no = "stu2";
 
-$action = NULL;
-if (isset($_REQUEST['action']))
-{
-	$action = $_REQUEST['action'];
-}
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 switch($action)
 {
 	
@@ -74,8 +74,7 @@ switch($action)
 	
 			echo '</form>';	
 		};break;
-		
-		
+
 		//查看已选课程
 	case 'view_selected':
 		{
@@ -138,8 +137,7 @@ switch($action)
 			$url = "./course_deal.php?action=course_unselect&cor_no={$cor_no}&stu_no={$stu_no}";
 			echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0;URL={$url}\">";	
 		};break;
-		
-		
+
 		//显示某课程的实验内容列表和批次
 	case 'view_course_item_list':
 		{
@@ -191,8 +189,7 @@ switch($action)
 				
 				echo '</table>';
 			}
-			
-			
+
 			//显示实验内容列表
 			$queryStr = sprintf ( "select  *  from item where  cor_no='%s'", $cor_no );
 			$result = mysql_query ( $queryStr, $conn ) or die ( "查询失败:" . mysql_error () );
@@ -228,8 +225,7 @@ switch($action)
 				echo '</td>';
 				echo '</tr>';
 			}
-			echo '</table>';
-			
+			echo '</table>';		
 		};break;
 		
 		//显示实验内容
@@ -264,13 +260,9 @@ switch($action)
 				echo "<textarea style='width:700;height:400;' disabled>";
 				echo htmlspecialchars(stripslashes ($rel['body']));
 				echo '</textarea>';
-				echo '</pre>';
-				
-			}
-			
-			
+				echo '</pre>';		
+			}		
 		};break;
-		
 		
 		//默认显示可选课程
 	default:
@@ -316,8 +308,7 @@ switch($action)
 				echo '<td>', "<input name=action id=action value='' type=hidden></input>", '</td>';
 				//	echo '<td>', '<input type=button class=btn  value=选课 style="width:65px;background-image:url(../static/image/but_1.png)">', '</input>', '</td>';
 				echo '<td>', '<input type=button class=btn  value=查看批次>', '</input>', '</td>';
-				echo '</tr>';
-			
+				echo '</tr>';	
 			}
 			else
 			{
@@ -328,17 +319,14 @@ switch($action)
 			echo '</table>';
 			echo '</form>';
 		};break;
-	
 }
-
-
 ?>
 
 <!-- 绑定导航条点击事件 -->
 <script type="text/javascript">
       var submit_action = function submit_action(e)
       {
-          var frm1 = $('form');  
+         var frm1 = $('form');  
         switch(e.target.value)
           {
     //      case '选课':
@@ -366,5 +354,4 @@ switch($action)
        }
       var start = function() { $(".btn").click( submit_action );   }
       $(start);
-	
 </script>

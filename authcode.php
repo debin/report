@@ -1,4 +1,9 @@
 <?php
+/* 名称：生成验证码
+ * 
+ */
+?>
+<?php
 $im = imagecreate(120,30);
 $string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 $yan=NULL;
@@ -19,5 +24,4 @@ imagestring($im, 30, 20,10, $yan, $black);
 header('Content-type: image/png');
 header('charset: utf-8');
 imagepng($im);
-
 ?> 

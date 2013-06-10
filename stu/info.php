@@ -1,3 +1,8 @@
+<?php 
+/*名称：个人信息管理前台
+ * 功能：修改个人信息页面
+ */
+?>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
@@ -11,7 +16,7 @@ include '../is_login_stu.php';
 $queryStr = sprintf("select *  from stu where stu_no='%s'",$stu_no);
 $result = mysql_query($queryStr,$conn) or die("查询失败:".mysql_error());
 mysql_close();
-$action=$_REQUEST['action'];
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 //echo $action;
 
 /**  根据参数 action 的值显示不同的前台页面：update_info 更新个人信息，
@@ -56,9 +61,7 @@ switch($action)
 			else 
 			{
 				echo "数据库查询失败";
-			}
-			
-			
+			}		
 		};break;
 	case 'update_psw':
 		{
@@ -96,7 +99,4 @@ switch($action)
 		echo "未知传值";
 		break;
 }
-
-
-
 ?>

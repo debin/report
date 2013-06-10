@@ -1,9 +1,14 @@
+<?php 
+/*名称：管理员端个人信息管理后台
+ * 作用：更个人信息
+ */
+?>
 <?php
 include '../config.php';
 include '../is_login_admin.php';
 
 $user = $_SESSION['user']['id'];
-$action = $_REQUEST['action'];
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 //echo $action;
 
 
@@ -59,9 +64,7 @@ switch($action)
 			{
 				echo "修改失败";
 			}
-			mysql_close();
-			
-			
+			mysql_close();	
 		}break;
 	default:
 		echo "未知传值";

@@ -1,3 +1,8 @@
+<?php 
+/*名称：管理员端个人信息管理前台
+ * 作用：修改个人信息界面
+ */
+?>
 <head>
 <link rel="stylesheet" type="text/css" href="../static/css/global.css"></link>
 <script type="text/javascript" src="../static/jquery/jquery-1.8.3.js"></script>
@@ -11,8 +16,7 @@ $user = $_SESSION['user']['id'];
 $queryStr = sprintf("select *  from admin where user='%s'",$user);
 $result = mysql_query($queryStr,$conn) or die("查询失败:".mysql_error());
 mysql_close();
-$action=$_REQUEST['action'];
-//echo $action;
+$action = isset($_REQUEST['action'])?$_REQUEST['action']:NULL;
 
 /**  根据参数 action 的值显示不同的前台页面：update_info 更新个人信息，
  * update_psw 更新密码
@@ -56,9 +60,7 @@ switch($action)
 			else 
 			{
 				echo "数据库查询失败";
-			}
-			
-			
+			}	
 		};break;
 	case 'update_psw':
 		{
@@ -89,8 +91,7 @@ switch($action)
 			echo "<td><input  class=button type='reset' value='重置'></input></td>";
 			echo '</tr>';
 			echo '</table>';
-			echo '</form>';
-			
+			echo '</form>';	
 		}break;
 	default:
 		echo "未知传值";
