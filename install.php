@@ -12,6 +12,8 @@
 </head>
 <div
 	style="background-image: url(./static/image/topback.jpg); width: 1024px; height: 80px; margin-left: auto; margin-right: auto;"></div>
+	<div
+		style="clear: left; width: 1024px; margin-left: auto; margin-right: auto;">
 <?php
 // require './config.php';
 $step = isset ( $_REQUEST ['step'] ) ? $_REQUEST ['step'] : 1;
@@ -68,13 +70,13 @@ switch ($step) {
 				die ( '请填写所有的数据库信息！' );
 			}
 			$conn = mysql_connect ( $db_host, $db_user, $db_psw ) or die ( "数据库账号和密码不对" );
-			mysql_query ( "create database if not exists`$db_name`  charset utf8", $conn );
+			mysql_query ( "create database if not exists`$db_name`  charset utf8", $conn ) or die ( "数据库创建失败" );
 			mysql_select_db ( $db_name, $conn );
 			// echo mysql_error();
 			$sql = array ();
 			
 			// 管理员表
-			$sql ['admin'] = "CREATE TABLE `admin` (
+			$sql ['admin'] = "CREATE TABLE IF NOT EXISTS `admin` (
 			`user` varchar(12) NOT NULL,
 			`psw` varchar(33) NOT NULL,
 			`name` varchar(10) DEFAULT NULL,
@@ -84,7 +86,7 @@ switch ($step) {
 			) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 			
 			// 学生表
-			$sql ['stu'] = "CREATE TABLE `stu` (
+			$sql ['stu'] = "CREATE TABLE IF NOT EXISTS `stu` (
 			`stu_no` varchar(12) NOT NULL,
 			`psw` varchar(33) NOT NULL,
 			`mail` varchar(50) DEFAULT NULL,
@@ -97,7 +99,7 @@ switch ($step) {
 			) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 			
 			// 教师表
-			$sql ['tea'] = "CREATE TABLE `tea` (
+			$sql ['tea'] = "CREATE TABLE IF NOT EXISTS `tea` (
 			`tea_no` varchar(12) NOT NULL,
 			`psw` varchar(33) NOT NULL,
 			`name` varchar(10) DEFAULT NULL,
@@ -109,7 +111,7 @@ switch ($step) {
 			) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 			
 			// 课程表
-			$sql ['course'] = "CREATE TABLE `course` (
+			$sql ['course'] = "CREATE TABLE IF NOT EXISTS `course` (
 			`id` int(11) NOT NULL AUTO_INCREMENT,
 			`cor_no` varchar(12) NOT NULL,
 			`term` varchar(11) NOT NULL DEFAULT '0',
@@ -127,7 +129,7 @@ switch ($step) {
 			) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;";
 			
 			// 批次表
-			$sql ['groups'] = "CREATE TABLE `groups` (
+			$sql ['groups'] = "CREATE TABLE IF NOT EXISTS `groups` (
 			`id` int(11) NOT NULL AUTO_INCREMENT,
 			`groups` varchar(2) DEFAULT NULL,
 			`cor_no` varchar(12) DEFAULT NULL,
@@ -140,7 +142,7 @@ switch ($step) {
 			) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;";
 			
 			// 实验项目表
-			$sql ['item'] = "CREATE TABLE `item` (
+			$sql ['item'] = "CREATE TABLE IF NOT EXISTS `item` (
 			`id` int(11) NOT NULL AUTO_INCREMENT,
 			`item_no` varchar(12) NOT NULL,
 			`item_name` varchar(80) NOT NULL,
@@ -152,7 +154,7 @@ switch ($step) {
 			) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;";
 			
 			// 评语表
-			$sql ['remark'] = "CREATE TABLE `remark` (
+			$sql ['remark'] = "CREATE TABLE IF NOT EXISTS `remark` (
 			`id` int(11) NOT NULL AUTO_INCREMENT,
 			`tea_no` varchar(12) NOT NULL DEFAULT '',
 			`no` varchar(25) DEFAULT NULL,
@@ -161,7 +163,7 @@ switch ($step) {
 			) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;";
 			
 			// 实验表格表
-			$sql ['report'] = "CREATE TABLE `report` (
+			$sql ['report'] = "CREATE TABLE IF NOT EXISTS `report` (
 			`id` int(11) NOT NULL AUTO_INCREMENT,
 			`cor_no` varchar(12) DEFAULT NULL,
 			`stu_no` varchar(12) NOT NULL,
@@ -175,7 +177,7 @@ switch ($step) {
 			) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;";
 			
 			// 选课表
-			$sql ['sel_cor'] = "CREATE TABLE `sel_cor` (
+			$sql ['sel_cor'] = "CREATE TABLE IF NOT EXISTS `sel_cor` (
 			`id` int(11) NOT NULL AUTO_INCREMENT,
 			`stu_no` varchar(12) NOT NULL,
 			`cor_no` varchar(12) NOT NULL,
@@ -189,7 +191,7 @@ switch ($step) {
 			) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;";
 			
 			// 主题表
-			$sql ['topic'] = "CREATE TABLE `topic` (
+			$sql ['topic'] = "CREATE TABLE IF NOT EXISTS `topic` (
 			`post_id` int(11) NOT NULL AUTO_INCREMENT,
 			`sort` varchar(4) DEFAULT NULL,
 			`title` varchar(80) NOT NULL,
@@ -205,7 +207,7 @@ switch ($step) {
 			) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8;";
 			
 			// 回复表
-			$sql ['reply'] = "CREATE TABLE `reply` (
+			$sql ['reply'] = "CREATE TABLE IF NOT EXISTS `reply` (
 			`reply_id` int(11) NOT NULL AUTO_INCREMENT,
 			`author` varchar(12) DEFAULT NULL,
 			`body` varchar(600) NOT NULL,
@@ -216,14 +218,13 @@ switch ($step) {
 			) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8;";
 			
 			// 主题分类表
-			$sql ['sort'] = "CREATE TABLE `sort` (
+			$sql ['sort'] = "CREATE TABLE IF NOT EXISTS `sort` (
 			`id` int(11) NOT NULL AUTO_INCREMENT,
 			`name` varchar(10) DEFAULT NULL,
 			PRIMARY KEY (`id`)
 			) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;";
 			
 			// $sqlStr = implode("", $sql);
-			// echo $sqlStr;
 			$count_fail = 0;
 			foreach ( $sql as $sqlStr ) {
 				$result = mysql_query ( $sqlStr, $conn );
@@ -242,17 +243,36 @@ switch ($step) {
 			values('admin','$psw','admin','admin@admin.com','admin')";
 			mysql_query ( $sqlStr, $conn );	
 			if (mysql_affected_rows () != 1) die('创建管理员失败');
-			
+		
 			//把数据库信息写到配置文件
 			$file_name = "./config.php";
-			if (!is_writable($file_name))  die("文件不可写,请检查文件权限");
-			
-		}
-		;
-		break;
-	// 第3步，初始化数据库
-	case '1' :
-		{
+			$line = array();
+			if (!file_exists($file_name) || !is_writable($file_name))  die("文件不存在或无读写权限");
+		/*	$file_handle = fopen($file_name, 'r+');
+			while (!feof($file_handle))
+			{
+				$line[] = fgets($file_handle);
+			}
+			fclose($file_handle);
+			*/
+			$line = file($file_name);
+			$line = preg_replace("/(?<=define\('DB_NAME', ')(.*)(?='\))/i", $db_name, $line);
+			$line = preg_replace("/(?<=define\('DB_USER', ')(.*)(?='\))/i", $db_user, $line);
+			$line = preg_replace("/(?<=define\('DB_PASSWORD', ')(.*)(?='\))/i", $db_psw, $line);
+			$line = preg_replace("/(?<=define\('DB_HOST', ')(.*)(?='\))/i", $db_host, $line);
+			//var_dump($line) ;			
+		//	$file_handle = fopen("./config1.php", 'w');
+			file_put_contents($file_name, $line);	
+			echo '<br /><br />';
+			echo '数据库初始化成功';	
+			echo '<br />';
+			echo '管理员账号是:admin,密码是:admin';
+			echo '<br /><br />';
+			echo '请删除网站目录中的install.php文件';
+			echo '<br />';
+			echo '建议首次进入系统后修改密码';
+			echo '<br /><br />';
+			echo "<a href='./index.php'>转到首页</a>";
 		}
 		;
 		break;
@@ -262,3 +282,4 @@ switch ($step) {
 		break;
 }
 ?>
+</div>

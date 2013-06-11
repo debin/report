@@ -106,8 +106,8 @@ if ('admin' != $_SESSION ['user'] ['type']) {
 		<!-- 右边框架 -->
 		<div class='sep10'></div>
 		<div
-			style="text-align: center; width: 960; font-size: 150%; background-color:; float: left; margin-top: 20px; margin-left: 50px;">
-			<iframe id="iframe_content" width=760 height=600 scrolling=auto
+			style="text-align: center; font-size: 150%; background-color:; float: left; margin-top: 20px; margin-left: 50px;">
+			<iframe id="iframe_content" width=805 height=600 scrolling=auto
 				frameborder=0 src="./index.php" style="text-align: center;"></iframe>
 		</div>
 		

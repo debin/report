@@ -86,9 +86,9 @@ if (! isset ( $_SESSION ['user'] ) || NULL == $_SESSION ['user']) {
 		</div>
 
 		<div class="sep3"></div>
-		<div style="width: 960; text-align: center;">
+		<div style="text-align: center;">
 			<div class='sep10'></div>
-			<iframe id="iframe_content" width=720 height=600 scrolling=auto
+			<iframe id="iframe_content" width=805 height=600 scrolling=auto
 				frameborder=0 src="./index.php" style=""></iframe>
 		</div>
 	</div>

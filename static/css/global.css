@@ -174,21 +174,34 @@ ul.nav_left{
 
 }
 
-table, th{
-	border: 1px solid rgb(213, 231, 233);	
+table{
+
 }
 
 .table_border{
-	border: 2px solid blue;	
+	/*border-top: 2px solid blue;*/
+ /*   border-bottom: 2px solid blue;	*/
 }
 
 .table_border td{
-	border: 1px solid blue;
+	/*border: 1px solid blue;*/
     height:3px;
 }
 table tr.first{
 	/*font-size:30px;*/
 	font-weight:bolder;
+	color:white;
+	background-image:url(../image/bgBtmBranner.gif);
+}
+
+table.table_border  tr:nth-child(odd)
+ {
+ 	background-color:gray;
+}
+table.table_border  tr:nth-child(even)
+ {
+ 	background-color:white;
+ 	color:#4A3C8C;
 }
 
 p.white 

@@ -402,7 +402,7 @@ CREATE TABLE `reply` (
   `floor` int(11) DEFAULT NULL,
   `post_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`reply_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8;
 insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('69','123','你好啊
 哈哈','2013-05-22 17:06:34','1','49');
 insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('70','123','你好啊
@@ -427,6 +427,10 @@ insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) v
 insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('85','123','w','2013-05-30 23:32:29','2','88');
 insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('86','0900310315','57575','2013-06-02 19:23:22','3','88');
 insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('87','tea008','wgt4t4t','2013-06-05 09:59:59','4','88');
+insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('88','123','e','2013-06-06 20:43:47','1','85');
+insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('89','0900310315','eee','2013-06-09 15:46:17','3','89');
+insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('90','0900310315','eee','2013-06-10 01:12:45','4','89');
+insert into `reply`(`reply_id`,`author`,`body`,`reply_time`,`floor`,`post_id`) values('91','0900310315','wwww','2013-06-10 01:12:55','5','89');
 CREATE TABLE `report` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cor_no` varchar(12) DEFAULT NULL,
@@ -463,7 +467,7 @@ CREATE TABLE `sel_cor` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('19','0900310315','sf_2013001','A','1','87','90','79','90');
-insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('20','0900310315','hb_2013001','A','2','','','','');
+insert into `sel_cor`(`id`,`stu_no`,`cor_no`,`groups`,`status`,`mark`,`usual_mark`,`report_mark`,`exam_mark`) values('20','0900310315','hb_2013001','B','0','','','','');
 CREATE TABLE `sort` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(10) DEFAULT NULL,
@@ -922,7 +926,7 @@ insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_f
 
 　　广西国防军工计量工作论文征集工作现已开始，请有意报送论文的老师于3月25日前与科技处联系，以便查看相关文件及准备材料。
 
-　　联系电话：2290805。','2013-05-22 18:55:15','0','2013-05-22 18:55:15','0','0','0');
+　　联系电话：2290805。','2013-05-22 18:55:15','1','2013-06-06 20:43:47','0','0','0');
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('86','1','关于征集广西国防军工计量工作论文的通知10','tea008','校内各单位、各位老师：
 
 　　广西国防军工计量工作论文征集工作现已开始，请有意报送论文的老师于3月25日前与科技处联系，以便查看相关文件及准备材料。
@@ -950,7 +954,7 @@ insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_f
 附件：关于举办第十五届中国科协年会的通知
  
             科技处
-         2013年3月8日','2013-05-22 18:56:50','2','2013-05-28 22:19:52','0','0','0');
+         2013年3月8日','2013-05-22 18:56:50','5','2013-06-10 01:12:55','0','0','0');
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('90','1','123','123','456','2013-05-29 16:45:02','0','2013-05-29 16:45:02','0','0','0');
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('91','1','a','123','ww','2013-05-29 16:53:00','0','2013-05-29 16:53:00','0','0','0');
 insert into `topic`(`post_id`,`sort`,`title`,`author`,`body`,`post_time`,`last_floor`,`last_reply_time`,`visible`,`enable_post`,`top`) values('92','1','16314','123','2312','2013-05-29 17:29:21','0','2013-05-29 17:29:21','0','0','0');

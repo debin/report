@@ -20,7 +20,6 @@ define('DB_HOST', 'localhost');
 /** 创建数据表时默认的文字编码 */
 define('DB_CHARSET', 'utf8');
 
-define('DB', 'sy_users');
 
 $conn = mysql_connect ( DB_HOST, DB_USER, DB_PASSWORD ) or die ( "连接失败:" . mysql_error () );
 mysql_select_db ( DB_NAME, $conn ) or die ( "选择数据库失败" . mysql_error () );
