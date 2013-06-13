@@ -1,7 +1,7 @@
 <?php session_start ();?>
 <?php
-/*名称：学生端系统管理首页
- * 功能：显示功能列表，响应用户点击请求
+/*
+ * 名称：学生端系统管理首页 功能：显示功能列表，响应用户点击请求
  */
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -27,24 +27,11 @@ if ('stu' != $_SESSION ['user'] ['type']) {
 ?>
 <div
 		style="background-image: url(../static/image/topback.jpg); width: 1024px; height: 80px; margin-left: auto; margin-right: auto;"></div>
+	<!-- 导航条 -->
 	<div class="sep3"></div>
-	<div class="nav">
-		<ul class="nav_mid">
-			<li><a href="../index.php" class="font_white">首页</a></li>
-			<li><a href="../bbs.php" class="font_white">讨论区</a></li>
-			<li><a href="../report.php" class="font_white">实验报告管理</a></li>
-			<li><a href="../about_center.php" class="font_white">中心概括</a></li>
 <?php
-// session_start();
-if (! isset ( $_SESSION ['user'] ) || NULL == $_SESSION ['user']) {
-	echo "<li><a href='../login.php' class='font_white'>登陆</a></li>";
-} else {
-	
-	echo "<li><a href='../login.php?action=logout' class='font_white'>退出</a></li>";
-}
-?>			
-	</ul>
-	</div>
+require_once '../nav.php';
+?>
 
 	<div class='sep10'></div>
 	<div style="width: 1024px; margin-left: auto; margin-right: auto;">
@@ -104,8 +91,8 @@ if (! isset ( $_SESSION ['user'] ) || NULL == $_SESSION ['user']) {
 		}
 		?>
 	</div>
-<!-- 绑定左边导航点击事件 -->
-<script type="text/javascript">
+	<!-- 绑定左边导航点击事件 -->
+	<script type="text/javascript">
 var url = [ ];
 url['pass']="../signup.html";
 url['update_info']="./info.php?action=update_info";
