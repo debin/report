@@ -1,3 +1,7 @@
+*.jpg
+*.gif
+*.png
+*.ico
 .settings
 .txt
 .settings
